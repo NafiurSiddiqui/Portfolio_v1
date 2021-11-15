@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap');
+
+* {
+ margin: 0;
+ padding: 0;
+}
+
+*,
+*::after,
+*::before {
+ box-sizing: inherit;
+}
+
+html {
+ box-sizing: border-box;
+ font-size: 62.5%;
+}
+
+body {
+ background-color: #fde079;
+}
+
+.container {
+ display: grid;
+ grid-template-columns: 4fr 7em;
+ //  grid-template-rows: 6em 1fr;
+ gap: 0px 0px;
+ grid-template-areas:
+  'header header '
+  'mainContent social';
+ padding: 1em 2em;
+}
+
+.header {
+ border: $borderTest;
+ grid-area: header;
+ @include flexCentered;
+ justify-content: space-between;
+ padding: 1em 2em;
+ &__logo-container {
+  img {
+   width: 5em;
+  }
+ }
+ &__contact {
+  padding: 0.6em 1.9em;
+  border-radius: 1.5em;
+  border: none;
+  background: #50c5b7;
+  color: #525252;
+  font-family: 'Reem Kufi', sans-serif;
+  //   font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+  margin-right: 2em;
+ }
+}
+
+.main-content__card-container {
+ grid-area: mainContent;
+}
+
+.social-media {
+ grid-area: social;
+}

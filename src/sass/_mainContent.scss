@@ -1,0 +1,101 @@
+.main-content {
+ @include BorderTestSection;
+ height: 80vh;
+ display: grid;
+ grid-template-columns: 18em 4fr;
+ grid-template-areas: 'projects content';
+ margin-top: 3em;
+ padding: 2em;
+ &__btn-container {
+  border: $borderTest;
+  grid-area: projects;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+
+  button.project-btn {
+   margin: 1em 0;
+  }
+
+  button#transactional {
+   position: relative;
+   top: 1.8em;
+  }
+  button#newsletter {
+   position: relative;
+   top: 3.2em;
+  }
+  button#landingPage {
+   position: relative;
+   bottom: -22.6em;
+  }
+ }
+
+ &__card-container {
+  border: $borderTest2;
+  grid-area: content;
+  //   height: 20vh;
+  //   width: 100vw;
+  padding-top: 3em;
+  .ghost-div__container {
+   height: 100%;
+
+   & div.ghost-div:not(:last-child) {
+    // border: 1px solid black;
+    width: 53vw;
+    height: 10vh;
+   }
+
+   div.ghost-div:nth-child(1) {
+    border-top: 4px solid $circuitBorderColor;
+    border-right: 4px solid $circuitBorderColor;
+    border-bottom: 4px solid $circuitBorderColor;
+   }
+   div.ghost-div:nth-child(2) {
+    border-bottom: 4px solid $circuitBorderColor;
+   }
+   div.ghost-div:nth-child(3) {
+   }
+
+   div.ghost-div:last-child {
+    border-bottom: 4px solid $circuitBorderColor;
+    border-right: 4px solid $circuitBorderColor;
+    width: 53vw;
+    height: 30vh;
+   }
+  }
+ }
+ &__card {
+  width: 32vw;
+  height: 41vh;
+  border-radius: 1em;
+  background-color: #f04f5c;
+  //   background-color: crimson;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em;
+  position: absolute;
+  right: 11vw;
+  top: 29vh;
+  &-name {
+   width: 18vw;
+  }
+
+  &-version {
+   width: 4vw;
+   position: relative;
+   bottom: -17em;
+   right: -84%;
+  }
+ }
+
+ .project-btn {
+  padding: 0.6em 2em;
+  border-radius: 2em;
+  border: none;
+  background: #fc6471;
+  opacity: 0.4;
+  color: #555;
+  width: 13em;
+ }
+}

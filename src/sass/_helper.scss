@@ -1,0 +1,30 @@
+@mixin flexCentered {
+ display: flex;
+ display: -webkit-flex;
+ display: -moz-flex;
+ display: -ms-flex;
+ justify-content: center;
+ align-items: center;
+}
+
+$circuitBorderColor: rgba(0, 0, 0, 0.116);
+
+@mixin borderTest {
+ border: 1px solid rgb(250, 151, 151);
+}
+
+@mixin BorderTestSection {
+ border-top: 2px solid rgb(243, 7, 7);
+ border-bottom: 2px solid rgb(209, 34, 22);
+}
+
+@mixin transition-ease {
+ transition: all 400ms ease-in-out;
+}
+@mixin transition-fast {
+ transition: all 200ms ease-in-out;
+}
+
+$borderTest: 1px solid rgb(17, 133, 26);
+$borderTest2: 1px solid rgb(17, 96, 133);
+$hoverColor: #f9b9b7;
