@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&family=Poppins:wght@200&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -120,7 +122,33 @@ body {
   width: 53vw;
   height: 30vh;
 }
-.main-content__card {
+.main-content__card-container__cards {
+  transition: all 2s;
+  position: absolute;
+  right: 11vw;
+  top: 29vh;
+}
+.main-content__card-sideA {
+  width: 32vw;
+  height: 41vh;
+  border-radius: 1em;
+  background-color: #f04f5c;
+  display: flex;
+  flex-direction: column;
+  padding: 2em 1em;
+  position: relative;
+  transition: all 1s;
+}
+.main-content__card-sideA-name {
+  width: 18vw;
+}
+.main-content__card-sideA-version {
+  width: 4vw;
+  position: relative;
+  bottom: -17em;
+  right: -84%;
+}
+.main-content__card-sideB {
   width: 32vw;
   height: 41vh;
   border-radius: 1em;
@@ -129,17 +157,24 @@ body {
   flex-direction: column;
   padding: 2em 1em;
   position: absolute;
-  right: 11vw;
-  top: 29vh;
+  top: 0;
+  color: #f3f3f3;
+  z-index: -1;
 }
-.main-content__card-name {
-  width: 18vw;
+.main-content__card-sideB__header-container {
+  font-family: "Nova Square", cursive;
+  padding: 0.4em;
+  font-size: 2.5rem;
+  border-bottom: 2px solid white;
+  text-align: right;
 }
-.main-content__card-version {
-  width: 4vw;
-  position: relative;
-  bottom: -17em;
-  right: -84%;
+.main-content__card-sideB__text-container {
+  padding: 1em;
+  margin-top: 2em;
+  font-size: 1.5rem;
+  line-height: 26px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
 }
 .main-content .project-btn {
   padding: 0.6em 2em;
@@ -149,6 +184,23 @@ body {
   opacity: 0.4;
   color: #555;
   width: 13em;
+}
+
+.social-media {
+  align-self: end;
+  align-items: last baseline;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-active {
+  transform: rotateX(-180deg);
+}
+.card-active div.main-content__card-sideA {
+  z-index: -2;
+}
+.card-active div.main-content__card-sideB {
+  transform: rotateX(190deg);
 }
 
 /*# sourceMappingURL=/main.2026268b.css.map */
