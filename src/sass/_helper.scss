@@ -7,12 +7,6 @@
  align-items: center;
 }
 
-$circuitBorderColor: rgba(0, 0, 0, 0.116);
-
-@mixin borderTest {
- border: 1px solid rgb(250, 151, 151);
-}
-
 @mixin BorderTestSection {
  border-top: 2px solid rgb(243, 7, 7);
  border-bottom: 2px solid rgb(209, 34, 22);
@@ -25,6 +19,21 @@ $circuitBorderColor: rgba(0, 0, 0, 0.116);
  transition: all 200ms ease-in-out;
 }
 
-$borderTest: 1px solid rgb(17, 133, 26);
-$borderTest2: 1px solid rgb(17, 96, 133);
-$hoverColor: #f9b9b7;
+//active card
+@mixin tubeTop {
+ border-top: 4px solid $activeTubeColor !important;
+ border-right: 4px solid $activeTubeColor !important;
+ border-bottom: 4px solid $activeTubeColor !important;
+ filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+}
+
+@mixin tubeMiddle {
+ filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+ border-bottom: 4px solid $activeTubeColor !important;
+}
+
+@mixin tubeBottom {
+ filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+ border-right: 4px solid $activeTubeColor !important;
+ border-bottom: 4px solid $activeTubeColor !important;
+}

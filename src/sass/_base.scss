@@ -18,6 +18,7 @@ html {
 
 body {
  background-color: #fde079;
+ transition: background-color 1s ease-in-out;
 }
 
 .container {
@@ -29,14 +30,15 @@ body {
   'header header '
   'mainContent social';
  padding: 1em 2em;
+ height: 100vh;
 }
 
 .header {
- border: $borderTest;
+ //  border: $borderTest;
  grid-area: header;
  @include flexCentered;
  justify-content: space-between;
- padding: 1em 2em;
+ padding: 0 2em;
  &__logo-container {
   img {
    width: 5em;
@@ -47,12 +49,18 @@ body {
   border-radius: 1.5em;
   border: none;
   background: #50c5b7;
-  color: #525252;
+  color: #444444;
   font-family: 'Reem Kufi', sans-serif;
   //   font-weight: bold;
   letter-spacing: 1px;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
   margin-right: 2em;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+  &:hover {
+   background-color: #50e4d2;
+   color: #2e2e2e;
+  }
  }
 }
 
