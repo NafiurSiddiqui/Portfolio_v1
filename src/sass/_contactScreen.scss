@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Poppins:wght@200&display=swap');
+
+aside.social-media-contact {
+ @include flexCentered;
+}
+
+.main-content__screen.project#contact {
+ //  @include flexCentered;
+ flex-direction: column;
+ .contact-screen-text,
+ .contact-screen-text.bottom {
+  font-size: 1.5em;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(218, 218, 218);
+ }
+}
+
+.contact__mail-container {
+ text-align: center;
+ //  border: $borderTest;
+ padding: 2em;
+ position: relative;
+ top: -14vh;
+
+ .contact-screen-text__email {
+  font-weight: bold;
+ }
+
+ .contact-screen__mail-btn {
+  margin-top: 2em;
+  width: 25vw;
+  border-radius: 8px;
+  background: $contactBtnColor;
+  border: none;
+  min-width: 18em;
+  cursor: pointer;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+  @include transition-fast;
+  &:hover {
+   background: $contactBtnColorHover;
+  }
+ }
+}
+
+.social-media-contact {
+ & > a > img {
+  width: 3.6em;
+  margin: 1em 1em;
+  transition: -webkit-filter 0.2s ease-in;
+  transition: filter 0.2s ease-in;
+  -webkit-filter: blur(0px) brightness(2.4) contrast(0) grayscale(0)
+   hue-rotate(160deg) invert(0) opacity(100%) saturate(6) sepia(1)
+   drop-shadow(0px 1px 1px #140101);
+  filter: blur(0px) brightness(2.4) contrast(0) grayscale(0) hue-rotate(160deg)
+   invert(0) opacity(100%) saturate(6) sepia(1) drop-shadow(0px 1px 1px #140101);
+
+  &:hover {
+   -webkit-filter: blur(0px) brightness(1) contrast(0) grayscale(0)
+    hue-rotate(160deg) invert(0) opacity(100%) saturate(1) sepia(1)
+    drop-shadow(0px 1px 0 #fcfcfc);
+   filter: blur(0px) brightness(1) contrast(0) grayscale(0) hue-rotate(160deg)
+    invert(0) opacity(100%) saturate(1) sepia(1) drop-shadow(0px 1px 0 #fcfcfc);
+  }
+ }
+}

@@ -1,0 +1,13 @@
+.main-content {
+ &__card-container__card {
+  right: 3vw;
+ }
+
+ &__card-sideA,
+ &__card-sideB {
+  width: 50vw;
+ }
+}
+
+//680px - smaller tab
+// change container grid , put social media to the bottom as footer

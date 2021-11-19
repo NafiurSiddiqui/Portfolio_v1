@@ -1,0 +1,110 @@
+@mixin cardStyle($url) {
+ background: url($url);
+ //  width: 200px;
+ background-repeat: no-repeat;
+ transition: all 1s ease-in-out 0.5s;
+ position: relative;
+ width: 100%;
+ height: 100%;
+ &:hover {
+  animation: zoomout 4s ease-in-out 0.2s forwards;
+  @keyframes zoomout {
+   from {
+    background-size: 592px;
+   }
+   to {
+    background-size: 500px;
+   }
+  }
+ }
+}
+
+div.project-card__container {
+ width: 29em;
+ //  border: 1px solid aqua;
+ height: 39.3em;
+ position: relative;
+ text-align: center;
+ margin: 3em;
+}
+
+span.main-content__screenProject-card {
+ border-radius: 6px;
+ &.codeschool {
+  //   background: url('../img/codeschool.png');
+  //   //  width: 200px;
+  //   background-repeat: no-repeat;
+  //   transition: all 1s ease-in-out 0.5s;
+  //   position: relative;
+  //   width: 100%;
+  //   height: 100%;
+  //   &:hover {
+  //    animation: zoomout 4s ease-in-out 0.2s forwards;
+  //    @keyframes zoomout {
+  //     from {
+  //      background-size: 592px;
+  //     }
+  //     to {
+  //      background-size: 500px;
+  //     }
+  //    }
+  //   }
+
+  @include cardStyle('../img/codeschool.png');
+ }
+
+ &.meal {
+  @include cardStyle('../img/meal.png');
+ }
+
+ &.transactional {
+  @include cardStyle('../img/transactional_card.png');
+ }
+
+ &.newsletter {
+  @include cardStyle('../img/newsletter.png');
+ }
+ &.qpick {
+  @include cardStyle('../img/qpick.png');
+ }
+ &.cyberpunk {
+  @include cardStyle('../img/cyberpunk.png');
+ }
+
+ &-layer {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 39.3em;
+  background: linear-gradient(
+   180deg,
+   rgba(124, 124, 124, 0.45) 0%,
+   rgba(18, 18, 18, 0.89) 59.27%
+  );
+  backdrop-filter: blur(4px);
+  top: 0;
+  left: 0;
+  border-radius: 6px;
+ }
+}
+
+.preview-icon__container {
+ //  border: $borderTest;
+ position: relative;
+ top: 50%;
+
+ > img {
+  background: #a4a2a2;
+  border-radius: 50%;
+  padding: 2em;
+  height: 6em;
+  width: 7em;
+  //   padding: 0 0.4em;
+  margin: 0 0.8em;
+  transition: background 0.6s ease-in-out;
+  cursor: pointer;
+  &:hover {
+   background: #e9e8e8;
+  }
+ }
+}

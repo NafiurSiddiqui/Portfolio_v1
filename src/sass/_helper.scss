@@ -16,24 +16,64 @@
  transition: all 400ms ease-in-out;
 }
 @mixin transition-fast {
- transition: all 200ms ease-in-out;
+ transition: all 300ms ease-in-out;
 }
 
-//active card
+@mixin tubeFilter {
+ filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+}
+//activeTubes
 @mixin tubeTop {
  border-top: 4px solid $activeTubeColor !important;
  border-right: 4px solid $activeTubeColor !important;
  border-bottom: 4px solid $activeTubeColor !important;
- filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+ @include tubeFilter();
 }
 
-@mixin tubeMiddle {
- filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+@mixin activeTubeMiddle {
+ @include tubeFilter();
  border-bottom: 4px solid $activeTubeColor !important;
 }
 
-@mixin tubeBottom {
- filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+@mixin activeTubeBottom {
+ @include tubeFilter();
  border-right: 4px solid $activeTubeColor !important;
  border-bottom: 4px solid $activeTubeColor !important;
+}
+
+//default tube style
+
+@mixin defaultTubeTop {
+ border-top: 4px solid $tubeColor;
+ border-right: 4px solid $tubeColor;
+ border-bottom: 4px solid $tubeColor;
+}
+@mixin defaultTubeMiddle {
+ border-bottom: 4px solid $tubeColor;
+}
+@mixin defaultTubeBottom {
+ border-bottom: 4px solid $tubeColor;
+ border-right: 4px solid $tubeColor;
+}
+
+//active tube style
+
+@mixin activeTubeTop {
+ border-top: 4px solid $tubeColor;
+}
+@mixin activeTubeSecond {
+ border-bottom: 4px solid $tubeColor;
+}
+
+@mixin defaultCardStyle {
+ //  width: 32vw;
+ width: 51em;
+ height: 41vh;
+ border-radius: 1em;
+ background-color: #f04f5c;
+ display: flex;
+ flex-direction: column;
+ padding: 2em 1em;
+ transition: all 1s;
+ cursor: pointer;
 }
