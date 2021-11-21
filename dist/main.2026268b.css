@@ -586,11 +586,18 @@ div.ghost-div__container {
     left: 2%;
     margin: 0 0;
     z-index: -1;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  div.main-content__card-container__card:hover {
+    opacity: 1;
+    color: #f3f3f3 !important;
   }
 
   div.main-content__card-sideA,
 div.main-content__card-sideB {
     height: 13vh;
+    cursor: pointer;
   }
 
   .main-content__btn-container-tray {
@@ -728,7 +735,7 @@ div.main-content__card-sideB {
     left: 3vw;
     flex-wrap: nowrap;
     width: 94%;
-    height: 80vh;
+    height: 70vh;
     border: 1px solid aliceblue;
     position: absolute;
     top: 17vh;
@@ -736,9 +743,34 @@ div.main-content__card-sideB {
     border-radius: 7px;
     border: 2px solid #eb8a91;
     filter: drop-shadow(0 -3px 2px #fa9898) drop-shadow(0 3px 2px #fa9898);
+    overflow-x: scroll;
   }
-  .main-content__screen.project#promo-screen {
+  .main-content__screen.project#contact {
     display: flex;
+  }
+  .main-content__screen.project#contact {
+    padding: 4em;
+    text-align: center;
+  }
+  .main-content div.project-card__container.newsletter,
+.main-content div.project-card__container.transactional {
+    left: -21vw;
+  }
+  .main-content__screenproject-header {
+    position: sticky;
+    left: 46vw;
+    right: 0;
+    bottom: 13.4em;
+    top: 0;
+    flex-shrink: 0;
+  }
+  .main-content__screenproject-header.transactional {
+    left: 37vw;
+  }
+  .main-content__screenproject-card__wrapper {
+    display: flex;
+    margin-left: 21vw;
+    margin-top: 6vh;
   }
   .main-content div.project-card__container {
     min-width: 62vw;

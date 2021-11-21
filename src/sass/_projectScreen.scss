@@ -49,7 +49,7 @@
    left: 3vw;
    flex-wrap: nowrap;
    width: 94%;
-   height: 80vh;
+   height: 70vh;
    border: 1px solid aliceblue;
    position: absolute;
    top: 17vh;
@@ -57,15 +57,42 @@
    border-radius: 7px;
    border: 2px solid #eb8a91;
    filter: drop-shadow(0 -3px 2px #fa9898) drop-shadow(0 3px 2px #fa9898);
+   overflow-x: scroll;
   }
 
-  //   &__screen.project#landingPage-screen,
-  //   &__screen.project#newsletter-screen,
-  //   &__screen.project#transactional-screen,
-  &__screen.project#promo-screen
-//   &__screen.project#contact
-  {
+  // &__screen.project#landingPage-screen,
+  // &__screen.project#newsletter-screen,
+  // &__screen.project#transactional-screen,
+  // &__screen.project#promo-screen
+  &__screen.project#contact {
    display: flex;
+  }
+  &__screen.project#contact {
+   padding: 4em;
+   text-align: center;
+  }
+
+  div.project-card__container.newsletter,
+  div.project-card__container.transactional {
+   left: -21vw;
+  }
+
+  &__screenproject-header {
+   position: sticky;
+   left: 46vw;
+   right: 0;
+   bottom: 13.4em;
+   top: 0;
+   flex-shrink: 0;
+
+   &.transactional {
+    left: 37vw;
+   }
+  }
+  &__screenproject-card__wrapper {
+   display: flex;
+   margin-left: 21vw;
+   margin-top: 6vh;
   }
 
   div.project-card__container {
