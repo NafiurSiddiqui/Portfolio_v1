@@ -68,7 +68,7 @@
   }
 
   &__card {
-   transition: all 2s;
+   @include transition-ease;
    position: absolute;
    right: 11vw;
    top: 29vh;

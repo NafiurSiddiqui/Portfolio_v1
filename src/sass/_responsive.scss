@@ -1,5 +1,27 @@
+@media screen and (max-width: 1000px) {
+ // this rule only should be applied if the project is active
+ div.container {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 'header' 'mainContent' 'social';
+ }
+ aside.social-media {
+  flex-direction: row;
+  // justify-content: end;
+  margin-left: 2em;
+  & > a > img {
+   margin: 0 0.6em;
+  }
+ }
+}
+
 @media screen and (max-width: 880px) {
+ header.header {
+  padding: 0 0;
+ }
+
  .main-content {
+  padding: 0;
   &__card-container__card {
    right: 8vw;
   }
@@ -10,6 +32,32 @@
   }
  }
 }
+
+@media screen and (max-width: 743px) {
+ div.main-content__screen.project {
+  // margin-left: 4vw;
+ }
+
+ section.main-content {
+  grid-template-columns: 13em 4fr;
+ }
+ button.project-btn {
+  // width: 21vw;
+  width: 100%;
+
+  &#landingPage {
+   padding: 1em 0;
+   bottom: -35vh !important;
+  }
+ }
+}
+
+//screenproject_parent
+// overflow-y:scroll;
+
+//wrapper :
+// padding-top:44em;
+//flex-direction:column;
 
 //698px - smaller tab
 // change container grid , put social media to the bottom as footer
@@ -32,12 +80,30 @@
    margin: 0 0.6em;
   }
  }
+ div.main-content__screen.project {
+  overflow-y: scroll;
+ }
+
+ div.main-content__screenproject-card__wrapper {
+  padding-top: 44em;
+  flex-direction: column;
+ }
+}
+
+@media screen and (max-width: 598px) {
+ section.main-content {
+  grid-template-columns: 13em 4fr;
+ }
+
+ //  div.main-content__screen.project {
+ //   margin-left: 5vw;
+ //  }
 }
 
 @media screen and (max-width: 564px) {
- div.container {
-  padding: 1em 0;
- }
+ //  div.container {
+ //   padding: 1em 0;
+ //  }
  div.main-content__card-container__card {
   right: 4vw;
  }
@@ -47,11 +113,36 @@
  }
 }
 
+@media screen and (min-width: 500px) {
+ .main-content__btn-container-tray {
+  display: none;
+ }
+}
+
 @media screen and (max-width: 500px) {
  body {
   overflow-y: hidden;
  }
 
+ .header {
+  padding: 0 1.5em !important;
+  &__logo-container {
+   position: relative;
+   z-index: 1;
+  }
+
+  &__contact {
+   position: relative;
+   z-index: 1;
+  }
+ }
+ div.main-content__screen.project {
+  top: 20vh;
+ }
+ div.main-content__screenproject-card__wrapper {
+  flex-direction: row;
+  padding-top: 0;
+ }
  div.container {
   padding: 1em 0;
  }
@@ -79,6 +170,7 @@
  }
  article.main-content__card-sideB__header-container {
   border: none;
+  font-size: 5.5vw;
  }
 
  h1.main-content__card-sideB-heading {
@@ -88,24 +180,35 @@
   // color: #7b2929;
  }
 
- div.main-content__card-container__card {
-  width: 96%;
-  top: 1vh;
-  left: 2%;
-  margin: 0 0;
-  z-index: -1;
-  opacity: 0.6;
-  cursor: pointer;
-  &:hover {
-   opacity: 1;
-   color: #f3f3f3 !important;
-  }
- }
+ // ! 👇 only when project is clicked!
+
+ //  div.main-content__card-container__card {
+ //   width: 96%;
+ //   top: 1vh;
+ //   left: 2%;
+ //   margin: 0 0;
+
+ //   opacity: 0.6;
+ //   cursor: pointer;
+ //   &:hover {
+ //    opacity: 1;
+ //    color: #f3f3f3 !important;
+ //   }
+ //  }
 
  div.main-content__card-sideA,
  div.main-content__card-sideB {
-  height: 13vh;
-  cursor: pointer;
+  height: 32vh;
+  // cursor: pointer;
+ }
+
+ img.main-content__card-sideA-version {
+  width: 10vw;
+  bottom: -14em;
+ }
+
+ img.main-content__card-sideA-name {
+  width: 32vw;
  }
 
  .main-content__btn-container-tray {
@@ -215,5 +318,14 @@
     }
    }
   }
+ }
+}
+
+@media screen and (max-width: 400px) {
+ article.main-content__card-sideB__text-container {
+  display: none;
+ }
+ article.main-content__card-sideB__header-container {
+  border: none;
  }
 }
