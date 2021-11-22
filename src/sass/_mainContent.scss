@@ -51,13 +51,14 @@
    }
 
    div.ghost-div:nth-child(1) {
-    // border-top: 4px solid $tubeColor;
-    // border-right: 4px solid $tubeColor;
-    // border-bottom: 4px solid $tubeColor;
     @include defaultTubeTop;
    }
    div.ghost-div:nth-child(2) {
     @include defaultTubeMiddle;
+   }
+   div.ghost-div:nth-child(3) {
+    border-right: 4px solid $tubeColor;
+    @include tubeFilter;
    }
 
    div.ghost-div:last-child {
@@ -102,21 +103,11 @@
  }
 
  &__card-sideB {
-  // width: 32vw;
-  // height: 41vh;
-  // border-radius: 1em;
-  // background-color: #f04f5c;
-  // //   background-color: crimson;
-  // display: flex;
-  // flex-direction: column;
-  // padding: 2em 1em;
   position: absolute;
-  //   right: 11vw;
   top: 0;
-  // transition: all 1s;
   color: rgb(243, 243, 243);
   z-index: -1;
-  // cursor: pointer;
+  height: auto;
   @include defaultCardStyle;
   &__header-container {
    font-family: 'Nova Square', cursive;
@@ -138,6 +129,7 @@
  }
 }
 
+//social media default stylings
 .social-media {
  align-self: end;
  align-items: last baseline;
@@ -158,5 +150,23 @@
     invert(0) opacity(100%) saturate(6) sepia(6.29)
     drop-shadow(0px 1px 6px $activeSocialMediaColor);
   }
+ }
+}
+
+//svg for mobile animations
+
+div.svg-arrow__container {
+ //  border: $borderTest2;
+ position: absolute;
+ padding: 1em;
+ left: 67%;
+ bottom: 26em;
+ @include transition-ease;
+ display: none;
+ & > img {
+  width: 4em;
+  position: absolute;
+  // left: 50%;
+  transition: all 5s ease;
  }
 }

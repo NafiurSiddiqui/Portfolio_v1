@@ -1,18 +1,18 @@
 @media screen and (max-width: 1000px) {
  // this rule only should be applied if the project is active
- div.container {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: 'header' 'mainContent' 'social';
- }
- aside.social-media {
-  flex-direction: row;
-  // justify-content: end;
-  margin-left: 2em;
-  & > a > img {
-   margin: 0 0.6em;
-  }
- }
+ //  div.container {
+ //   grid-template-columns: 1fr;
+ //   grid-template-rows: auto auto auto;
+ //   grid-template-areas: 'header' 'mainContent' 'social';
+ //  }
+ //  aside.social-media {
+ //   flex-direction: row;
+ //   // justify-content: end;
+ //   margin-left: 2em;
+ //   & > a > img {
+ //    margin: 0 0.6em;
+ //   }
+ //  }
 }
 
 @media screen and (max-width: 880px) {
@@ -154,52 +154,11 @@
  div.main-content__card-sideA,
  div.main-content__card-sideB {
   width: 100%;
- }
-
- aside.social-media {
-  display: none;
- }
-
- .main-content__btn-container,
- div.ghost-div__container {
-  display: none;
- }
- //onclick for smallerDevice..move it from here and put on another class that will get added by click for smaller device
- article.main-content__card-sideB__text-container {
-  display: none;
- }
- article.main-content__card-sideB__header-container {
-  border: none;
-  font-size: 5.5vw;
- }
-
- h1.main-content__card-sideB-heading {
-  position: absolute;
-  bottom: 5%;
-  left: 35vw;
-  // color: #7b2929;
- }
-
- // ! 👇 only when project is clicked!
-
- //  div.main-content__card-container__card {
- //   width: 96%;
- //   top: 1vh;
- //   left: 2%;
- //   margin: 0 0;
-
- //   opacity: 0.6;
- //   cursor: pointer;
- //   &:hover {
- //    opacity: 1;
- //    color: #f3f3f3 !important;
- //   }
- //  }
-
- div.main-content__card-sideA,
- div.main-content__card-sideB {
   height: 32vh;
-  // cursor: pointer;
+ }
+
+ .main-content__card-sideB__text-container {
+  margin-top: 0;
  }
 
  img.main-content__card-sideA-version {
@@ -225,7 +184,8 @@
   align-items: center;
   //   backdrop-filter: blur(10px);
   bottom: -52%;
-  @include transition-fast;
+  transition: all 1s;
+  cursor: pointer;
   &:hover {
    background-color: rgb(26, 26, 26);
    //    opacity: 1;
@@ -234,7 +194,7 @@
    width: 10em;
    display: inline-block;
    height: 0.8em;
-   background: #349085;
+   background: $trayNotchBGcolor;
    border-radius: 4px;
    margin-left: 2.5em;
    cursor: pointer;
@@ -242,7 +202,7 @@
    //    background-color: $trayNotchBGcolor;
    //    box-shadow: 0px 0px 2px 8px #9dffad;
    &:hover {
-    background-color: $trayNotchBGcolor;
+    background-color: $trayNotchBGcolor__hover;
     // background-color: palegreen;
     box-shadow: 0px 0px 5px 3px #65dd777a;
    }
@@ -251,7 +211,7 @@
   .main-content__btn-container-tray__header-container {
    //    border: 1px solid white;
    color: rgb(238, 237, 237);
-   font-size: 1.3rem;
+   font-size: 1.2rem;
    font-family: 'Nova Square', cursive;
    display: flex;
    justify-content: space-around;
@@ -319,13 +279,55 @@
    }
   }
  }
-}
 
-@media screen and (max-width: 400px) {
- article.main-content__card-sideB__text-container {
+ aside.social-media {
   display: none;
  }
- article.main-content__card-sideB__header-container {
-  border: none;
+
+ .main-content__btn-container,
+ div.ghost-div__container {
+  display: none;
+ }
+ .project-active {
+  h1.main-content__card-sideB-heading {
+   position: absolute;
+   bottom: 5%;
+   left: 32vw;
+   // color: #7b2929;
+  }
+
+  div.main-content__card-container__card {
+   width: 96%;
+   top: 1vh;
+   left: 2%;
+   margin: 0 0;
+
+   opacity: 0.6;
+   cursor: pointer;
+   &:hover {
+    opacity: 1;
+    color: #f3f3f3 !important;
+   }
+  }
+
+  article.main-content__card-sideB__text-container {
+   display: none;
+  }
+  article.main-content__card-sideB__header-container {
+   border: none;
+   font-size: 5.5vw;
+  }
+ }
+}
+
+@media screen and (max-width: 460px) {
+ .main-content__card-sideB {
+  padding: 2vw;
+  // font-size: 2vw !important;
+  height: auto;
+  &__header-container {
+   padding: 0.2em 0.4em;
+   //  font-size: ;
+  }
  }
 }
