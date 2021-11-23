@@ -121,17 +121,45 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var nameCard = document.querySelector('.main-content__card-container__card');
 var nameCardSide__A = document.querySelector('.main-content__card-sideA');
 var nameCardSide__B = document.querySelector('.main-content__card-sideB');
-var tray = document.querySelector('.main-content__btn-container-tray');
+var trayParent = document.querySelector('.main-content__btn-container-tray');
+var tray = document.querySelector('.main-content__btn-container-tray__header-container');
 var arrowContainer = document.querySelector('.svg-arrow__container');
 var arrowContainerId = document.getElementById('arrow-container');
-console.log(tray);
+var body = document.body;
+var mainContent = document.querySelector('.main-content');
+var promoBtn = document.getElementById('promo');
+var promoBtnTray = document.getElementById('promoTray');
+var transactionBtn = document.getElementById('transactional');
+var transactionBtnTray = document.getElementById('transactionalTray');
+var newsletterBtn = document.getElementById('newsletter');
+var newsletterBtnTray = document.getElementById('newsletterTray');
+var landingPageBtn = document.getElementById('promo');
+var landingPageBtnTray = document.getElementById('promoTray'); // console.log(trayParent);
+
 nameCard.addEventListener('click', function () {
-  document.body.classList.toggle('card-active');
+  body.classList.toggle('card-active');
   arrowContainer.classList.toggle('arrowActivate');
 });
+var trayActivated;
 tray.addEventListener('click', function () {
   console.log('ok boss!');
-  tray.classList.toggle('trayActivate');
+  trayParent.classList.remove('traySlideDown');
+  body.classList.toggle('trayActivate');
+});
+promoBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  mainContent.classList.toggle('projectPromoActivateMobile');
+  trayParent.classList.add('traySlideDown');
+  body.classList.remove('trayActivate');
+});
+transactionalTray.addEventListener('click', function () {
+  console.log('clicked!');
+});
+newsletterBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+});
+landingPageTray.addEventListener('click', function () {
+  console.log('clicked!');
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -161,7 +189,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50659" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53372" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

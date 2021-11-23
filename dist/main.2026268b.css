@@ -387,13 +387,13 @@ span.main-content__screenProject-card-layer {
   padding: 0.6em 2em;
   border: none;
   background: #fc6471;
-  opacity: 0.4;
+  opacity: 0.6;
   color: #555;
   cursor: pointer;
 }
 
 .card-active {
-  background-color: #81733f;
+  background-color: #927e36da;
 }
 .card-active .main-content__card-container__card {
   transform: rotateX(-180deg);
@@ -478,6 +478,24 @@ span.main-content__screenProject-card-layer {
   }
 }
 
+.project-active h1.main-content__card-sideB-heading {
+  position: absolute;
+  bottom: 5%;
+  left: 32vw;
+}
+.project-active div.main-content__card-container__card {
+  width: 96%;
+  top: 1vh;
+  left: 2%;
+  margin: 0 0;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.project-active div.main-content__card-container__card:hover {
+  opacity: 1;
+  color: #f3f3f3 !important;
+}
+
 .project__btn-inactive .main-content__btn-container button.project-btn {
   opacity: 0.5;
 }
@@ -501,9 +519,92 @@ span.main-content__screenProject-card-layer {
   }
 }
 
+.projectPromoActivateMobile section.main-content__screen-container {
+  display: inline-block;
+}
+.projectPromoActivateMobile .main-content__screen.project#promo-screen {
+  display: flex;
+}
+
+.projectTransactionActivate section.main-content__screen-container {
+  display: inline-block;
+}
+.projectTransactionActivate .main-content__screen.project#transactional-screen {
+  display: flex;
+}
+
+.projectNewsletterActivate section.main-content__screen-container {
+  display: inline-block;
+}
+.projectNewsletterActivate .main-content__screen.project#newsletter-screen {
+  display: flex;
+}
+
+.projectLandingPageActivate section.main-content__screen-container {
+  display: inline-block;
+}
+.projectLandingPageActivate .main-content__screen.project#landingPage-screen {
+  display: flex;
+}
+
+.traySlideDown {
+  transform: translateY(0%);
+}
+
 .trayActivate {
-  bottom: 1% !important;
+  background-color: #927e36da;
+}
+.trayActivate aside.main-content__btn-container-tray {
+  bottom: 0%;
   background-color: #111616 !important;
+}
+.trayActivate div.main-content__card-container__card {
+  transform: rotateX(-180deg);
+}
+.trayActivate div.main-content__card-container__card div.main-content__card-sideA {
+  z-index: -2;
+  visibility: hidden;
+}
+.trayActivate div.main-content__card-container__card div.main-content__card-sideB {
+  transform: rotateX(190deg);
+}
+.trayActivate div.main-content__card-container__card div.main-content__card-sideB:hover {
+  background-color: #910f2f;
+}
+.trayActivate .main-content__card-container__card div.main-content__card-sideB {
+  background-color: #a02933;
+}
+.trayActivate .main-content__card-container__card div.main-content__card-sideA {
+  background-color: #a02933;
+}
+.trayActivate h1.main-content__card-sideB-heading {
+  position: absolute;
+  bottom: 5%;
+  left: 32vw;
+}
+.trayActivate div.main-content__card-container__card {
+  width: 96%;
+  top: 1vh;
+  left: 2%;
+  margin: 0 0;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.trayActivate div.main-content__card-container__card:hover {
+  opacity: 1;
+  color: #f3f3f3 !important;
+}
+.trayActivate article.main-content__card-sideB__text-container {
+  display: none;
+}
+.trayActivate article.main-content__card-sideB__header-container {
+  border: none;
+  font-size: 5.5vw;
+}
+.trayActivate div.main-content__card-sideA,
+.trayActivate div.main-content__card-sideB {
+  width: 100%;
+  height: 13vh;
 }
 
 aside.social-media-contact {
@@ -695,8 +796,7 @@ div.main-content__card-sideB {
     position: absolute;
     left: 0;
     height: 60vh;
-    padding: 1em;
-    background-color: #0e0e0ed9;
+    background-color: #111010d9;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -730,12 +830,14 @@ div.main-content__card-sideB {
     justify-content: space-around;
     width: 100%;
     letter-spacing: 1px;
+    height: 5em;
+    padding-top: 2em;
   }
   .main-content__btn-container-tray__container {
     height: 65%;
     width: 90%;
     margin: 0 auto;
-    margin-top: 3em;
+    margin-top: 2em;
     display: flex;
     display: -webkit-flex;
     display: -moz-flex;
@@ -744,7 +846,7 @@ div.main-content__card-sideB {
     align-items: center;
     flex-direction: column;
     border-radius: 4px;
-    box-shadow: 0 1px 3px #707041be;
+    box-shadow: 0 0 16px rgba(110, 104, 52, 0.822);
   }
   .main-content__btn-container-tray__container button.project-btn__tray {
     margin: 1em 0;
@@ -754,7 +856,7 @@ div.main-content__card-sideB {
     padding: 0.6em 2em;
     border: none;
     background: #fc6471;
-    opacity: 0.4;
+    opacity: 0.6;
     color: #555;
     cursor: pointer;
     color: white;
@@ -792,31 +894,6 @@ div.main-content__card-sideB {
   .main-content__btn-container,
 div.ghost-div__container {
     display: none;
-  }
-
-  .project-active h1.main-content__card-sideB-heading {
-    position: absolute;
-    bottom: 5%;
-    left: 32vw;
-  }
-  .project-active div.main-content__card-container__card {
-    width: 96%;
-    top: 1vh;
-    left: 2%;
-    margin: 0 0;
-    opacity: 0.6;
-    cursor: pointer;
-  }
-  .project-active div.main-content__card-container__card:hover {
-    opacity: 1;
-    color: #f3f3f3 !important;
-  }
-  .project-active article.main-content__card-sideB__text-container {
-    display: none;
-  }
-  .project-active article.main-content__card-sideB__header-container {
-    border: none;
-    font-size: 5.5vw;
   }
 }
 @media screen and (max-width: 460px) {
@@ -869,7 +946,7 @@ div.ghost-div__container {
   font-size: 3.5rem;
   color: #dedede;
 }
-.main-content__screen.project#contact {
+.main-content__screen.project#landingPage-screen, .main-content__screen.project#newsletter-screen, .main-content__screen.project#transactional-screen, .main-content__screen.project#promo-screen, .main-content__screen.project#contact {
   display: none;
 }
 @media screen and (max-width: 500px) {
