@@ -1,3 +1,4 @@
+const screenContainer = document.querySelector('.main-content__screen-container');
 const nameCard= document.querySelector('.main-content__card-container__card');
 const nameCardSide__A= document.querySelector('.main-content__card-sideA');
 const nameCardSide__B= document.querySelector('.main-content__card-sideB');
@@ -17,44 +18,110 @@ const newsletterBtnTray = document.getElementById('newsletterTray');
 const landingPageBtn = document.getElementById('promo');
 const landingPageBtnTray = document.getElementById('promoTray');
 
-// console.log(trayParent);
+// console.log(screenContainer);
+
+function clearScreen() {
+    screenContainer.innerHTML = '';
+}
+
+function openProject(project){
+     mainContent.classList.toggle(project);
+     trayParent.classList.add('traySlideDown');
+     body.classList.remove('trayActivate');
+}
+
+function checkProjectActivation(a,b,c,aN,bN,cN){
+     if(a  === true || b === true || c === true){
+        mainContent.classList.remove(aN);
+        mainContent.classList.remove(bN);
+        mainContent.classList.remove(cN);
+
+    }
+};
 
 
+let trayActivated = null;
+let projectActivated = null;
+let promoActivated = null;
+let transactionalActivated = null;
+let newsletterActivated = null;
+let landingPageActivated = null;
 
-nameCard.addEventListener('click',function(){
-   
-body.classList.toggle('card-active');
-arrowContainer.classList.toggle('arrowActivate');
-})
+const promoClass = 'projectPromoActivateMobile';
+const transactionalClass = 'projectTransactionActivate';
+const newsletterClass = 'projectNewsletterActivate';
+const landingPageClass = 'projectLandingPageActivate';
 
-let trayActivated;
 
 tray.addEventListener('click',function(){
-
-
-    console.log('ok boss!');
      trayParent.classList.remove('traySlideDown');
     body.classList.toggle('trayActivate');
+    nameCard.classList.add('cardSlideTop')
+    trayActivated = true;
+    if(!body.classList.contains('trayActivate')){
+       nameCard.classList.remove('cardSlideTop');
+    //    nameCard.classList.add('aboutMeActive')
+    trayActivated = false;
+    }
 })
+
+
+
+nameCard.addEventListener('click',function(){   
+    if(trayActivated === true){
+        body.classList.remove('trayActivate');
+        nameCard.classList.add('aboutMeActive');
+        nameCard.classList.remove('cardSlideTop');
+        
+    }else if(trayActivated === false){
+        body.classList.toggle('card-active');
+arrowContainer.classList.toggle('arrowActivate');
+nameCard.classList.remove('aboutMeActive');
+    }else{
+
+        body.classList.toggle('card-active');
+        arrowContainer.classList.toggle('arrowActivate');
+    }
+})
+
+
 
 promoBtnTray.addEventListener('click',function(){    
     console.log('clicked!');
-     mainContent.classList.toggle('projectPromoActivateMobile');
-     trayParent.classList.add('traySlideDown');
-     body.classList.remove('trayActivate');
-     
+    
+    checkProjectActivation(transactionalActivated,newsletterActivated,landingPageActivated,transactionalClass,newsletterClass,landingPageClass)
+    openProject(promoClass);
+        promoActivated = true;
+    
 
 })
 
 transactionalTray.addEventListener('click',function(){
     
-    console.log('clicked!');
+    checkProjectActivation(promoActivated,newsletterActivated,landingPageActivated,
+        promoClass,newsletterClass,landingPageClass)
+    openProject(transactionalClass);
+    transactionalActivated = true;
+
 })
+
 newsletterBtnTray.addEventListener('click',function(){
     
     console.log('clicked!');
+    checkProjectActivation(promoActivated,transactionalActivated,landingPageActivated,promoClass,
+        transactionalClass,landingPageClass)
+    openProject(newsletterClass);
+    newsletterActivated = true;
 })
-landingPageTray.addEventListener('click',function(){
-    
+
+landingPageTray.addEventListener('click',function(){  
     console.log('clicked!');
+     checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,promoClass,
+        transactionalClass,newsletterClass)
+    openProject(landingPageClass);
+    transactionalActivated = true;
 })
+
+
+//if about me is clicked on mobile size,clear all projectClass
+

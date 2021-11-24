@@ -31,6 +31,23 @@
 @mixin tubeFilter {
  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
+
+//default tube style
+
+@mixin defaultTubeTop {
+ border-top: 4px solid $tubeColor;
+ border-right: 4px solid $tubeColor;
+ border-bottom: 4px solid $tubeColor;
+}
+@mixin defaultTubeMiddle {
+ border-bottom: 4px solid $tubeColor;
+ border-right: 4px solid $tubeColor;
+}
+@mixin defaultTubeBottom {
+ border-bottom: 4px solid $tubeColor;
+ border-right: 4px solid $tubeColor;
+}
+
 //activeTubes
 @mixin tubeTop {
  border-top: 4px solid $activeTubeColor !important;
@@ -49,22 +66,6 @@
  @include tubeFilter();
  border-right: 4px solid $activeTubeColor !important;
  border-bottom: 4px solid $activeTubeColor !important;
-}
-
-//default tube style
-
-@mixin defaultTubeTop {
- border-top: 4px solid $tubeColor;
- border-right: 4px solid $tubeColor;
- border-bottom: 4px solid $tubeColor;
-}
-@mixin defaultTubeMiddle {
- border-bottom: 4px solid $tubeColor;
- border-right: 4px solid $tubeColor;
-}
-@mixin defaultTubeBottom {
- border-bottom: 4px solid $tubeColor;
- border-right: 4px solid $tubeColor;
 }
 
 //active tube style
@@ -91,7 +92,7 @@
 
 // active cardSide Style - mobile
 
-@mixin activeCardSide {
+@mixin activeCardSideColor {
  .main-content__card-container__card div.main-content__card-sideB {
   // background-color: $activeCardColor;
   background-color: $activeCardSideColor;
@@ -99,5 +100,21 @@
  .main-content__card-container__card div.main-content__card-sideA {
   // background-color: $activeCardColor;
   background-color: $activeCardSideColor;
+ }
+}
+
+//card rotation
+
+@mixin cardRotation {
+ transform: rotateX(-180deg);
+ div.main-content__card-sideA {
+  z-index: -2;
+  visibility: hidden;
+ }
+ div.main-content__card-sideB {
+  transform: rotateX(190deg);
+  &:hover {
+   background-color: rgb(145, 15, 47);
+  }
  }
 }

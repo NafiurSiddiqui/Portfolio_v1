@@ -1,16 +1,8 @@
 .card-active {
  .main-content__card-container__card {
-  transform: rotateX(-180deg);
-  div.main-content__card-sideA {
-   z-index: -2;
-  }
-  div.main-content__card-sideB {
-   transform: rotateX(190deg);
-   &:hover {
-    background-color: rgb(145, 15, 47);
-   }
-  }
+  @include cardRotation;
  }
+
  div.ghost-div:nth-child(1) {
   @include tubeTop;
  }
@@ -48,16 +40,7 @@
   visibility: hidden;
  }
 
- //  .main-content__card-container__card div.main-content__card-sideB {
- //   // background-color: $activeCardColor;
- //   background-color: $activeCardSideColor;
- //  }
- //  .main-content__card-container__card div.main-content__card-sideA {
- //   // background-color: $activeCardColor;
- //   background-color: $activeCardSideColor;
- //  }
-
- @include activeCardSide;
+ @include activeCardSideColor;
 
  aside.social-media > a > img {
   -webkit-filter: blur(0px) brightness(2.6) contrast(4.8) grayscale(0.18)
@@ -100,7 +83,8 @@
  }
 }
 
-.about-card-active {
+.aboutMeActive {
+ @include cardRotation;
 }
 
 .project-active {
@@ -156,14 +140,6 @@
  }
 }
 
-// $projectActivated: false;
-
-// @if projectActivated == true {
-//  body {
-//   background-color: $activeBodyColor;
-//  }
-// }
-
 .projectPromoActivateMobile {
  section.main-content__screen-container {
   display: inline-block;
@@ -216,20 +192,11 @@
  }
 
  div.main-content__card-container__card {
-  transform: rotateX(-180deg);
-  div.main-content__card-sideA {
-   z-index: -2;
-   visibility: hidden;
-  }
-  div.main-content__card-sideB {
-   transform: rotateX(190deg);
-   &:hover {
-    background-color: rgb(145, 15, 47);
-   }
-  }
+  @include cardRotation;
  }
 
- @include activeCardSide;
+ @include activeCardSideColor;
+
  h1.main-content__card-sideB-heading {
   position: absolute;
   bottom: 5%;
@@ -263,5 +230,36 @@
  div.main-content__card-sideB {
   width: 100%;
   height: 13vh;
+ }
+}
+
+.cardSlideTop {
+ h1.main-content__card-sideB-heading {
+  position: absolute;
+  bottom: 5%;
+  left: 32vw;
+  // color: #7b2929;
+ }
+
+ div.main-content__card-container__card {
+  width: 96%;
+  top: 1vh;
+  left: 2%;
+  margin: 0 0;
+
+  opacity: 0.6;
+  cursor: pointer;
+  &:hover {
+   opacity: 1;
+   color: #f3f3f3 !important;
+  }
+ }
+
+ article.main-content__card-sideB__text-container {
+  display: none;
+ }
+ article.main-content__card-sideB__header-container {
+  border: none;
+  font-size: 5.5vw;
  }
 }

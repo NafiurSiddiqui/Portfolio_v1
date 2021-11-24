@@ -118,6 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/js/nameCard.js":[function(require,module,exports) {
+var screenContainer = document.querySelector('.main-content__screen-container');
 var nameCard = document.querySelector('.main-content__card-container__card');
 var nameCardSide__A = document.querySelector('.main-content__card-sideA');
 var nameCardSide__B = document.querySelector('.main-content__card-sideB');
@@ -134,33 +135,86 @@ var transactionBtnTray = document.getElementById('transactionalTray');
 var newsletterBtn = document.getElementById('newsletter');
 var newsletterBtnTray = document.getElementById('newsletterTray');
 var landingPageBtn = document.getElementById('promo');
-var landingPageBtnTray = document.getElementById('promoTray'); // console.log(trayParent);
+var landingPageBtnTray = document.getElementById('promoTray'); // console.log(screenContainer);
 
-nameCard.addEventListener('click', function () {
-  body.classList.toggle('card-active');
-  arrowContainer.classList.toggle('arrowActivate');
-});
-var trayActivated;
+function clearScreen() {
+  screenContainer.innerHTML = '';
+}
+
+function openProject(project) {
+  mainContent.classList.toggle(project);
+  trayParent.classList.add('traySlideDown');
+  body.classList.remove('trayActivate');
+}
+
+function checkProjectActivation(a, b, c, aN, bN, cN) {
+  if (a === true || b === true || c === true) {
+    mainContent.classList.remove(aN);
+    mainContent.classList.remove(bN);
+    mainContent.classList.remove(cN);
+  }
+}
+
+;
+var trayActivated = null;
+var projectActivated = null;
+var promoActivated = null;
+var transactionalActivated = null;
+var newsletterActivated = null;
+var landingPageActivated = null;
+var promoClass = 'projectPromoActivateMobile';
+var transactionalClass = 'projectTransactionActivate';
+var newsletterClass = 'projectNewsletterActivate';
+var landingPageClass = 'projectLandingPageActivate';
 tray.addEventListener('click', function () {
-  console.log('ok boss!');
   trayParent.classList.remove('traySlideDown');
   body.classList.toggle('trayActivate');
+  nameCard.classList.add('cardSlideTop');
+  trayActivated = true;
+
+  if (!body.classList.contains('trayActivate')) {
+    nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
+
+    trayActivated = false;
+  }
+});
+nameCard.addEventListener('click', function () {
+  if (trayActivated === true) {
+    body.classList.remove('trayActivate');
+    nameCard.classList.add('aboutMeActive');
+    nameCard.classList.remove('cardSlideTop');
+  } else if (trayActivated === false) {
+    body.classList.toggle('card-active');
+    arrowContainer.classList.toggle('arrowActivate');
+    nameCard.classList.remove('aboutMeActive');
+  } else {
+    body.classList.toggle('card-active');
+    arrowContainer.classList.toggle('arrowActivate');
+  }
 });
 promoBtnTray.addEventListener('click', function () {
   console.log('clicked!');
-  mainContent.classList.toggle('projectPromoActivateMobile');
-  trayParent.classList.add('traySlideDown');
-  body.classList.remove('trayActivate');
+  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, transactionalClass, newsletterClass, landingPageClass);
+  openProject(promoClass);
+  promoActivated = true;
 });
 transactionalTray.addEventListener('click', function () {
-  console.log('clicked!');
+  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, promoClass, newsletterClass, landingPageClass);
+  openProject(transactionalClass);
+  transactionalActivated = true;
 });
 newsletterBtnTray.addEventListener('click', function () {
   console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, promoClass, transactionalClass, landingPageClass);
+  openProject(newsletterClass);
+  newsletterActivated = true;
 });
 landingPageTray.addEventListener('click', function () {
   console.log('clicked!');
-});
+  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, promoClass, transactionalClass, newsletterClass);
+  openProject(landingPageClass);
+  transactionalActivated = true;
+}); //if about me is clicked on mobile size,clear all projectClass
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -189,7 +243,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53372" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63113" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
