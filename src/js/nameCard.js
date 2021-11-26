@@ -61,6 +61,7 @@ tray.addEventListener('click',function(){
     if(!body.classList.contains('trayActivate')){
        nameCard.classList.remove('cardSlideTop');
     //    nameCard.classList.add('aboutMeActive')
+    // body.classList.toggle('card-active');
     trayActivated = false;
     }
 })
@@ -74,14 +75,17 @@ nameCard.addEventListener('click',function(){
         nameCard.classList.remove('cardSlideTop');
         
     }else if(trayActivated === false){
-        body.classList.toggle('card-active');
+        
 arrowContainer.classList.toggle('arrowActivate');
 nameCard.classList.remove('aboutMeActive');
-    }else{
+body.classList.toggle('card-active');
+    }
 
         body.classList.toggle('card-active');
         arrowContainer.classList.toggle('arrowActivate');
-    }
+        nameCard.classList.remove('aboutMeActive')
+
+    
 })
 
 

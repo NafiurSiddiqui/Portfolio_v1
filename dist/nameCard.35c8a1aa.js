@@ -174,6 +174,7 @@ tray.addEventListener('click', function () {
 
   if (!body.classList.contains('trayActivate')) {
     nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
+    // body.classList.toggle('card-active');
 
     trayActivated = false;
   }
@@ -184,13 +185,14 @@ nameCard.addEventListener('click', function () {
     nameCard.classList.add('aboutMeActive');
     nameCard.classList.remove('cardSlideTop');
   } else if (trayActivated === false) {
-    body.classList.toggle('card-active');
     arrowContainer.classList.toggle('arrowActivate');
     nameCard.classList.remove('aboutMeActive');
-  } else {
     body.classList.toggle('card-active');
-    arrowContainer.classList.toggle('arrowActivate');
   }
+
+  body.classList.toggle('card-active');
+  arrowContainer.classList.toggle('arrowActivate');
+  nameCard.classList.remove('aboutMeActive');
 });
 promoBtnTray.addEventListener('click', function () {
   console.log('clicked!');
@@ -243,7 +245,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63113" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58451" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

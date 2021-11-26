@@ -27,8 +27,12 @@
   <meta name="twitter:creator" content="@CodeOnLoop" />
   <link rel="shortcut icon" href="src/img/logo_face.png" type="image/x-icon" />
   <link rel="stylesheet" href="src/sass/main.scss" />
-
+  <link
+   rel="stylesheet"
+   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
   <script defer src="./src/js/nameCard.js"></script>
+  <script defer src="./src/js/slider.js"></script>
   <title>Nafiur Rahman Siddiqui Portfolio</title>
  </head>
  <body class="body">
@@ -99,8 +103,11 @@
             src="src/img/eye_closed.svg"
             alt="closed eye icon"
             title="preview"
+            class="project-promo__image"
            />
-           <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           <a href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           </a>
           </div>
          </span>
         </div>
@@ -112,13 +119,11 @@
             src="src/img/eye_closed.svg"
             alt="closed eye icon"
             title="preview"
+            class="project-promo__image"
            />
-           <img
-            src="src/img/PlayBtn.svg"
-            alt="closed eye icon"
-            title="Wanna see a vdo of this project?"
-           />
-           <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           <a href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           </a>
           </div>
          </span>
         </div>
@@ -377,6 +382,30 @@
      <img src="src/img/github.svg" alt="instagram icon" />
     </a>
    </aside>
+
+   <!-- modals used as project screen -->
+
+   <section class="projectScreen__project">
+    <div class="projectScreen__project_modal-close"></div>
+    <span class="projectScreen__project-cross"> &#10799; </span>
+
+    <article class="projectScreen__project-project" id="promo-codeschool">
+     <h1 class="projectScreen__project-project__header">Promo Mail</h1>
+     <div class="projectScreen__project-project__wrapper">
+      <img
+       src="./src/img/codeschool.png"
+       alt="codeschool picture"
+       id="img-codeschool"
+      />
+      <img src="./src/img/meal.png" alt="meal deal picture" id="img-meal" />
+     </div>
+    </article>
+
+    <div class="navigation-container">
+     <i class="fa fa-angle-left"></i>
+     <i class="fa fa-angle-right"></i>
+    </div>
+   </section>
   </div>
  </body>
 </html>

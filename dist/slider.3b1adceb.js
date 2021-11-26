@@ -117,74 +117,41 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"src/js/slider.js":[function(require,module,exports) {
+var projectScreen = document.querySelector('.projectScreen__project');
+var projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
+var projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
+var cross = document.querySelector('.projectScreen__project-cross');
+var slideLeft = document.querySelector('.fa.fa-angle-left');
+var slideRight = document.querySelector('.fa.fa-angle-right');
+var projectPromoScreen = document.getElementById('promo-codeschool');
+var projectPromoPreview = document.querySelector('.project-promo__image');
+;
+console.log(projectWrapper); //closing modals
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+projectScreenChild.addEventListener('click', function () {
+  console.log('cool');
+  projectScreen.classList.remove('project-active');
+});
+cross.addEventListener('click', function () {
+  projectScreen.classList.remove('project-active');
+}); //slider
 
-  return bundleURL;
-}
+slideLeft.addEventListener('click', function () {
+  // console.log('cool');
+  projectWrapper.classList.remove('slideLeft');
+});
+slideRight.addEventListener('click', function () {
+  console.log('cool');
+  projectWrapper.classList.add('slideLeft');
+}); //promo mails
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+projectPromoPreview.addEventListener('click', function () {
+  projectScreen.classList.add('project-active'); // console.log(projectScreen);
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+  projectPromoScreen.classList.add('promo-active');
+});
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +355,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/slider.js"], null)
+//# sourceMappingURL=/slider.3b1adceb.js.map
