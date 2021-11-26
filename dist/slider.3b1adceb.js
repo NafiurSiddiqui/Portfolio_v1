@@ -124,10 +124,10 @@ var projectWrapper = document.querySelector('.projectScreen__project-project__wr
 var cross = document.querySelector('.projectScreen__project-cross');
 var slideLeft = document.querySelector('.fa.fa-angle-left');
 var slideRight = document.querySelector('.fa.fa-angle-right');
-var projectPromoScreen = document.getElementById('promo-codeschool');
-var projectPromoPreview = document.querySelector('.project-promo__image');
-;
-console.log(projectWrapper); //closing modals
+var projectPromoScreen = document.getElementById('project-promo');
+var projectPromoPreview = document.querySelectorAll('.project-promo__image');
+var projectTransactional = document.getElementById('project-transactional');
+console.log(projectTransactional); //closing modals
 
 projectScreenChild.addEventListener('click', function () {
   console.log('cool');
@@ -146,11 +146,14 @@ slideRight.addEventListener('click', function () {
   projectWrapper.classList.add('slideLeft');
 }); //promo mails
 
-projectPromoPreview.addEventListener('click', function () {
-  projectScreen.classList.add('project-active'); // console.log(projectScreen);
-
-  projectPromoScreen.classList.add('promo-active');
+projectPromoPreview.forEach(function (btns) {
+  btns.addEventListener('click', function () {
+    projectScreen.classList.add('project-active');
+    projectPromoScreen.classList.add('project-promo-active');
+  });
 });
+console.log(projectPromoPreview); //transactional mail
+// projectTransactional.
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -179,7 +182,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58451" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62520" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

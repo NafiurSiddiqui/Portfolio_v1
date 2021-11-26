@@ -5,10 +5,11 @@ const cross = document.querySelector('.projectScreen__project-cross');
 const slideLeft = document.querySelector('.fa.fa-angle-left');
 const slideRight = document.querySelector('.fa.fa-angle-right');
 
-const projectPromoScreen = document.getElementById('promo-codeschool');
-const projectPromoPreview = document.querySelector('.project-promo__image');;
+const projectPromoScreen = document.getElementById('project-promo');
+const projectPromoPreview = document.querySelectorAll('.project-promo__image');
+const projectTransactional = document.getElementById('project-transactional');
 
-console.log(projectWrapper);
+console.log(projectTransactional);
 
 
 
@@ -40,8 +41,14 @@ slideRight.addEventListener('click',()=>{
 
 //promo mails
 
-projectPromoPreview.addEventListener('click',()=>{
-    projectScreen.classList.add('project-active');
-    // console.log(projectScreen);
-    projectPromoScreen.classList.add('promo-active');
-})
+projectPromoPreview.forEach(btns => {
+   btns.addEventListener('click',()=>{
+      projectScreen.classList.add('project-active');
+    projectPromoScreen.classList.add('project-promo-active');
+   })
+});
+
+console.log(projectPromoPreview);
+//transactional mail
+
+// projectTransactional.

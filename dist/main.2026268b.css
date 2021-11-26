@@ -743,7 +743,11 @@ span.main-content__screenProject-card-layer {
   right: 0;
 }
 
-.promo-active {
+.project-promo-active {
+  display: inline-block !important;
+}
+
+.project-transactional-active {
   display: inline-block !important;
 }
 
@@ -1188,7 +1192,7 @@ section.projectScreen__project i.fa.fa-angle-right {
   display: none;
 }
 
-.projectScreen__project-project#promo-codeschool {
+.projectScreen__project-project#project-promo {
   display: none;
 }
 
