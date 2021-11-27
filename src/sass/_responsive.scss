@@ -50,6 +50,11 @@
   margin: 0 10vw;
  }
 
+ .project-active .projectScreen__project-project#project-landingPage {
+  margin: 0;
+  width: 100%;
+ }
+
  .projectScreen__project-project#project-transactional,
  .projectScreen__project-project#project-newsletter {
   width: 100vw;
@@ -72,6 +77,11 @@
  div.projectScreen__project-project__wrapper-transactional,
  div.projectScreen__project-project__wrapper-newsletter {
   width: 100vw;
+ }
+
+ article.projectScreen__project-project
+  div.projectScreen__project-project__wrapper-landingPage {
+  width: 100% !important;
  }
 
  i.fa {
@@ -334,6 +344,17 @@
  .main-content__btn-container,
  div.ghost-div__container {
   display: none;
+ }
+
+ //  div.projectScreen__project-project__wrapper-landingPage {
+ //   transform: translateX(93%);
+ //  }
+
+ div.landingPage > img#img-techwearLandingPage,
+ img#img-qpick {
+  width: 100%;
+  min-width: 400px;
+  height: 256px;
  }
 
  .projectScreen__project div.navigation-container {

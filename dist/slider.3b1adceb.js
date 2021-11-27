@@ -121,6 +121,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var projectScreen = document.querySelector('.projectScreen__project');
 var projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
 var projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
+var projectWrapperLandPage = document.querySelector('.projectScreen__project-project__wrapper-landingPage');
 var cross = document.querySelector('.projectScreen__project-cross');
 var slideLeft = document.querySelector('.fa.fa-angle-left');
 var slideRight = document.querySelector('.fa.fa-angle-right');
@@ -131,7 +132,7 @@ var projectTransactional = document.getElementById('project-transactional');
 var projectTransactionalPreview = document.getElementById('project-transactional__image');
 var projectNewsletter = document.getElementById('project-newsletter');
 var projectNewsletterPreview = document.getElementById('project-newsletter__img');
-console.log(); //closing modals
+console.log(projectWrapperLandPage); //closing modals
 
 projectScreenChild.addEventListener('click', function () {
   console.log('cool');
@@ -144,7 +145,7 @@ cross.addEventListener('click', function () {
 }); //slider
 
 slideLeft.addEventListener('click', function () {
-  // console.log('cool');
+  console.log('cool');
   projectWrapper.classList.remove('slideLeft');
 });
 slideRight.addEventListener('click', function () {
@@ -203,7 +204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62666" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55076" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

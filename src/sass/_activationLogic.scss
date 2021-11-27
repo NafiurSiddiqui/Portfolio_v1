@@ -322,7 +322,8 @@
   }
 
   .projectScreen__project-project__header-transactional,
-  .projectScreen__project-project__header-newsletter {
+  .projectScreen__project-project__header-newsletter,
+  .projectScreen__project-project__header-landingPage {
    color: whitesmoke;
    font-size: 2.5rem;
    letter-spacing: 1px;
@@ -331,7 +332,8 @@
    //  font-family: 'Reenie Beanie', cursive;
   }
 
-  .projectScreen__project-project__wrapper {
+  .projectScreen__project-project__wrapper,
+  .projectScreen__project-project__wrapper-landingPage {
    @include flexCentered;
    @include transition-ease;
    width: 80vw;
@@ -345,39 +347,6 @@
     margin: 0 2em;
    }
   }
- }
-
- .navigation-container {
-  position: absolute;
-  //   bottom: 4vh;
-  //   left: 40vw;
-  top: 50%;
-  width: 100%;
- }
-
- .fa {
-  color: whitesmoke;
-  font-size: 3.4rem;
-  background-color: rgb(33, 143, 143);
-  //   background-color: #39a397;
-  border-radius: 50%;
-  padding: 0.2em;
-  width: 1.4em;
-  margin: 0 1em;
-  display: none;
-  cursor: pointer;
-  &:hover {
-   background-color: rgb(34, 90, 90);
-  }
- }
- .fa.fa-angle-left {
-  position: absolute;
-  left: 0;
- }
-
- .fa.fa-angle-right {
-  position: absolute;
-  right: 0;
  }
 }
 

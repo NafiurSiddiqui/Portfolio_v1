@@ -698,14 +698,16 @@ span.main-content__screenProject-card-layer {
   font-family: Arial, Helvetica, sans-serif;
 }
 .project-active .projectScreen__project-project .projectScreen__project-project__header-transactional,
-.project-active .projectScreen__project-project .projectScreen__project-project__header-newsletter {
+.project-active .projectScreen__project-project .projectScreen__project-project__header-newsletter,
+.project-active .projectScreen__project-project .projectScreen__project-project__header-landingPage {
   color: whitesmoke;
   font-size: 2.5rem;
   letter-spacing: 1px;
   margin-bottom: 1vh;
   font-family: Arial, Helvetica, sans-serif;
 }
-.project-active .projectScreen__project-project .projectScreen__project-project__wrapper {
+.project-active .projectScreen__project-project .projectScreen__project-project__wrapper,
+.project-active .projectScreen__project-project .projectScreen__project-project__wrapper-landingPage {
   display: flex;
   display: -webkit-flex;
   display: -moz-flex;
@@ -716,39 +718,13 @@ span.main-content__screenProject-card-layer {
   width: 80vw;
   height: 80vh;
 }
-.project-active .projectScreen__project-project .projectScreen__project-project__wrapper > img {
+.project-active .projectScreen__project-project .projectScreen__project-project__wrapper > img,
+.project-active .projectScreen__project-project .projectScreen__project-project__wrapper-landingPage > img {
   width: 100%;
   max-width: 59.2em;
   max-height: 34em;
   max-height: 100%;
   margin: 0 2em;
-}
-.project-active .navigation-container {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-.project-active .fa {
-  color: whitesmoke;
-  font-size: 3.4rem;
-  background-color: #218f8f;
-  border-radius: 50%;
-  padding: 0.2em;
-  width: 1.4em;
-  margin: 0 1em;
-  display: none;
-  cursor: pointer;
-}
-.project-active .fa:hover {
-  background-color: #225a5a;
-}
-.project-active .fa.fa-angle-left {
-  position: absolute;
-  left: 0;
-}
-.project-active .fa.fa-angle-right {
-  position: absolute;
-  right: 0;
 }
 
 .project-promo-active {
@@ -857,6 +833,11 @@ aside.social-media-contact {
     margin: 0 10vw;
   }
 
+  .project-active .projectScreen__project-project#project-landingPage {
+    margin: 0;
+    width: 100%;
+  }
+
   .projectScreen__project-project#project-transactional,
 .projectScreen__project-project#project-newsletter {
     width: 100vw;
@@ -873,6 +854,10 @@ aside.social-media-contact {
   div.projectScreen__project-project__wrapper-transactional,
 div.projectScreen__project-project__wrapper-newsletter {
     width: 100vw;
+  }
+
+  article.projectScreen__project-project div.projectScreen__project-project__wrapper-landingPage {
+    width: 100% !important;
   }
 
   i.fa {
@@ -1097,6 +1082,13 @@ div.ghost-div__container {
     display: none;
   }
 
+  div.landingPage > img#img-techwearLandingPage,
+img#img-qpick {
+    width: 100%;
+    min-width: 400px;
+    height: 256px;
+  }
+
   .projectScreen__project div.navigation-container {
     position: relative;
     top: 3vh;
@@ -1224,6 +1216,37 @@ section.projectScreen__project i.fa.fa-angle-right {
     min-width: 62vw;
     width: 62vw;
   }
+}
+
+.navigation-container {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.fa {
+  color: whitesmoke;
+  font-size: 3.4rem;
+  background-color: #218f8f;
+  border-radius: 50%;
+  padding: 0.2em;
+  width: 1.4em;
+  margin: 0 1em;
+  display: none;
+  cursor: pointer;
+}
+.fa:hover {
+  background-color: #225a5a;
+}
+
+.fa.fa-angle-left {
+  position: absolute;
+  left: 0;
+}
+
+.fa.fa-angle-right {
+  position: absolute;
+  right: 0;
 }
 
 p.projectScreen__project-project__liveLink {

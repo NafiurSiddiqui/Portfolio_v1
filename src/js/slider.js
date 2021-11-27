@@ -1,6 +1,7 @@
 const projectScreen = document.querySelector('.projectScreen__project');
 const projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
 const projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
+const projectWrapperLandPage = document.querySelector('.projectScreen__project-project__wrapper-landingPage');
 const cross = document.querySelector('.projectScreen__project-cross');
 const slideLeft = document.querySelector('.fa.fa-angle-left');
 const slideRight = document.querySelector('.fa.fa-angle-right');
@@ -12,7 +13,7 @@ const projectTransactionalPreview = document.getElementById('project-transaction
 const projectNewsletter = document.getElementById('project-newsletter');
 const projectNewsletterPreview = document.getElementById('project-newsletter__img');
 
-console.log();
+console.log(projectWrapperLandPage);
 
 
 
@@ -34,8 +35,9 @@ cross.addEventListener('click',()=>{
 //slider
 
 slideLeft.addEventListener('click',()=>{
-    // console.log('cool');
+    console.log('cool');
     projectWrapper.classList.remove('slideLeft');
+  
     
 })
 
