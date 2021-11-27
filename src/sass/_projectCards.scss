@@ -69,10 +69,10 @@ span.main-content__screenProject-card {
   @include cardStyle('../img/newsletter.png');
  }
  &.qpick {
-  @include cardStyle('../img/qpick.png');
+  @include cardStyle('../img/qpickLandingPage.png');
  }
  &.cyberpunk {
-  @include cardStyle('../img/cyberpunk.png');
+  @include cardStyle('../img/techwearLandingPage.png');
  }
 
  &-layer {

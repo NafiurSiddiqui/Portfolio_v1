@@ -124,17 +124,23 @@ var projectWrapper = document.querySelector('.projectScreen__project-project__wr
 var cross = document.querySelector('.projectScreen__project-cross');
 var slideLeft = document.querySelector('.fa.fa-angle-left');
 var slideRight = document.querySelector('.fa.fa-angle-right');
+var navContainer = document.querySelector('.navigation-container');
 var projectPromoScreen = document.getElementById('project-promo');
 var projectPromoPreview = document.querySelectorAll('.project-promo__image');
 var projectTransactional = document.getElementById('project-transactional');
-console.log(projectTransactional); //closing modals
+var projectTransactionalPreview = document.getElementById('project-transactional__image');
+var projectNewsletter = document.getElementById('project-newsletter');
+var projectNewsletterPreview = document.getElementById('project-newsletter__img');
+console.log(); //closing modals
 
 projectScreenChild.addEventListener('click', function () {
   console.log('cool');
   projectScreen.classList.remove('project-active');
+  projectScreenChild.classList.remove('negativeIndex');
 });
 cross.addEventListener('click', function () {
   projectScreen.classList.remove('project-active');
+  projectScreenChild.classList.remove('negativeIndex');
 }); //slider
 
 slideLeft.addEventListener('click', function () {
@@ -151,9 +157,24 @@ projectPromoPreview.forEach(function (btns) {
     projectScreen.classList.add('project-active');
     projectPromoScreen.classList.add('project-promo-active');
   });
-});
-console.log(projectPromoPreview); //transactional mail
-// projectTransactional.
+}); //transactional mail
+
+projectTransactionalPreview.addEventListener('click', function () {
+  console.log('working!');
+  console.log(projectTransactional.classList);
+  projectScreen.classList.add('project-active');
+  projectTransactional.classList.add('project-transactional-active');
+  navContainer.classList.add('hidden');
+}); //newsletter mail
+
+projectNewsletterPreview.addEventListener('click', function () {
+  console.log('working!'); // console.log(projectNewsletter.classList);
+
+  projectScreen.classList.add('project-active');
+  projectNewsletter.classList.add('project-newsletter-active');
+  navContainer.classList.add('hidden');
+  projectScreenChild.classList.add('negativeIndex');
+}); //landing page
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -182,7 +203,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62520" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62666" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

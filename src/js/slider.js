@@ -4,12 +4,15 @@ const projectWrapper = document.querySelector('.projectScreen__project-project__
 const cross = document.querySelector('.projectScreen__project-cross');
 const slideLeft = document.querySelector('.fa.fa-angle-left');
 const slideRight = document.querySelector('.fa.fa-angle-right');
-
+const navContainer = document.querySelector('.navigation-container');
 const projectPromoScreen = document.getElementById('project-promo');
 const projectPromoPreview = document.querySelectorAll('.project-promo__image');
 const projectTransactional = document.getElementById('project-transactional');
+const projectTransactionalPreview = document.getElementById('project-transactional__image');
+const projectNewsletter = document.getElementById('project-newsletter');
+const projectNewsletterPreview = document.getElementById('project-newsletter__img');
 
-console.log(projectTransactional);
+console.log();
 
 
 
@@ -19,10 +22,13 @@ console.log(projectTransactional);
 projectScreenChild.addEventListener('click',()=>{
     console.log('cool');
     projectScreen.classList.remove('project-active');
+    projectScreenChild.classList.remove('negativeIndex');
+
 })
 
 cross.addEventListener('click',()=>{
     projectScreen.classList.remove('project-active');
+    projectScreenChild.classList.remove('negativeIndex');
 })
 
 //slider
@@ -48,7 +54,28 @@ projectPromoPreview.forEach(btns => {
    })
 });
 
-console.log(projectPromoPreview);
+
 //transactional mail
 
-// projectTransactional.
+projectTransactionalPreview.addEventListener('click',()=>{
+    console.log('working!');
+    console.log(projectTransactional.classList);
+    projectScreen.classList.add('project-active');
+    projectTransactional.classList.add('project-transactional-active');
+    navContainer.classList.add('hidden');
+})
+
+//newsletter mail
+
+projectNewsletterPreview.addEventListener('click',()=>{
+    console.log('working!');
+    // console.log(projectNewsletter.classList);
+    projectScreen.classList.add('project-active');
+    projectNewsletter.classList.add('project-newsletter-active');
+    navContainer.classList.add('hidden');
+    projectScreenChild.classList.add('negativeIndex')
+})
+
+
+//landing page
+

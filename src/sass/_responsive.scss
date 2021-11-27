@@ -38,7 +38,7 @@
   overflow: hidden;
   // margin-left: 50vw;
  }
- .project-active article.projectScreen__project-project {
+ .project-active article.projectScreen__project-project#project-promo {
   margin: 0 0 0 50vw;
  }
  .project-active
@@ -48,6 +48,30 @@
   width: 100%;
   min-width: 65vw;
   margin: 0 10vw;
+ }
+
+ .projectScreen__project-project#project-transactional,
+ .projectScreen__project-project#project-newsletter {
+  width: 100vw;
+  top: 0;
+  padding: 1em 0;
+ }
+
+ .project-active
+  article.projectScreen__project-project#project-transactional
+  .projectScreen__project-project__wrapper-transactional
+  > img#img-transactional,
+ .project-active
+  article.projectScreen__project-project#project-newsletter
+  .projectScreen__project-project__wrapper-newsletter
+  > img#img-newsletter {
+  margin: 0;
+  width: 100%;
+ }
+
+ div.projectScreen__project-project__wrapper-transactional,
+ div.projectScreen__project-project__wrapper-newsletter {
+  width: 100vw;
  }
 
  i.fa {

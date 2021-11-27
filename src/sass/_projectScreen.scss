@@ -112,6 +112,23 @@
  }
 }
 
+p.projectScreen__project-project__liveLink {
+ font-size: 1.3rem;
+ font-family: Arial, Helvetica, sans-serif;
+ cursor: pointer;
+ margin-bottom: 0.8em;
+ position: relative;
+ //  z-index: 1;
+ > a {
+  color: $liveLinkColor;
+  cursor: pointer;
+ }
+}
+
+.hidden {
+ display: none;
+}
+
 .projectScreen__project {
  display: none;
 }
@@ -121,5 +138,9 @@
 }
 
 .projectScreen__project-project#project-transactional {
- //  display: none;
+ display: none;
+}
+
+.projectScreen__project-project#project-newsletter {
+ display: none;
 }
