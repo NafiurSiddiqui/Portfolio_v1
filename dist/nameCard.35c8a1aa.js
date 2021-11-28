@@ -124,7 +124,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.checkProjectActivation = checkProjectActivation;
-exports.trayActivated = exports.transactionalClass = exports.transactionalActivated = exports.promoClass = exports.promoActivated = exports.projectActivated = exports.newsletterClass = exports.newsletterActivated = exports.landingPageClass = exports.landingPageActivated = exports.contactPageClass = void 0;
+exports.newsletterClass = exports.newsletterActivated = exports.landingPageClass = exports.landingPageActivated = exports.contactPageClass = void 0;
+exports.openProject = openProject;
+exports.trayActivated = exports.transactionalClass = exports.transactionalActivated = exports.promoClass = exports.promoActivated = exports.projectActivated = void 0;
 
 var _nameCard = require("./nameCard");
 
@@ -241,19 +243,17 @@ var nameCardSide__B = document.querySelector('.main-content__card-sideB');
 var arrowContainer = document.querySelector('.svg-arrow__container');
 var arrowContainerId = document.getElementById('arrow-container');
 var body = document.body;
-var mainContent = document.querySelector('.main-content');
+var mainContent = document.querySelector('.main-content'); // console.log(contact);
+
 exports.mainContent = mainContent;
-var promoBtn = document.getElementById('promo');
-var transactionBtn = document.getElementById('transactional');
-var newsletterBtn = document.getElementById('newsletter');
-var newsletterBtnTray = document.getElementById('newsletterTray');
-var landingPageBtn = document.getElementById('promo'); // console.log(contact);
 
 function clearScreen() {
   screenContainer.innerHTML = '';
 }
 
 nameCard.addEventListener('click', function () {
+  console.log('working');
+
   if (_tray.trayActivated === true) {
     body.classList.remove('trayActivate');
     nameCard.classList.add('aboutMeActive');

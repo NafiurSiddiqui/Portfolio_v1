@@ -27,11 +27,7 @@ const arrowContainer = document.querySelector('.svg-arrow__container');
 const arrowContainerId = document.getElementById('arrow-container');
 const body = document.body;
 export const mainContent = document.querySelector('.main-content');
-const promoBtn = document.getElementById('promo');
-const transactionBtn = document.getElementById('transactional');
-const newsletterBtn = document.getElementById('newsletter');
-const newsletterBtnTray = document.getElementById('newsletterTray');
-const landingPageBtn = document.getElementById('promo');
+
 
 
 // console.log(contact);
@@ -41,7 +37,8 @@ function clearScreen() {
 }
 
 
-nameCard.addEventListener('click',function(){   
+nameCard.addEventListener('click',function(){ 
+    console.log('working');  
     if(trayActivated === true){
         body.classList.remove('trayActivate');
         nameCard.classList.add('aboutMeActive');

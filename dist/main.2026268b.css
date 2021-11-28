@@ -542,6 +542,10 @@ span.main-content__screenProject-card-layer {
 .projectPromoActivateMobile .main-content__screen.project#promo-screen {
   display: flex;
 }
+.projectPromoActivateMobile article.main-content__card-container .ghost-div__container div.ghost-div:nth-child(4) {
+  border-bottom: 4px solid rgba(0, 0, 0, 0.116);
+  border-right: 4px solid rgba(0, 0, 0, 0.116);
+}
 
 .projectTransactionActivate section.main-content__screen-container {
   display: inline-block;
@@ -1107,6 +1111,7 @@ div.landingPage.slide2 {
     border-radius: 0.6em;
     width: 100%;
     padding: 2em;
+    z-index: 1;
   }
 
   .projectScreen__project div.navigation-container {

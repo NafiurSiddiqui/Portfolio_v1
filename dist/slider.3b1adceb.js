@@ -117,14 +117,181 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/slider.js":[function(require,module,exports) {
+})({"src/js/nameCard.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mainContent = exports.contactActivated = void 0;
+
+var _tray = require("./tray");
+
+var contactActivated = null;
+exports.contactActivated = contactActivated;
+var contactBtn = document.querySelector('.header__contact');
+var contactScreen = document.getElementById('contact');
+var screenContainer = document.querySelector('.main-content__screen-container');
+var nameCard = document.querySelector('.main-content__card-container__card');
+var nameCardSide__A = document.querySelector('.main-content__card-sideA');
+var nameCardSide__B = document.querySelector('.main-content__card-sideB');
+var arrowContainer = document.querySelector('.svg-arrow__container');
+var arrowContainerId = document.getElementById('arrow-container');
+var body = document.body;
+var mainContent = document.querySelector('.main-content'); // console.log(contact);
+
+exports.mainContent = mainContent;
+
+function clearScreen() {
+  screenContainer.innerHTML = '';
+}
+
+nameCard.addEventListener('click', function () {
+  console.log('working');
+
+  if (_tray.trayActivated === true) {
+    body.classList.remove('trayActivate');
+    nameCard.classList.add('aboutMeActive');
+    nameCard.classList.remove('cardSlideTop');
+    (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, contactActivated, _tray.promoActivated, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, _tray.promoClass);
+  } else if (_tray.trayActivated === false) {
+    arrowContainer.classList.toggle('arrowActivate');
+    nameCard.classList.remove('aboutMeActive');
+    body.classList.toggle('card-active');
+  }
+
+  body.classList.toggle('card-active');
+  arrowContainer.classList.toggle('arrowActivate');
+  nameCard.classList.remove('aboutMeActive');
+});
+contactBtn.addEventListener('click', function () {
+  (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.landingPageActivated, _tray.newsletterActivated, null, _tray.promoClass, _tray.transactionalClass, _tray.landingPageClass, _tray.newsletterClass, null);
+  mainContent.classList.toggle(_tray.contactPageClass);
+  exports.contactActivated = contactActivated = true;
+});
+},{"./tray":"src/js/tray.js"}],"src/js/tray.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkProjectActivation = checkProjectActivation;
+exports.newsletterClass = exports.newsletterActivated = exports.landingPageClass = exports.landingPageActivated = exports.contactPageClass = void 0;
+exports.openProject = openProject;
+exports.trayActivated = exports.transactionalClass = exports.transactionalActivated = exports.promoClass = exports.promoActivated = exports.projectActivated = void 0;
+
+var _nameCard = require("./nameCard");
+
+var body = document.body;
+var nameCard = document.querySelector('.main-content__card-container__card');
+var trayParent = document.querySelector('.main-content__btn-container-tray');
+var tray = document.querySelector('.main-content__btn-container-tray__header-container');
+var promoBtnTray = document.getElementById('promoTray');
+var transactionBtnTray = document.getElementById('transactionalTray');
+var newsletterBtnTray = document.getElementById('newsletterTray');
+var landingPageBtnTray = document.getElementById('promoTray');
+
+function openProject(project) {
+  _nameCard.mainContent.classList.toggle(project);
+
+  trayParent.classList.add('traySlideDown');
+  body.classList.remove('trayActivate');
+}
+
+function checkProjectActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
+  if (a === true || b === true || c === true || d === true || e === true) {
+    _nameCard.mainContent.classList.remove(aN);
+
+    _nameCard.mainContent.classList.remove(bN);
+
+    _nameCard.mainContent.classList.remove(cN);
+
+    _nameCard.mainContent.classList.remove(dN);
+
+    _nameCard.mainContent.classList.remove(eN);
+  }
+}
+
+;
+var trayActivated = null;
+exports.trayActivated = trayActivated;
+var projectActivated = null;
+exports.projectActivated = projectActivated;
+var promoActivated = null;
+exports.promoActivated = promoActivated;
+var transactionalActivated = null;
+exports.transactionalActivated = transactionalActivated;
+var newsletterActivated = null;
+exports.newsletterActivated = newsletterActivated;
+var landingPageActivated = null; // let contactActivated = null;
+
+exports.landingPageActivated = landingPageActivated;
+var promoClass = 'projectPromoActivateMobile';
+exports.promoClass = promoClass;
+var transactionalClass = 'projectTransactionActivate';
+exports.transactionalClass = transactionalClass;
+var newsletterClass = 'projectNewsletterActivate';
+exports.newsletterClass = newsletterClass;
+var landingPageClass = 'projectLandingPageActivate';
+exports.landingPageClass = landingPageClass;
+var contactPageClass = 'contact-page-active';
+exports.contactPageClass = contactPageClass;
+tray.addEventListener('click', function () {
+  console.log('ok');
+  trayParent.classList.remove('traySlideDown');
+  body.classList.toggle('trayActivate');
+  nameCard.classList.add('cardSlideTop');
+  exports.trayActivated = trayActivated = true;
+
+  if (!body.classList.contains('trayActivate')) {
+    nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
+    // body.classList.toggle('card-active');
+
+    exports.trayActivated = trayActivated = false;
+  }
+});
+promoBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  console.log(_nameCard.contactActivated);
+  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, transactionalClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(promoClass);
+  exports.promoActivated = promoActivated = true;
+});
+transactionalTray.addEventListener('click', function () {
+  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(transactionalClass);
+  exports.transactionalActivated = transactionalActivated = true;
+});
+newsletterBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, landingPageClass, contactPageClass, null);
+  openProject(newsletterClass);
+  exports.newsletterActivated = newsletterActivated = true;
+});
+landingPageTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, newsletterClass, contactPageClass, null);
+  openProject(landingPageClass);
+  exports.transactionalActivated = transactionalActivated = true;
+});
+},{"./nameCard":"src/js/nameCard.js"}],"src/js/projects.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.projectWrapper = void 0;
+
+var _tray = require("./tray");
+
+var _nameCard = require("./nameCard");
+
 var projectScreen = document.querySelector('.projectScreen__project');
 var projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
 var projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
+exports.projectWrapper = projectWrapper;
 var projectWrapperLandPage = document.querySelector('.projectScreen__project-project__wrapper-landingPage');
 var cross = document.querySelector('.projectScreen__project-cross');
-var slideLeft = document.querySelector('.fa.fa-angle-left');
-var slideRight = document.querySelector('.fa.fa-angle-right');
 var navContainer = document.querySelector('.navigation-container');
 var projectPromoScreen = document.getElementById('project-promo');
 var projectPromoPreview = document.querySelectorAll('.project-promo__image');
@@ -134,7 +301,6 @@ var projectTransactional = document.getElementById('project-transactional');
 var projectTransactionalPreview = document.getElementById('project-transactional__image');
 var projectNewsletter = document.getElementById('project-newsletter');
 var projectNewsletterPreview = document.getElementById('project-newsletter__img');
-var landingPageSlides = document.querySelectorAll('.landingPage');
 var projectQpickPreviewImg = document.getElementById('project-qpick__img');
 var projectTechwearPreviewImg = document.getElementById('project-techwear__img');
 var projectQpickPreviewVdo = document.getElementById('project-qpick__vdo');
@@ -143,7 +309,16 @@ var projectLandingPageScreen = document.getElementById('project-landingPage');
 var landingPageSlideTechWearImg = document.querySelector('.landingPage.slide1');
 var landingPageSlideTechWearVdo = document.querySelector('.landingPage.slide2');
 var landingPageSlideQpickImg = document.querySelector('.landingPage.slide3');
-var landingPageSlideQpickVdo = document.querySelector('.landingPage.slide4'); // console.log(landingPageSlideQpickVdo);
+var landingPageSlideQpickVdo = document.querySelector('.landingPage.slide4');
+var nameCard = document.querySelector('.main-content__card-container__card'); //desktop project btns
+
+var promoBtn = document.getElementById('promo');
+var transactionBtn = document.getElementById('transactional');
+var newsletterBtn = document.getElementById('newsletter');
+var newsletterBtnTray = document.getElementById('newsletterTray');
+var landingPageBtn = document.getElementById('promo'); // console.log(landingPageSlideQpickVdo);
+
+var promoActivatedDesktop = null;
 
 var projectScreenReset = function projectScreenReset() {
   projectPromoScreen.classList.remove('project-promo-active');
@@ -166,53 +341,14 @@ cross.addEventListener('click', function () {
   projectScreen.classList.remove('project-active');
   projectScreenChild.classList.remove('negativeIndex');
   projectScreenReset();
-}); //slider for promo mail
+}); //promo mails
 
-slideLeft.addEventListener('click', function () {
-  // console.log('cool');
-  projectWrapper.classList.remove('slideLeft');
+promoBtn.addEventListener('click', function () {
+  console.log('hello');
+  (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, _nameCard.contactActivated, null, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  (0, _tray.openProject)(_tray.promoClass);
+  promoActivatedDesktop = true; // nameCard.classList.add('hidden');
 });
-slideRight.addEventListener('click', function () {
-  // console.log('cool');
-  projectWrapper.classList.add('slideLeft');
-}); //slider for landing page
-
-var curSlide = 0;
-var maxSlide = landingPageSlides.length;
-
-var jumpToSlide = function jumpToSlide(slide) {
-  landingPageSlides.forEach(function (s, i) {
-    s.style.transform = "translateX(".concat(120 * (i - slide), "%)");
-  });
-};
-
-var nextSlide = function nextSlide() {
-  if (curSlide === maxSlide - 1) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
-
-  jumpToSlide(curSlide);
-};
-
-var prevSlide = function prevSlide() {
-  if (curSlide === 0) {
-    curSlide = maxSlide - 1;
-  } else {
-    curSlide--;
-  }
-
-  jumpToSlide(curSlide);
-};
-
-landingPageSlides.forEach(function (s, i) {
-  s.style.transform = "translateX(".concat(120 * i, "%)");
-});
-slideLeft.addEventListener('click', prevSlide);
-slideRight.addEventListener('click', nextSlide); // * PREVIEWS
-//promo mails
-
 projectPromoPreview__codeschool.addEventListener('click', function () {
   // console.log('ok');
   projectScreen.classList.add('project-active');
@@ -257,6 +393,7 @@ projectQpickPreviewVdo.addEventListener('click', function () {
   projectLandingPageScreen.classList.add('project-landingPage-active'); //activate qpick image
 
   landingPageSlideQpickVdo.style.transform = "translateX(0%)";
+  projectScreenChild.classList.add('negativeIndex');
 });
 projectTechwearPreviewImg.addEventListener('click', function () {
   //activate the parent project container
@@ -272,8 +409,61 @@ projectTechwearPreviewVdo.addEventListener('click', function () {
   projectLandingPageScreen.classList.add('project-landingPage-active'); // //activate qpick image
 
   landingPageSlideTechWearVdo.style.transform = "translateX(0%)";
+  projectScreenChild.classList.add('negativeIndex');
 });
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js"}],"src/js/slider.js":[function(require,module,exports) {
+"use strict";
+
+var _projects = require("./projects");
+
+var landingPageSlides = document.querySelectorAll('.landingPage');
+var slideLeft = document.querySelector('.fa.fa-angle-left');
+var slideRight = document.querySelector('.fa.fa-angle-right'); //slider for promo mail
+
+slideLeft.addEventListener('click', function () {
+  // console.log('cool');
+  _projects.projectWrapper.classList.remove('slideLeft');
+});
+slideRight.addEventListener('click', function () {
+  // console.log('cool');
+  _projects.projectWrapper.classList.add('slideLeft');
+}); //slider for landing page
+
+var curSlide = 0;
+var maxSlide = landingPageSlides.length;
+
+var jumpToSlide = function jumpToSlide(slide) {
+  landingPageSlides.forEach(function (s, i) {
+    s.style.transform = "translateX(".concat(120 * (i - slide), "%)");
+  });
+};
+
+var nextSlide = function nextSlide() {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
+  jumpToSlide(curSlide);
+};
+
+var prevSlide = function prevSlide() {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+
+  jumpToSlide(curSlide);
+};
+
+landingPageSlides.forEach(function (s, i) {
+  s.style.transform = "translateX(".concat(120 * i, "%)");
+});
+slideLeft.addEventListener('click', prevSlide);
+slideRight.addEventListener('click', nextSlide);
+},{"./projects":"src/js/projects.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

@@ -13,7 +13,7 @@ const landingPageBtnTray = document.getElementById('promoTray');
 
 
 
-function openProject(project){
+export function openProject(project){
      mainContent.classList.toggle(project);
      trayParent.classList.add('traySlideDown');
      body.classList.remove('trayActivate');  
