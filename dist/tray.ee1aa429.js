@@ -117,74 +117,89 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"src/js/tray.js":[function(require,module,exports) {
+"use strict";
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkProjectActivation = checkProjectActivation;
+var body = document.body;
+var nameCard = document.querySelector('.main-content__card-container__card');
+var trayParent = document.querySelector('.main-content__btn-container-tray');
+var tray = document.querySelector('.main-content__btn-container-tray__header-container');
+var promoBtnTray = document.getElementById('promoTray');
+var transactionBtnTray = document.getElementById('transactionalTray');
+var newsletterBtnTray = document.getElementById('newsletterTray');
+var landingPageBtnTray = document.getElementById('promoTray');
+
+function openProject(project) {
+  mainContent.classList.toggle(project);
+  trayParent.classList.add('traySlideDown');
+  body.classList.remove('trayActivate');
+}
+
+function checkProjectActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
+  if (a === true || b === true || c === true || d === true || e === true) {
+    mainContent.classList.remove(aN);
+    mainContent.classList.remove(bN);
+    mainContent.classList.remove(cN);
+    mainContent.classList.remove(dN);
+    mainContent.classList.remove(eN);
   }
-
-  return bundleURL;
 }
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+;
+var trayActivated = null;
+var projectActivated = null;
+var promoActivated = null;
+var transactionalActivated = null;
+var newsletterActivated = null;
+var landingPageActivated = null;
+var contactActivated = null;
+var promoClass = 'projectPromoActivateMobile';
+var transactionalClass = 'projectTransactionActivate';
+var newsletterClass = 'projectNewsletterActivate';
+var landingPageClass = 'projectLandingPageActivate';
+var contactPageClass = 'contact-page-active';
+tray.addEventListener('click', function () {
+  console.log('ok');
+  trayParent.classList.remove('traySlideDown');
+  body.classList.toggle('trayActivate');
+  nameCard.classList.add('cardSlideTop');
+  trayActivated = true;
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
+  if (!body.classList.contains('trayActivate')) {
+    nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
+    // body.classList.toggle('card-active');
+
+    trayActivated = false;
   }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+});
+promoBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, contactActivated, null, transactionalClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(promoClass);
+  promoActivated = true;
+});
+transactionalTray.addEventListener('click', function () {
+  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, contactActivated, null, promoClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(transactionalClass);
+  transactionalActivated = true;
+});
+newsletterBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, contactActivated, null, promoClass, transactionalClass, landingPageClass, contactPageClass, null);
+  openProject(newsletterClass);
+  newsletterActivated = true;
+});
+landingPageTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, contactActivated, null, promoClass, transactionalClass, newsletterClass, contactPageClass, null);
+  openProject(landingPageClass);
+  transactionalActivated = true;
+});
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -388,5 +403,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/index.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/tray.js"], null)
+//# sourceMappingURL=/tray.ee1aa429.js.map
