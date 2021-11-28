@@ -87,6 +87,7 @@
  @include cardRotation;
 }
 
+//card logic
 .project-active {
  h1.main-content__card-sideB-heading {
   position: absolute;
@@ -176,6 +177,15 @@
  }
 }
 
+.contact-page-active {
+ section.main-content__screen-container {
+  display: inline-block;
+ }
+ .main-content__screen.project#contact {
+  display: flex;
+  overflow: hidden;
+ }
+}
 .traySlideDown {
  transform: translateY(0%);
 }
@@ -361,6 +371,10 @@
  display: inline-block !important;
 }
 .project-transactional-active {
+ display: inline-block !important;
+}
+
+.project-landingPage-active {
  display: inline-block !important;
 }
 

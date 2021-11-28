@@ -128,36 +128,101 @@ var slideRight = document.querySelector('.fa.fa-angle-right');
 var navContainer = document.querySelector('.navigation-container');
 var projectPromoScreen = document.getElementById('project-promo');
 var projectPromoPreview = document.querySelectorAll('.project-promo__image');
+var projectPromoPreview__codeschool = document.getElementById('project-promo__img-codeschool');
+var projectPromoPreview__meal = document.getElementById('project-promo__img-meal');
 var projectTransactional = document.getElementById('project-transactional');
 var projectTransactionalPreview = document.getElementById('project-transactional__image');
 var projectNewsletter = document.getElementById('project-newsletter');
 var projectNewsletterPreview = document.getElementById('project-newsletter__img');
-console.log(projectWrapperLandPage); //closing modals
+var landingPageSlides = document.querySelectorAll('.landingPage');
+var projectQpickPreviewImg = document.getElementById('project-qpick__img');
+var projectTechwearPreviewImg = document.getElementById('project-techwear__img');
+var projectQpickPreviewVdo = document.getElementById('project-qpick__vdo');
+var projectTechwearPreviewVdo = document.getElementById('project-techwear__vdo');
+var projectLandingPageScreen = document.getElementById('project-landingPage');
+var landingPageSlideTechWearImg = document.querySelector('.landingPage.slide1');
+var landingPageSlideTechWearVdo = document.querySelector('.landingPage.slide2');
+var landingPageSlideQpickImg = document.querySelector('.landingPage.slide3');
+var landingPageSlideQpickVdo = document.querySelector('.landingPage.slide4'); // console.log(landingPageSlideQpickVdo);
+
+var projectScreenReset = function projectScreenReset() {
+  projectPromoScreen.classList.remove('project-promo-active');
+  projectTransactional.classList.remove('project-transactional-active');
+  projectNewsletter.classList.remove('project-newsletter-active');
+  projectLandingPageScreen.classList.remove('project-landingPage-active');
+  landingPageSlideQpickVdo.style.transform = "translateX(360%)";
+  landingPageSlideTechWearVdo.style.transform = "translateX(120%)";
+  landingPageSlideQpickImg.style.transform = "translateX(240%)";
+}; //closing modals
+
 
 projectScreenChild.addEventListener('click', function () {
   console.log('cool');
   projectScreen.classList.remove('project-active');
   projectScreenChild.classList.remove('negativeIndex');
+  projectScreenReset();
 });
 cross.addEventListener('click', function () {
   projectScreen.classList.remove('project-active');
   projectScreenChild.classList.remove('negativeIndex');
-}); //slider
+  projectScreenReset();
+}); //slider for promo mail
 
 slideLeft.addEventListener('click', function () {
-  console.log('cool');
+  // console.log('cool');
   projectWrapper.classList.remove('slideLeft');
 });
 slideRight.addEventListener('click', function () {
-  console.log('cool');
+  // console.log('cool');
   projectWrapper.classList.add('slideLeft');
-}); //promo mails
+}); //slider for landing page
 
-projectPromoPreview.forEach(function (btns) {
-  btns.addEventListener('click', function () {
-    projectScreen.classList.add('project-active');
-    projectPromoScreen.classList.add('project-promo-active');
+var curSlide = 0;
+var maxSlide = landingPageSlides.length;
+
+var jumpToSlide = function jumpToSlide(slide) {
+  landingPageSlides.forEach(function (s, i) {
+    s.style.transform = "translateX(".concat(120 * (i - slide), "%)");
   });
+};
+
+var nextSlide = function nextSlide() {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
+  jumpToSlide(curSlide);
+};
+
+var prevSlide = function prevSlide() {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+
+  jumpToSlide(curSlide);
+};
+
+landingPageSlides.forEach(function (s, i) {
+  s.style.transform = "translateX(".concat(120 * i, "%)");
+});
+slideLeft.addEventListener('click', prevSlide);
+slideRight.addEventListener('click', nextSlide); // * PREVIEWS
+//promo mails
+
+projectPromoPreview__codeschool.addEventListener('click', function () {
+  // console.log('ok');
+  projectScreen.classList.add('project-active');
+  projectPromoScreen.classList.add('project-promo-active');
+});
+projectPromoPreview__meal.addEventListener('click', function () {
+  console.log('ok');
+  projectScreen.classList.add('project-active');
+  projectPromoScreen.classList.add('project-promo-active');
+  projectWrapper.classList.add('slideLeft');
 }); //transactional mail
 
 projectTransactionalPreview.addEventListener('click', function () {
@@ -176,6 +241,38 @@ projectNewsletterPreview.addEventListener('click', function () {
   navContainer.classList.add('hidden');
   projectScreenChild.classList.add('negativeIndex');
 }); //landing page
+
+projectQpickPreviewImg.addEventListener('click', function () {
+  //activate the parent project container
+  projectScreen.classList.add('project-active'); //activate the landingpage screen 
+
+  projectLandingPageScreen.classList.add('project-landingPage-active'); //activate qpick image
+
+  landingPageSlideQpickImg.style.transform = "translateX(0%)";
+});
+projectQpickPreviewVdo.addEventListener('click', function () {
+  //activate the parent project container
+  projectScreen.classList.add('project-active'); //activate the landingpage screen 
+
+  projectLandingPageScreen.classList.add('project-landingPage-active'); //activate qpick image
+
+  landingPageSlideQpickVdo.style.transform = "translateX(0%)";
+});
+projectTechwearPreviewImg.addEventListener('click', function () {
+  //activate the parent project container
+  projectScreen.classList.add('project-active'); //activate the landingpage screen 
+
+  projectLandingPageScreen.classList.add('project-landingPage-active'); // //activate qpick image
+  // landingPageSlideQpickVdo.style.transform = `translateX(0%)`;
+});
+projectTechwearPreviewVdo.addEventListener('click', function () {
+  //activate the parent project container
+  projectScreen.classList.add('project-active'); //activate the landingpage screen 
+
+  projectLandingPageScreen.classList.add('project-landingPage-active'); // //activate qpick image
+
+  landingPageSlideTechWearVdo.style.transform = "translateX(0%)";
+});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -204,7 +301,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55076" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59716" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

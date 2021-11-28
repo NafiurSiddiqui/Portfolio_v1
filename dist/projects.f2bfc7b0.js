@@ -117,126 +117,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/nameCard.js":[function(require,module,exports) {
-"use strict";
+})({"src/js/projects.js":[function(require,module,exports) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.trayParent = exports.promoBtn = void 0;
-var contactBtn = document.querySelector('.header__contact');
-var contactScreen = document.getElementById('contact');
-var screenContainer = document.querySelector('.main-content__screen-container');
-var nameCard = document.querySelector('.main-content__card-container__card');
-var nameCardSide__A = document.querySelector('.main-content__card-sideA');
-var nameCardSide__B = document.querySelector('.main-content__card-sideB');
-var arrowContainer = document.querySelector('.svg-arrow__container');
-var arrowContainerId = document.getElementById('arrow-container');
-var trayParent = document.querySelector('.main-content__btn-container-tray');
-exports.trayParent = trayParent;
-var tray = document.querySelector('.main-content__btn-container-tray__header-container');
-var body = document.body;
-var mainContent = document.querySelector('.main-content');
-var promoBtn = document.getElementById('promo');
-exports.promoBtn = promoBtn;
-var promoBtnTray = document.getElementById('promoTray');
-var transactionBtn = document.getElementById('transactional');
-var transactionBtnTray = document.getElementById('transactionalTray');
-var newsletterBtn = document.getElementById('newsletter');
-var newsletterBtnTray = document.getElementById('newsletterTray');
-var landingPageBtn = document.getElementById('promo');
-var landingPageBtnTray = document.getElementById('promoTray'); // console.log(contact);
-
-function clearScreen() {
-  screenContainer.innerHTML = '';
-}
-
-function openProject(project) {
-  mainContent.classList.toggle(project);
-  trayParent.classList.add('traySlideDown');
-  body.classList.remove('trayActivate');
-}
-
-function checkProjectActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
-  if (a === true || b === true || c === true || d === true || e === true) {
-    mainContent.classList.remove(aN);
-    mainContent.classList.remove(bN);
-    mainContent.classList.remove(cN);
-    mainContent.classList.remove(dN);
-    mainContent.classList.remove(eN);
-  }
-}
-
-;
-var trayActivated = null;
-var projectActivated = null;
-var promoActivated = null;
-var transactionalActivated = null;
-var newsletterActivated = null;
-var landingPageActivated = null;
-var contactActivated = null;
-var promoClass = 'projectPromoActivateMobile';
-var transactionalClass = 'projectTransactionActivate';
-var newsletterClass = 'projectNewsletterActivate';
-var landingPageClass = 'projectLandingPageActivate';
-var contactPageClass = 'contact-page-active';
-tray.addEventListener('click', function () {
-  trayParent.classList.remove('traySlideDown');
-  body.classList.toggle('trayActivate');
-  nameCard.classList.add('cardSlideTop');
-  trayActivated = true;
-
-  if (!body.classList.contains('trayActivate')) {
-    nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
-    // body.classList.toggle('card-active');
-
-    trayActivated = false;
-  }
-});
-nameCard.addEventListener('click', function () {
-  if (trayActivated === true) {
-    body.classList.remove('trayActivate');
-    nameCard.classList.add('aboutMeActive');
-    nameCard.classList.remove('cardSlideTop');
-    checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, contactActivated, promoActivated, transactionalClass, newsletterClass, landingPageClass, contactPageClass, promoClass);
-  } else if (trayActivated === false) {
-    arrowContainer.classList.toggle('arrowActivate');
-    nameCard.classList.remove('aboutMeActive');
-    body.classList.toggle('card-active');
-  }
-
-  body.classList.toggle('card-active');
-  arrowContainer.classList.toggle('arrowActivate');
-  nameCard.classList.remove('aboutMeActive');
-});
-promoBtnTray.addEventListener('click', function () {
-  console.log('clicked!');
-  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, contactActivated, null, transactionalClass, newsletterClass, landingPageClass, contactPageClass, null);
-  openProject(promoClass);
-  promoActivated = true;
-});
-transactionalTray.addEventListener('click', function () {
-  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, contactActivated, null, promoClass, newsletterClass, landingPageClass, contactPageClass, null);
-  openProject(transactionalClass);
-  transactionalActivated = true;
-});
-newsletterBtnTray.addEventListener('click', function () {
-  console.log('clicked!');
-  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, contactActivated, null, promoClass, transactionalClass, landingPageClass, contactPageClass, null);
-  openProject(newsletterClass);
-  newsletterActivated = true;
-});
-landingPageTray.addEventListener('click', function () {
-  console.log('clicked!');
-  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, contactActivated, null, promoClass, transactionalClass, newsletterClass, contactPageClass, null);
-  openProject(landingPageClass);
-  transactionalActivated = true;
-});
-contactBtn.addEventListener('click', function () {
-  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, newsletterActivated, null, promoClass, transactionalClass, landingPageClass, newsletterClass, null);
-  mainContent.classList.toggle(contactPageClass);
-  contactActivated = true;
-});
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -441,5 +323,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/nameCard.js"], null)
-//# sourceMappingURL=/nameCard.35c8a1aa.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/projects.js"], null)
+//# sourceMappingURL=/projects.f2bfc7b0.js.map

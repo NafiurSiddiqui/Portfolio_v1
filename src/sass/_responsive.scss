@@ -357,6 +357,13 @@
   height: 256px;
  }
 
+ div.landingPage.slide4,
+ div.landingPage.slide2 {
+  background: #201e1e;
+  border-radius: 0.6em;
+  width: 100%;
+  padding: 2em;
+ }
  .projectScreen__project div.navigation-container {
   position: relative;
   top: 3vh;

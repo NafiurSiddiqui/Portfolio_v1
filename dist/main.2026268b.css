@@ -564,6 +564,14 @@ span.main-content__screenProject-card-layer {
   display: flex;
 }
 
+.contact-page-active section.main-content__screen-container {
+  display: inline-block;
+}
+.contact-page-active .main-content__screen.project#contact {
+  display: flex;
+  overflow: hidden;
+}
+
 .traySlideDown {
   transform: translateY(0%);
 }
@@ -740,6 +748,10 @@ span.main-content__screenProject-card-layer {
 }
 
 .project-transactional-active {
+  display: inline-block !important;
+}
+
+.project-landingPage-active {
   display: inline-block !important;
 }
 
@@ -1089,6 +1101,14 @@ img#img-qpick {
     height: 256px;
   }
 
+  div.landingPage.slide4,
+div.landingPage.slide2 {
+    background: #201e1e;
+    border-radius: 0.6em;
+    width: 100%;
+    padding: 2em;
+  }
+
   .projectScreen__project div.navigation-container {
     position: relative;
     top: 3vh;
@@ -1261,6 +1281,11 @@ p.projectScreen__project-project__liveLink > a {
   cursor: pointer;
 }
 
+div.landingPage {
+  position: absolute;
+  transition: all 400ms ease-in-out;
+}
+
 .hidden {
   display: none;
 }
@@ -1278,6 +1303,10 @@ p.projectScreen__project-project__liveLink > a {
 }
 
 .projectScreen__project-project#project-newsletter {
+  display: none;
+}
+
+.projectScreen__project-project#project-landingPage {
   display: none;
 }
 

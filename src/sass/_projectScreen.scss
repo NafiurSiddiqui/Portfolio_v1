@@ -158,6 +158,17 @@ p.projectScreen__project-project__liveLink {
  }
 }
 
+div.landingPage {
+ position: absolute;
+ @include transition-ease;
+}
+
+// div.landingPage.slide4{
+//     background : #201e1e;
+//     width : 100%;
+//     padding : 2em;
+// }
+
 .hidden {
  display: none;
 }
@@ -175,5 +186,9 @@ p.projectScreen__project-project__liveLink {
 }
 
 .projectScreen__project-project#project-newsletter {
+ display: none;
+}
+
+.projectScreen__project-project#project-landingPage {
  display: none;
 }

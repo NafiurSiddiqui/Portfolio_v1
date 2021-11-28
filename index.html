@@ -33,7 +33,9 @@
   />
   <script defer src="./src/js/nameCard.js"></script>
   <script defer src="./src/js/slider.js"></script>
+  <script defer src="./src/js/projects.js"></script>
   <title>Nafiur Rahman Siddiqui Portfolio</title>
+  
  </head>
  <body class="body">
   <div class="container">
@@ -90,7 +92,10 @@
 
      <!-- project screen -->
 
-     <section class="main-content__screen-container">
+     <section class="main-content__screen-container  ">
+       <h1 class="main-content__screen-contact__header">
+          
+        </h1>
       <div class="main-content__screen project" id="promo-screen">
        <h1 class="main-content__screenproject-header">Promotional mail</h1>
 
@@ -104,6 +109,7 @@
             alt="closed eye icon"
             title="preview"
             class="project-promo__image"
+            id="project-promo__img-codeschool"
            />
            <a href="http://" target="_blank" rel="noopener noreferrer">
             <img src="src/img/code.svg" alt="code icon" title="Source code" />
@@ -121,6 +127,7 @@
             alt="closed eye icon"
             title="preview"
             class="project-promo__image"
+            id="project-promo__img-meal"
            />
            <a href="http://" target="_blank" rel="noopener noreferrer">
             <img src="src/img/code.svg" alt="code icon" title="Source code" />
@@ -184,13 +191,16 @@
             src="src/img/eye_closed.svg"
             alt="closed eye icon"
             title="preview"
+            id="project-qpick__img"
            />
            <img
             src="src/img/PlayBtn.svg"
             alt="closed eye icon"
             title="Wanna see a vdo of this project?"
+            id="project-qpick__vdo"
            />
-           <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           <img src="src/img/code.svg" alt="code icon" title="Source code"
+           id="project-qpick__code" />
           </div>
          </span>
         </div>
@@ -203,13 +213,16 @@
             src="src/img/eye_closed.svg"
             alt="closed eye icon"
             title="preview"
+            id="project-techwear__img"
            />
            <img
             src="src/img/PlayBtn.svg"
             alt="closed eye icon"
             title="Wanna see a vdo of this project?"
+            id="project-techwear__vdo"
            />
-           <img src="src/img/code.svg" alt="code icon" title="Source code" />
+           <img src="src/img/code.svg" alt="code icon" title="Source code"
+           id="project-techwear__code" />
           </div>
          </span>
         </div>
@@ -217,6 +230,8 @@
       </div>
 
       <div class="main-content__screen project" id="contact">
+
+       
        <div class="contact__mail-container">
         <p class="contact-screen-text">
          <span class="contact-screen-text__email"> Email : </span>
@@ -385,7 +400,7 @@
 
    <!-- modals used as project screen -->
 
-   <section class="projectScreen__project project-active">
+   <section class="projectScreen__project ">
     <div class="projectScreen__project_modal-close"></div>
     <span class="projectScreen__project-cross"> &#10799; </span>
 
@@ -430,11 +445,12 @@
 
     <article class="projectScreen__project-project" id="project-landingPage">
      <h1 class="projectScreen__project-project__header-landingPage">Landing Page</h1>
-      <p class="projectScreen__project-project__liveLink"><a href="//">
-        See it live online here
-     </a></p>
+     
      <div class="projectScreen__project-project__wrapper-landingPage ">
        <div class="landingPage slide1">
+          <p class="projectScreen__project-project__liveLink"><a href="//">
+        See it live online here
+     </a></p>
           <img
        src="./src/img/techwearLandingPage.png"
        alt="techwear Landing Page"
@@ -443,6 +459,9 @@
        </div>
 
       <div class="landingPage slide2">
+         <p class="projectScreen__project-project__liveLink"><a href="//">
+        See it live online here
+     </a></p>
         <video width="400" height="auto" controls>
             <source src="./src/vdo/Techwear Landing Page.mp4" type="video/mp4">
             <source src="./src/vdo/Techwear-Landing-Page.ogg" type="video/ogg">
@@ -451,10 +470,16 @@
       </div>
 
       <div class="landingPage slide3">
+         <p class="projectScreen__project-project__liveLink"><a href="//">
+        See it live online here
+     </a></p>
         <img src="./src/img/qpickLandingPage.png" alt="qpick ewallet landingPage" id="img-qpick" />
       </div>
 
       <div class="landingPage slide4">
+         <p class="projectScreen__project-project__liveLink"><a href="//">
+        See it live online here
+     </a></p>
          <video  width="400" height="300" controls>
           <source src="./src/vdo/qpick landing page.mp4" type="video/mp4">
           <source src="./src/vdo/qpick-landing-page.ogg" type="video/ogg">
