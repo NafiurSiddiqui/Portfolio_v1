@@ -1,4 +1,4 @@
-import { checkProjectActivation } from "./tray";
+// import { checkProjectActivation } from "./tray";
 import { promoActivated } from "./tray";
 import { transactionalActivated } from "./tray";
 import { newsletterActivated } from "./tray";
@@ -12,6 +12,8 @@ import { trayActivated } from "./tray";
 import { contactActivated } from "./nameCard";
 import { openProject } from "./tray";
 
+
+const body = document.body;
 const projectScreen = document.querySelector('.projectScreen__project');
 const projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
 export const projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
@@ -38,17 +40,21 @@ const landingPageSlideTechWearVdo = document.querySelector('.landingPage.slide2'
 const landingPageSlideQpickImg = document.querySelector('.landingPage.slide3');
 const landingPageSlideQpickVdo = document.querySelector('.landingPage.slide4');
 const nameCard= document.querySelector('.main-content__card-container__card');
+
 //desktop project btns
 const promoBtn = document.getElementById('promo');
 const transactionBtn = document.getElementById('transactional');
 const newsletterBtn = document.getElementById('newsletter');
 const newsletterBtnTray = document.getElementById('newsletterTray');
-const landingPageBtn = document.getElementById('promo');
+const landingPageBtn = document.getElementById('landingPage');
 
 // console.log(landingPageSlideQpickVdo);
 
 let promoActivatedDesktop = null;
-
+let transactionalActivatedDesktop = null;
+let newsletterActivatedDesktop = null;
+let landingPageActivatedDesktop = null;
+let contactActivatedDesktop = null;
 
 const projectScreenReset = function() {
     projectPromoScreen.classList.remove('project-promo-active');
@@ -59,6 +65,32 @@ const projectScreenReset = function() {
      landingPageSlideTechWearVdo.style.transform = `translateX(120%)`;
      landingPageSlideQpickImg.style.transform = `translateX(240%)`;
 }
+
+function checkOtherBodyActivation(){
+    if(body.classList.contains('card-active' || 'trayActivate')){
+        body.classList.remove('card-active');
+    }
+};
+
+function checkProjectBodyActivation(a,b,c,d,e,aN,bN,cN,dN,eN){
+     if(a  === true || b === true || c === true || d === true || e === true){
+        body.classList.remove(aN);
+        body.classList.remove(bN);
+        body.classList.remove(cN);
+        body.classList.remove(dN);
+        body.classList.remove(eN);
+    }
+};
+
+
+
+
+function openProjectDektop(project){
+     body.classList.toggle(project);
+      
+}
+
+
 
 //closing modals
 
@@ -83,8 +115,8 @@ cross.addEventListener('click',()=>{
 
 promoBtn.addEventListener('click',()=>{
     console.log('hello');
-    checkProjectActivation(transactionalActivated,newsletterActivated,landingPageActivated, contactActivated,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null)
-    openProject(promoClass);
+    checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop, contactActivatedDesktop,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null)
+    openProjectDektop(promoClass);
     promoActivatedDesktop = true;
     // nameCard.classList.add('hidden');
 })
@@ -106,6 +138,13 @@ projectPromoPreview__meal.addEventListener('click',()=>{
 
 //transactional mail
 
+transactionBtn.addEventListener('click',()=>{
+     checkProjectBodyActivation(promoActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop,contactActivatedDesktop,null,
+        promoClass,newsletterClass,landingPageClass,contactPageClass,null)
+    openProjectDektop(transactionalClass);
+    transactionalActivatedDesktop = true;
+})
+
 projectTransactionalPreview.addEventListener('click',()=>{
     console.log('working!');
     console.log(projectTransactional.classList);
@@ -115,6 +154,15 @@ projectTransactionalPreview.addEventListener('click',()=>{
 })
 
 //newsletter mail
+
+newsletterBtn.addEventListener('click',()=>{
+     checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,landingPageActivatedDesktop,contactActivatedDesktop,null,promoClass,
+        transactionalClass,landingPageClass,contactPageClass,null)
+    openProjectDektop(newsletterClass);
+    newsletterActivatedDesktop = true;
+
+})
+
 
 projectNewsletterPreview.addEventListener('click',()=>{
     console.log('working!');
@@ -127,6 +175,17 @@ projectNewsletterPreview.addEventListener('click',()=>{
 
 
 //landing page
+
+
+landingPageBtn.addEventListener('click',()=>{
+    console.log('ok');
+      checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,newsletterActivatedDesktop,contactActivatedDesktop,null,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,null)
+    openProjectDektop(landingPageClass);
+    landingPageActivatedDesktop = true;
+})
+
+
 
 projectQpickPreviewImg.addEventListener('click',()=>{
     //activate the parent project container

@@ -122,13 +122,16 @@
 
 .fa {
  color: whitesmoke;
- font-size: 3.4rem;
+
  background-color: rgb(33, 143, 143);
  //   background-color: #39a397;
  border-radius: 50%;
  padding: 0.2em;
  width: 1.4em;
- margin: 0 1em;
+ //  margin: 0 1em;
+ margin: 0 1em 0 0.4em;
+ //  font-size: 4.2rem;
+ font-weight: bold;
  display: none;
  cursor: pointer;
  &:hover {
@@ -138,11 +141,13 @@
 .fa.fa-angle-left {
  position: absolute;
  left: 0;
+ font-size: 4.2rem;
 }
 
 .fa.fa-angle-right {
  position: absolute;
  right: 0;
+ font-size: 4.2rem;
 }
 
 p.projectScreen__project-project__liveLink {

@@ -226,7 +226,7 @@ exports.newsletterActivated = newsletterActivated;
 var landingPageActivated = null; // let contactActivated = null;
 
 exports.landingPageActivated = landingPageActivated;
-var promoClass = 'projectPromoActivateMobile';
+var promoClass = 'projectPromoActivate';
 exports.promoClass = promoClass;
 var transactionalClass = 'projectTransactionActivate';
 exports.transactionalClass = transactionalClass;
@@ -244,9 +244,7 @@ tray.addEventListener('click', function () {
   exports.trayActivated = trayActivated = true;
 
   if (!body.classList.contains('trayActivate')) {
-    nameCard.classList.remove('cardSlideTop'); //    nameCard.classList.add('aboutMeActive')
-    // body.classList.toggle('card-active');
-
+    nameCard.classList.remove('cardSlideTop');
     exports.trayActivated = trayActivated = false;
   }
 });
@@ -286,6 +284,8 @@ var _tray = require("./tray");
 
 var _nameCard = require("./nameCard");
 
+// import { checkProjectActivation } from "./tray";
+var body = document.body;
 var projectScreen = document.querySelector('.projectScreen__project');
 var projectScreenChild = document.querySelector('.projectScreen__project_modal-close ');
 var projectWrapper = document.querySelector('.projectScreen__project-project__wrapper');
@@ -316,9 +316,13 @@ var promoBtn = document.getElementById('promo');
 var transactionBtn = document.getElementById('transactional');
 var newsletterBtn = document.getElementById('newsletter');
 var newsletterBtnTray = document.getElementById('newsletterTray');
-var landingPageBtn = document.getElementById('promo'); // console.log(landingPageSlideQpickVdo);
+var landingPageBtn = document.getElementById('landingPage'); // console.log(landingPageSlideQpickVdo);
 
 var promoActivatedDesktop = null;
+var transactionalActivatedDesktop = null;
+var newsletterActivatedDesktop = null;
+var landingPageActivatedDesktop = null;
+var contactActivatedDesktop = null;
 
 var projectScreenReset = function projectScreenReset() {
   projectPromoScreen.classList.remove('project-promo-active');
@@ -328,7 +332,31 @@ var projectScreenReset = function projectScreenReset() {
   landingPageSlideQpickVdo.style.transform = "translateX(360%)";
   landingPageSlideTechWearVdo.style.transform = "translateX(120%)";
   landingPageSlideQpickImg.style.transform = "translateX(240%)";
-}; //closing modals
+};
+
+function checkOtherBodyActivation() {
+  if (body.classList.contains('card-active' || 'trayActivate')) {
+    body.classList.remove('card-active');
+  }
+}
+
+;
+
+function checkProjectBodyActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
+  if (a === true || b === true || c === true || d === true || e === true) {
+    body.classList.remove(aN);
+    body.classList.remove(bN);
+    body.classList.remove(cN);
+    body.classList.remove(dN);
+    body.classList.remove(eN);
+  }
+}
+
+;
+
+function openProjectDektop(project) {
+  body.classList.toggle(project);
+} //closing modals
 
 
 projectScreenChild.addEventListener('click', function () {
@@ -345,8 +373,8 @@ cross.addEventListener('click', function () {
 
 promoBtn.addEventListener('click', function () {
   console.log('hello');
-  (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, _nameCard.contactActivated, null, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
-  (0, _tray.openProject)(_tray.promoClass);
+  checkProjectBodyActivation(transactionalActivatedDesktop, newsletterActivatedDesktop, landingPageActivatedDesktop, contactActivatedDesktop, null, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  openProjectDektop(_tray.promoClass);
   promoActivatedDesktop = true; // nameCard.classList.add('hidden');
 });
 projectPromoPreview__codeschool.addEventListener('click', function () {
@@ -361,6 +389,11 @@ projectPromoPreview__meal.addEventListener('click', function () {
   projectWrapper.classList.add('slideLeft');
 }); //transactional mail
 
+transactionBtn.addEventListener('click', function () {
+  checkProjectBodyActivation(promoActivatedDesktop, newsletterActivatedDesktop, landingPageActivatedDesktop, contactActivatedDesktop, null, _tray.promoClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  openProjectDektop(_tray.transactionalClass);
+  transactionalActivatedDesktop = true;
+});
 projectTransactionalPreview.addEventListener('click', function () {
   console.log('working!');
   console.log(projectTransactional.classList);
@@ -369,6 +402,11 @@ projectTransactionalPreview.addEventListener('click', function () {
   navContainer.classList.add('hidden');
 }); //newsletter mail
 
+newsletterBtn.addEventListener('click', function () {
+  checkProjectBodyActivation(promoActivatedDesktop, transactionalActivatedDesktop, landingPageActivatedDesktop, contactActivatedDesktop, null, _tray.promoClass, _tray.transactionalClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  openProjectDektop(_tray.newsletterClass);
+  newsletterActivatedDesktop = true;
+});
 projectNewsletterPreview.addEventListener('click', function () {
   console.log('working!'); // console.log(projectNewsletter.classList);
 
@@ -378,6 +416,12 @@ projectNewsletterPreview.addEventListener('click', function () {
   projectScreenChild.classList.add('negativeIndex');
 }); //landing page
 
+landingPageBtn.addEventListener('click', function () {
+  console.log('ok');
+  checkProjectBodyActivation(promoActivatedDesktop, transactionalActivatedDesktop, newsletterActivatedDesktop, contactActivatedDesktop, null, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, null);
+  openProjectDektop(_tray.landingPageClass);
+  landingPageActivatedDesktop = true;
+});
 projectQpickPreviewImg.addEventListener('click', function () {
   //activate the parent project container
   projectScreen.classList.add('project-active'); //activate the landingpage screen 
@@ -491,7 +535,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58249" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

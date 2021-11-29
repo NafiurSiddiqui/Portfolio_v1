@@ -15,6 +15,12 @@
  //  }
 }
 
+@media screen and (min-width: 800px) {
+ div.navigation-container {
+  display: none;
+ }
+}
+
 @media screen and (max-width: 880px) {
  header.header {
   padding: 0 0;
@@ -40,7 +46,20 @@
  }
  .project-active article.projectScreen__project-project#project-promo {
   margin: 0 0 0 50vw;
+  // text-align: left;
  }
+
+ h1.projectScreen__project-project__header {
+  position: absolute;
+  left: -12vw;
+ }
+
+ .project-active
+  article.projectScreen__project-project
+  .projectScreen__project-project__wrapper {
+  margin-top: 4vh;
+ }
+
  .project-active
   article.projectScreen__project-project
   .projectScreen__project-project__wrapper
@@ -71,7 +90,7 @@
   .projectScreen__project-project__wrapper-newsletter
   > img#img-newsletter {
   margin: 0;
-  width: 100%;
+  // width: 100%;
  }
 
  div.projectScreen__project-project__wrapper-transactional,
@@ -150,9 +169,14 @@
  section.main-content {
   grid-template-columns: 13em 4fr;
  }
- //  div.projectScreen__project-project__wrapper > img {
- //   margin-left: 20vw !important;
- //  }
+
+ .project-active
+  article.projectScreen__project-project#project-transactional
+  .projectScreen__project-project__wrapper-transactional
+  > img#img-transactional {
+  margin: 0;
+  width: 100%;
+ }
 }
 
 @media screen and (max-width: 564px) {
@@ -346,9 +370,11 @@
   display: none;
  }
 
- //  div.projectScreen__project-project__wrapper-landingPage {
- //   transform: translateX(93%);
- //  }
+ .project-active
+  article.projectScreen__project-project
+  .projectScreen__project-project__wrapper {
+  margin-top: 0;
+ }
 
  div.landingPage > img#img-techwearLandingPage,
  img#img-qpick {

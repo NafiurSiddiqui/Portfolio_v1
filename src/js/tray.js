@@ -26,7 +26,6 @@ export function checkProjectActivation(a,b,c,d,e,aN,bN,cN,dN,eN){
         mainContent.classList.remove(cN);
         mainContent.classList.remove(dN);
         mainContent.classList.remove(eN);
-
     }
 };
 
@@ -39,7 +38,7 @@ export let newsletterActivated = null;
 export let landingPageActivated = null;
 // let contactActivated = null;
 
-export const promoClass = 'projectPromoActivateMobile';
+export const promoClass = 'projectPromoActivate';
 export const transactionalClass = 'projectTransactionActivate';
 export const newsletterClass = 'projectNewsletterActivate';
 export const landingPageClass = 'projectLandingPageActivate';
@@ -54,10 +53,7 @@ tray.addEventListener('click',function(){
     trayActivated = true;
     if(!body.classList.contains('trayActivate')){
        nameCard.classList.remove('cardSlideTop');
-    //    nameCard.classList.add('aboutMeActive')
-    // body.classList.toggle('card-active');
     trayActivated = false;
-    
     }
 })
 
