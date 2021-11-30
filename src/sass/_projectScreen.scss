@@ -118,6 +118,7 @@
  //   left: 40vw;
  top: 50%;
  width: 100%;
+ left: 0;
 }
 
 .fa {
@@ -166,6 +167,11 @@ p.projectScreen__project-project__liveLink {
 div.landingPage {
  position: absolute;
  @include transition-ease;
+
+ &.slide2,
+ &.slide4 {
+  z-index: 1;
+ }
 }
 
 // div.landingPage.slide4{

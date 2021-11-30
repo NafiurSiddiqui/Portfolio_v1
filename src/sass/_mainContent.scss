@@ -71,19 +71,7 @@
   }
  }
  &__card-sideA {
-  // width: 32vw;
-  // height: 41vh;
-  // border-radius: 1em;
-  // background-color: #f04f5c;
-  // //   background-color: crimson;
-  // display: flex;
-  // flex-direction: column;
-  // padding: 2em 1em;
   position: relative;
-  //   right: 11vw;
-  //   top: 29vh;
-  // transition: all 1s;
-  // cursor: pointer;
   @include defaultCardStyle;
   &-name {
    width: 18vw;
@@ -91,9 +79,9 @@
 
   &-version {
    width: 4vw;
-   position: relative;
-   bottom: -17em;
-   right: -84%;
+   position: absolute;
+   right: 24px;
+   bottom: 21px;
   }
  }
 

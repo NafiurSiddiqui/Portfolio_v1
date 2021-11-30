@@ -1,23 +1,32 @@
 @media screen and (max-width: 1000px) {
- // this rule only should be applied if the project is active
- //  div.container {
- //   grid-template-columns: 1fr;
- //   grid-template-rows: auto auto auto;
- //   grid-template-areas: 'header' 'mainContent' 'social';
- //  }
- //  aside.social-media {
- //   flex-direction: row;
- //   // justify-content: end;
- //   margin-left: 2em;
- //   & > a > img {
- //    margin: 0 0.6em;
- //   }
- //  }
+ div.navigation-container {
+  width: 90% !important;
+  left: 7vw !important;
+ }
+}
+
+@media screen and (max-width: 985px) {
+ div.container {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 'header' 'mainContent' 'social';
+ }
+ aside.social-media {
+  flex-direction: row;
+  justify-content: end;
+
+  & > a > img {
+   margin: 0 0.6em;
+  }
+ }
 }
 
 @media screen and (min-width: 800px) {
  div.navigation-container {
-  display: none;
+  // width: 70%;
+  // left: 17vw;
+  width: 64%;
+  left: 19vw;
  }
 }
 
@@ -42,7 +51,6 @@
 @media screen and (max-width: 800px) {
  .projectScreen__project {
   overflow: hidden;
-  // margin-left: 50vw;
  }
  .project-active article.projectScreen__project-project#project-promo {
   margin: 0 0 0 50vw;
@@ -67,11 +75,6 @@
   width: 100%;
   min-width: 65vw;
   margin: 0 10vw;
- }
-
- .project-active .projectScreen__project-project#project-landingPage {
-  margin: 0;
-  width: 100%;
  }
 
  .projectScreen__project-project#project-transactional,
@@ -109,10 +112,6 @@
 }
 
 @media screen and (max-width: 743px) {
- div.main-content__screen.project {
-  // margin-left: 4vw;
- }
-
  section.main-content {
   grid-template-columns: 13em 4fr;
  }
@@ -122,39 +121,39 @@
 
   &#landingPage {
    padding: 1em 0;
-   bottom: -35vh !important;
+   bottom: -37vh !important;
   }
+ }
+
+ div.navigation-container {
+  width: 100% !important;
+  left: 2vw !important;
+ }
+
+ .contact-screen-text.bottom {
+  font-size: 1.3rem;
+  padding: 2em;
  }
 }
 
-//screenproject_parent
-// overflow-y:scroll;
-
-//wrapper :
-// padding-top:44em;
-//flex-direction:column;
-
-//698px - smaller tab
-// change container grid , put social media to the bottom as footer
-
 @media screen and (max-width: 698px) {
- div.container {
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas: 'header' 'mainContent' 'social';
- }
+ //  div.container {
+ //   grid-template-columns: 1fr;
+ //   grid-template-rows: auto auto auto;
+ //   grid-template-areas: 'header' 'mainContent' 'social';
+ //  }
 
  button.header__contact {
   margin-right: 0;
  }
- aside.social-media {
-  flex-direction: row;
-  justify-content: end;
+ //  aside.social-media {
+ //   flex-direction: row;
+ //   justify-content: end;
 
-  & > a > img {
-   margin: 0 0.6em;
-  }
- }
+ //   & > a > img {
+ //    margin: 0 0.6em;
+ //   }
+ //  }
  div.main-content__screen.project {
   overflow-y: scroll;
  }
@@ -162,6 +161,25 @@
  div.main-content__screenproject-card__wrapper {
   padding-top: 44em;
   flex-direction: column;
+ }
+ div.navigation-container {
+  width: 100% !important;
+  left: 1vw !important;
+ }
+}
+
+@media screen and (max-width: 650px) {
+ .projectScreen__project div.navigation-container {
+  position: relative;
+  top: 3vh;
+  // left: 0 !important;
+ }
+ section.projectScreen__project i.fa.fa-angle-left,
+ section.projectScreen__project i.fa.fa-angle-right {
+  position: relative;
+  margin: 0 2em;
+  font-size: 4.2rem;
+  font-weight: bold;
  }
 }
 
@@ -242,7 +260,6 @@
 
  img.main-content__card-sideA-version {
   width: 10vw;
-  bottom: -14em;
  }
 
  img.main-content__card-sideA-name {
@@ -391,18 +408,14 @@
   padding: 2em;
   z-index: 1;
  }
- .projectScreen__project div.navigation-container {
-  position: relative;
-  top: 3vh;
- }
 
- section.projectScreen__project i.fa.fa-angle-left,
- section.projectScreen__project i.fa.fa-angle-right {
-  position: relative;
-  margin: 0 2em;
-  font-size: 4.2rem;
-  font-weight: bold;
- }
+ //  section.projectScreen__project i.fa.fa-angle-left,
+ //  section.projectScreen__project i.fa.fa-angle-right {
+ //   position: relative;
+ //   margin: 0 2em;
+ //   font-size: 4.2rem;
+ //   font-weight: bold;
+ //  }
  .projectScreen__project-project__header {
   position: relative;
   left: -50%;

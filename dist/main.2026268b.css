@@ -45,8 +45,14 @@ body {
   justify-content: space-between;
   padding: 0 2em;
 }
+.header__logo-container {
+  cursor: pointer;
+}
 .header__logo-container img {
   width: 5em;
+}
+.header__logo-container:hover {
+  transform: scale(1.08);
 }
 .header__contact {
   padding: 0.6em 1.9em;
@@ -78,6 +84,38 @@ a {
   text-decoration: none;
 }
 
+.main-content_indicator.container {
+  background-color: rgba(0, 0, 255, 0.219);
+  display: inline;
+  position: absolute;
+  height: 10em;
+  right: 18%;
+}
+.main-content_indicator.container img#handIndicator {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: -3em;
+  right: -1em;
+  animation: indicate 1s ease-in-out;
+  animation-delay: 3s;
+}
+.main-content_indicator.container > p {
+  display: inline;
+  color: #3a3a3a;
+  font-size: 1.3rem;
+  word-spacing: 5px;
+  font-family: "Reem Kufi", sans-serif;
+}
+
+@keyframes indicate {
+  from {
+    bottom: -3em;
+  }
+  to {
+    bottom: -5em;
+  }
+}
 .main-content {
   height: 80vh;
   display: grid;
@@ -160,9 +198,9 @@ a {
 }
 .main-content__card-sideA-version {
   width: 4vw;
-  position: relative;
-  bottom: -17em;
-  right: -84%;
+  position: absolute;
+  right: 24px;
+  bottom: 21px;
 }
 .main-content__card-sideB {
   position: absolute;
@@ -393,6 +431,12 @@ span.main-content__screenProject-card-layer {
   opacity: 0.6;
   color: #555;
   cursor: pointer;
+}
+.project-btn:hover {
+  opacity: 1;
+  color: #f5dbdd;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .card-active {
@@ -821,16 +865,18 @@ span.main-content__screenProject-card-layer {
   justify-content: center;
   align-items: center;
   transition: all 400ms ease-in-out;
-  width: 80vw;
   height: 80vh;
 }
 .project-active .projectScreen__project-project .projectScreen__project-project__wrapper > img,
 .project-active .projectScreen__project-project .projectScreen__project-project__wrapper-landingPage > img {
   width: 100%;
-  max-width: 59.2em;
-  max-height: 34em;
+  max-width: 49.2em;
   max-height: 100%;
   margin: 0 2em;
+}
+.project-active .projectScreen__project-project#project-landingPage {
+  overflow: hidden;
+  width: 50em;
 }
 .project-active .projectScreen__project-project#project-newsletter {
   top: 1%;
@@ -841,7 +887,8 @@ span.main-content__screenProject-card-layer {
 
 .projectScreen__project-project#project-landingPage div.landingPage > img {
   width: 100%;
-  min-width: 80vw;
+  min-width: 400px;
+  height: 225px;
 }
 
 .project-promo-active {
@@ -924,9 +971,31 @@ aside.social-media-contact {
   filter: blur(0px) brightness(1) contrast(0) grayscale(0) hue-rotate(160deg) invert(0) opacity(100%) saturate(1) sepia(1) drop-shadow(0px 1px 0 #fcfcfc);
 }
 
+@media screen and (max-width: 1000px) {
+  div.navigation-container {
+    width: 90% !important;
+    left: 7vw !important;
+  }
+}
+@media screen and (max-width: 985px) {
+  div.container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "header" "mainContent" "social";
+  }
+
+  aside.social-media {
+    flex-direction: row;
+    justify-content: end;
+  }
+  aside.social-media > a > img {
+    margin: 0 0.6em;
+  }
+}
 @media screen and (min-width: 800px) {
   div.navigation-container {
-    display: none;
+    width: 64%;
+    left: 19vw;
   }
 }
 @media screen and (max-width: 880px) {
@@ -968,11 +1037,6 @@ aside.social-media-contact {
     margin: 0 10vw;
   }
 
-  .project-active .projectScreen__project-project#project-landingPage {
-    margin: 0;
-    width: 100%;
-  }
-
   .projectScreen__project-project#project-transactional,
 .projectScreen__project-project#project-newsletter {
     width: 100vw;
@@ -1008,26 +1072,22 @@ div.projectScreen__project-project__wrapper-newsletter {
   }
   button.project-btn#landingPage {
     padding: 1em 0;
-    bottom: -35vh !important;
+    bottom: -37vh !important;
+  }
+
+  div.navigation-container {
+    width: 100% !important;
+    left: 2vw !important;
+  }
+
+  .contact-screen-text.bottom {
+    font-size: 1.3rem;
+    padding: 2em;
   }
 }
 @media screen and (max-width: 698px) {
-  div.container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas: "header" "mainContent" "social";
-  }
-
   button.header__contact {
     margin-right: 0;
-  }
-
-  aside.social-media {
-    flex-direction: row;
-    justify-content: end;
-  }
-  aside.social-media > a > img {
-    margin: 0 0.6em;
   }
 
   div.main-content__screen.project {
@@ -1037,6 +1097,25 @@ div.projectScreen__project-project__wrapper-newsletter {
   div.main-content__screenproject-card__wrapper {
     padding-top: 44em;
     flex-direction: column;
+  }
+
+  div.navigation-container {
+    width: 100% !important;
+    left: 1vw !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .projectScreen__project div.navigation-container {
+    position: relative;
+    top: 3vh;
+  }
+
+  section.projectScreen__project i.fa.fa-angle-left,
+section.projectScreen__project i.fa.fa-angle-right {
+    position: relative;
+    margin: 0 2em;
+    font-size: 4.2rem;
+    font-weight: bold;
   }
 }
 @media screen and (max-width: 598px) {
@@ -1109,7 +1188,6 @@ div.main-content__card-sideB {
 
   img.main-content__card-sideA-version {
     width: 10vw;
-    bottom: -14em;
   }
 
   img.main-content__card-sideA-name {
@@ -1191,6 +1269,12 @@ div.main-content__card-sideB {
   }
   .main-content__btn-container-tray__container button.project-btn__tray:hover {
     opacity: 1;
+    color: #f5dbdd;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .main-content__btn-container-tray__container button.project-btn__tray:hover {
+    opacity: 1;
     box-shadow: 0px 0px 8px #f381c7;
     color: #353535;
   }
@@ -1239,19 +1323,6 @@ div.landingPage.slide2 {
     width: 100%;
     padding: 2em;
     z-index: 1;
-  }
-
-  .projectScreen__project div.navigation-container {
-    position: relative;
-    top: 3vh;
-  }
-
-  section.projectScreen__project i.fa.fa-angle-left,
-section.projectScreen__project i.fa.fa-angle-right {
-    position: relative;
-    margin: 0 2em;
-    font-size: 4.2rem;
-    font-weight: bold;
   }
 
   .projectScreen__project-project__header {
@@ -1374,6 +1445,7 @@ section.projectScreen__project i.fa.fa-angle-right {
   position: absolute;
   top: 50%;
   width: 100%;
+  left: 0;
 }
 
 .fa {
@@ -1418,6 +1490,9 @@ p.projectScreen__project-project__liveLink > a {
 div.landingPage {
   position: absolute;
   transition: all 400ms ease-in-out;
+}
+div.landingPage.slide2, div.landingPage.slide4 {
+  z-index: 1;
 }
 
 .hidden {

@@ -1,4 +1,4 @@
-// import { checkProjectActivation } from "./tray";
+import { checkProjectActivation } from "./tray";
 import { promoActivated } from "./tray";
 import { transactionalActivated } from "./tray";
 import { newsletterActivated } from "./tray";
@@ -50,11 +50,11 @@ const landingPageBtn = document.getElementById('landingPage');
 
 // console.log(landingPageSlideQpickVdo);
 
-let promoActivatedDesktop = null;
-let transactionalActivatedDesktop = null;
-let newsletterActivatedDesktop = null;
-let landingPageActivatedDesktop = null;
-let contactActivatedDesktop = null;
+export let promoActivatedDesktop = null;
+export let transactionalActivatedDesktop = null;
+export let newsletterActivatedDesktop = null;
+export let landingPageActivatedDesktop = null;
+
 
 const projectScreenReset = function() {
     projectPromoScreen.classList.remove('project-promo-active');
@@ -72,7 +72,7 @@ function checkOtherBodyActivation(){
     }
 };
 
-function checkProjectBodyActivation(a,b,c,d,e,aN,bN,cN,dN,eN){
+export function checkProjectBodyActivation(a,b,c,d,e,aN,bN,cN,dN,eN){
      if(a  === true || b === true || c === true || d === true || e === true){
         body.classList.remove(aN);
         body.classList.remove(bN);
@@ -115,7 +115,11 @@ cross.addEventListener('click',()=>{
 
 promoBtn.addEventListener('click',()=>{
     console.log('hello');
-    checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop, contactActivatedDesktop,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null)
+    checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop, null,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null);
+
+    
+        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
     openProjectDektop(promoClass);
     promoActivatedDesktop = true;
     // nameCard.classList.add('hidden');
@@ -139,8 +143,12 @@ projectPromoPreview__meal.addEventListener('click',()=>{
 //transactional mail
 
 transactionBtn.addEventListener('click',()=>{
-     checkProjectBodyActivation(promoActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop,contactActivatedDesktop,null,
-        promoClass,newsletterClass,landingPageClass,contactPageClass,null)
+     checkProjectBodyActivation(promoActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop,null,null,
+        promoClass,newsletterClass,landingPageClass,contactPageClass,null);
+
+        
+        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
     openProjectDektop(transactionalClass);
     transactionalActivatedDesktop = true;
 })
@@ -156,8 +164,11 @@ projectTransactionalPreview.addEventListener('click',()=>{
 //newsletter mail
 
 newsletterBtn.addEventListener('click',()=>{
-     checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,landingPageActivatedDesktop,contactActivatedDesktop,null,promoClass,
-        transactionalClass,landingPageClass,contactPageClass,null)
+     checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,landingPageActivatedDesktop,null,null,promoClass,
+        transactionalClass,landingPageClass,contactPageClass,null);
+        
+        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
     openProjectDektop(newsletterClass);
     newsletterActivatedDesktop = true;
 
@@ -179,8 +190,12 @@ projectNewsletterPreview.addEventListener('click',()=>{
 
 landingPageBtn.addEventListener('click',()=>{
     console.log('ok');
-      checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,newsletterActivatedDesktop,contactActivatedDesktop,null,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,null)
+      checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,newsletterActivatedDesktop,null,null,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,null);
+
+        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+
     openProjectDektop(landingPageClass);
     landingPageActivatedDesktop = true;
 })
@@ -194,6 +209,8 @@ projectQpickPreviewImg.addEventListener('click',()=>{
     projectLandingPageScreen.classList.add('project-landingPage-active');
     //activate qpick image
     landingPageSlideQpickImg.style.transform = `translateX(0%)`;
+    landingPageSlideTechWearImg.style.transform = `translateX(-120%)`;
+     navContainer.style.display='inline-block';
 })
 
 projectQpickPreviewVdo.addEventListener('click',()=>{

@@ -1,4 +1,5 @@
 import { projectWrapper } from "./projects";
+import { logoReset } from "./logoReset";
 
 const landingPageSlides =document.querySelectorAll('.landingPage');
 const slideLeft = document.querySelector('.fa.fa-angle-left');
@@ -56,10 +57,12 @@ const prevSlide = function(){
 };
 
 landingPageSlides.forEach((s,i)=>{
-    s.style.transform =`translateX(${120*i}%)`;
+    s.style.transform =`translateX(${200*i}%)`;
 })
 
 slideLeft.addEventListener('click',prevSlide);
 
 slideRight.addEventListener('click',nextSlide);
+
+
 

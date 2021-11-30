@@ -44,6 +44,10 @@ body {
   img {
    width: 5em;
   }
+  cursor: pointer;
+  &:hover {
+   transform: scale(1.08);
+  }
  }
  &__contact {
   padding: 0.6em 1.9em;
@@ -75,4 +79,41 @@ body {
 
 a {
  text-decoration: none;
+}
+
+.main-content_indicator.container {
+ background-color: rgba(0, 0, 255, 0.219);
+ display: inline;
+ position: absolute;
+ height: 10em;
+ right: 18%;
+
+ img#handIndicator {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: -3em;
+  right: -1em;
+  animation: indicate 1s ease-in-out;
+  animation-delay: 3s;
+ }
+ > p {
+  display: inline;
+  color: rgb(58, 58, 58);
+  font-size: 1.3rem;
+  //   font-weight: bold;
+  word-spacing: 5px;
+  //   font-family: cursive;
+  font-family: 'Reem Kufi', sans-serif;
+  //   font-family: fantasy;
+ }
+}
+
+@keyframes indicate {
+ from {
+  bottom: -3em;
+ }
+ to {
+  bottom: -5em;
+ }
 }

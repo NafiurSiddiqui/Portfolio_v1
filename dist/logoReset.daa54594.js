@@ -251,11 +251,6 @@ tray.addEventListener('click', function () {
     exports.trayActivated = trayActivated = false;
   }
 });
-
-_nameCard.mainContent.addEventListener('click', function () {
-  console.log('mainContent'); // body.classList.remove('trayActivate');
-});
-
 promoBtnTray.addEventListener('click', function () {
   console.log('clicked!');
   console.log(_nameCard.contactActivated);
@@ -475,88 +470,18 @@ projectTechwearPreviewVdo.addEventListener('click', function () {
 },{"./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js"}],"src/js/logoReset.js":[function(require,module,exports) {
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.logoReset = void 0;
+var _projects = require("./projects");
 
 var _tray = require("./tray");
 
-var _projects = require("./projects");
-
-var _nameCard = require("./nameCard");
-
 var logo = document.getElementById('logo');
-var body = document.body; // console.log(logo);
-
-var logoReset = logo.addEventListener('click', function () {
+logo.addEventListener('click', function () {
   console.log('cool'); //check for body projectActivation
 
-  (0, _projects.checkProjectBodyActivation)(_projects.transactionalActivatedDesktop, _projects.newsletterActivatedDesktop, _projects.landingPageActivatedDesktop, _projects.promoActivatedDesktop, null, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.promoClass, null); //check for mainContent Project activation
-
-  (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, _tray.contactActivated, _tray.promoActivated, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, _tray.promoClass);
-  body.classList.remove('card-active');
-  body.classList.remove('trayActivate');
-
-  _nameCard.mainContent.classList.remove('contact-page-active');
+  (0, _projects.checkProjectBodyActivation)(transactionalActivatedDesktop, newsletterActivatedDesktop, landingPageActivatedDesktop, _projects.promoActivatedDesktop, null, transactionalClass, newsletterClass, landingPageClass, _tray.promoClass, null); //check for mainContent Project activation
 });
-exports.logoReset = logoReset;
 console.log(logo);
-},{"./tray":"src/js/tray.js","./projects":"src/js/projects.js","./nameCard":"src/js/nameCard.js"}],"src/js/slider.js":[function(require,module,exports) {
-"use strict";
-
-var _projects = require("./projects");
-
-var _logoReset = require("./logoReset");
-
-var landingPageSlides = document.querySelectorAll('.landingPage');
-var slideLeft = document.querySelector('.fa.fa-angle-left');
-var slideRight = document.querySelector('.fa.fa-angle-right'); //slider for promo mail
-
-slideLeft.addEventListener('click', function () {
-  // console.log('cool');
-  _projects.projectWrapper.classList.remove('slideLeft');
-});
-slideRight.addEventListener('click', function () {
-  // console.log('cool');
-  _projects.projectWrapper.classList.add('slideLeft');
-}); //slider for landing page
-
-var curSlide = 0;
-var maxSlide = landingPageSlides.length;
-
-var jumpToSlide = function jumpToSlide(slide) {
-  landingPageSlides.forEach(function (s, i) {
-    s.style.transform = "translateX(".concat(120 * (i - slide), "%)");
-  });
-};
-
-var nextSlide = function nextSlide() {
-  if (curSlide === maxSlide - 1) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
-
-  jumpToSlide(curSlide);
-};
-
-var prevSlide = function prevSlide() {
-  if (curSlide === 0) {
-    curSlide = maxSlide - 1;
-  } else {
-    curSlide--;
-  }
-
-  jumpToSlide(curSlide);
-};
-
-landingPageSlides.forEach(function (s, i) {
-  s.style.transform = "translateX(".concat(200 * i, "%)");
-});
-slideLeft.addEventListener('click', prevSlide);
-slideRight.addEventListener('click', nextSlide);
-},{"./projects":"src/js/projects.js","./logoReset":"src/js/logoReset.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./projects":"src/js/projects.js","./tray":"src/js/tray.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -760,5 +685,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/slider.js"], null)
-//# sourceMappingURL=/slider.3b1adceb.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/logoReset.js"], null)
+//# sourceMappingURL=/logoReset.daa54594.js.map

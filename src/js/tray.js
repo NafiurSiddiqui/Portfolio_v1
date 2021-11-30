@@ -57,6 +57,10 @@ tray.addEventListener('click',function(){
     }
 })
 
+mainContent.addEventListener('click',()=>{
+    console.log('mainContent');
+    // body.classList.remove('trayActivate');
+})
 
 
 promoBtnTray.addEventListener('click',function(){    

@@ -130,6 +130,7 @@
  }
 }
 
+//desktop activation
 .projectPromoActivate {
  @include defaultProjectActivation;
  .main-content__screen.project#promo-screen {
@@ -369,16 +370,21 @@
   .projectScreen__project-project__wrapper-landingPage {
    @include flexCentered;
    @include transition-ease;
-   width: 80vw;
+   //  width: 80vw;
    height: 80vh;
    //    background-color: rgb(77, 67, 51);
    & > img {
     width: 100%;
-    max-width: 59.2em;
-    max-height: 34em;
+    max-width: 49.2em;
+    // max-height: 34em;
     max-height: 100%;
     margin: 0 2em;
    }
+  }
+
+  &#project-landingPage {
+   overflow: hidden;
+   width: 50em;
   }
  }
 
@@ -393,7 +399,9 @@
 .projectScreen__project-project#project-landingPage {
  div.landingPage > img {
   width: 100%;
-  min-width: 80vw;
+  // min-width: 80vw;
+  min-width: 400px;
+  height: 225px;
  }
 }
 
