@@ -28,7 +28,7 @@ const arrowContainer = document.querySelector('.svg-arrow__container');
 const arrowContainerId = document.getElementById('arrow-container');
 const body = document.body;
 export const mainContent = document.querySelector('.main-content');
-
+const indicator = document.querySelector('.main-content_indicator-container');
 
 
 // console.log(contact);
@@ -40,6 +40,7 @@ function clearScreen() {
 
 nameCard.addEventListener('click',function(){ 
     console.log('working');  
+     
     if(trayActivated === true){
         body.classList.remove('trayActivate');
         nameCard.classList.add('aboutMeActive');
@@ -47,13 +48,20 @@ nameCard.addEventListener('click',function(){
          checkProjectActivation(transactionalActivated,newsletterActivated,landingPageActivated, contactActivated,promoActivated,transactionalClass,newsletterClass,landingPageClass,contactPageClass,promoClass)
     }else if(trayActivated === false){
         
-arrowContainer.classList.toggle('arrowActivate');
-nameCard.classList.remove('aboutMeActive');
-body.classList.toggle('card-active');
+    arrowContainer.classList.toggle('arrowActivate');
+    nameCard.classList.remove('aboutMeActive');
+    body.classList.toggle('card-active');
+    }
+    if(body.classList.contains('card-active')){
+        indicator.classList.add('hidden');
+    }else{
+        indicator.classList.remove('hidden');
     }
         body.classList.toggle('card-active');
         arrowContainer.classList.toggle('arrowActivate');
-        nameCard.classList.remove('aboutMeActive')
+        nameCard.classList.remove('aboutMeActive');
+        indicator.classList.toggle('hidden');
+     
 })
 
 
@@ -67,6 +75,6 @@ contactBtn.addEventListener('click',()=>{
         
     mainContent.classList.toggle(contactPageClass);
     contactActivated = true;
-    
+    nameCard.classList.add('hidden');
 })
 

@@ -10,8 +10,8 @@ const promoBtnTray = document.getElementById('promoTray');
 const transactionBtnTray = document.getElementById('transactionalTray');
 const newsletterBtnTray = document.getElementById('newsletterTray');
 const landingPageBtnTray = document.getElementById('promoTray');
-
-
+const indicator = document.querySelector('.main-content_indicator-container');
+const nameCardContainer = document.querySelector('.main-content__card-container__card');
 
 export function openProject(project){
      mainContent.classList.toggle(project);
@@ -46,7 +46,7 @@ export const contactPageClass = 'contact-page-active';
 
 
 tray.addEventListener('click',function(){
-    console.log('ok');
+   
      trayParent.classList.remove('traySlideDown');
     body.classList.toggle('trayActivate');
     nameCard.classList.add('cardSlideTop')
@@ -55,10 +55,19 @@ tray.addEventListener('click',function(){
        nameCard.classList.remove('cardSlideTop');
     trayActivated = false;
     }
+    if(nameCardContainer.classList.contains('cardSlideTop')){
+    console.log('removed');
+    indicator.classList.add('hidden')
+}else{
+    console.log('can\'t\ remove');
+    indicator.classList.remove('hidden');
+}
+    // indicator.classList.toggle('hidden');
+    body.classList.remove('card-active');
 })
 
 mainContent.addEventListener('click',()=>{
-    console.log('mainContent');
+
     // body.classList.remove('trayActivate');
 })
 
@@ -96,3 +105,6 @@ landingPageTray.addEventListener('click',function(){
     openProject(landingPageClass);
     transactionalActivated = true;
 })
+
+
+// console.log(nameCardContainer);

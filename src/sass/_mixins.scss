@@ -1,3 +1,8 @@
+@mixin BorderTestSection {
+ border-top: 2px solid rgb(243, 7, 7);
+ border-bottom: 2px solid rgb(209, 34, 22);
+}
+
 @mixin flexCentered {
  display: flex;
  display: -webkit-flex;
@@ -7,11 +12,6 @@
  align-items: center;
 }
 
-@mixin BorderTestSection {
- border-top: 2px solid rgb(243, 7, 7);
- border-bottom: 2px solid rgb(209, 34, 22);
-}
-
 @mixin transition-ease {
  transition: all 400ms ease-in-out;
 }
@@ -19,19 +19,27 @@
  transition: all 300ms ease-in-out;
 }
 
+@mixin dropShadow {
+ box-shadow: 0 3px 1px #111111;
+}
+
 @mixin projectBtnDefault {
  border-radius: 2em;
  padding: 0.6em 2em;
  border: none;
- background: #fc6471;
- opacity: 0.6;
+ //  background: #ff3f4f;
+ background: #e03442;
+ opacity: 0.3;
  color: #555;
  cursor: pointer;
+
  &:hover {
   opacity: 1;
   color: $activeBtnTextColor;
   font-weight: bold;
   letter-spacing: 1px;
+  padding: 0.6em 0;
+  box-shadow: 0 1px 1px #1b1b1be3;
  }
 }
 @mixin tubeFilter {
@@ -103,7 +111,9 @@
  width: 51em;
  height: 41vh;
  border-radius: 1em;
- background-color: #f04f5c;
+ //   background-color: #f04f5c;
+ //  background-color: #e94150;
+ background-color: #e02a3a;
  display: flex;
  flex-direction: column;
  padding: 2em 1em;
@@ -114,7 +124,7 @@
 //active body color
 
 @mixin activeBody {
- background-color: $activeBodyColor;
+ background: $activeBodyColor;
 }
 
 // active cardSide Style - mobile
@@ -133,11 +143,11 @@
 //active button style
 
 @mixin activeBtn {
- background-color: #d83340;
- opacity: 0.7;
+ //  background-color: #d83340;
+ opacity: 1;
  color: #e9e9e9;
  border: 2px solid #eb8a9196;
- filter: drop-shadow(0 0 5px #fd6b6b80);
+ //  filter: drop-shadow(0 0 3px #fd6b6b80);
  box-shadow: 1px 1px 9px 0px rgba(245, 145, 145, 0.66);
  transition: opacity 300ms ease-in-out;
  &:hover {

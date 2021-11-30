@@ -5,13 +5,22 @@ $tubeColorActive: #f7858f;
 $contactBtnColor: #50c5b7;
 $contactBtnColorHover: #50e4d2;
 $activeTubeColor: #eb8a91;
-$activeBodyColor: #927e36da;
+$defaultBodyColor: linear-gradient(170deg, #ffdc60 0%, #945504 100%);
+$activeBodyColor: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+$activeBodyColor2: linear-gradient(
+ 124.67deg,
+ #157795 0%,
+ rgba(25, 111, 66, 0.99) 32.84%,
+ rgba(6, 147, 88, 0.85) 68.54%
+);
 $activeBtnColor: #f04f5c;
 $activeBtnTextColor: #f5dbdd;
-$activeCardColor: #a02933;
+// $activeCardColor: #a02933;
+$activeCardColor: #9c1622;
 $activeSocialMediaColor: #f16d78;
 $activeCardSideColor: #a02933;
 $trayNotchBGcolor__hover: #8dc59d;
 $trayNotchBGcolor: #349085;
 $liveLinkColor: rgb(248, 155, 170);
 $hoverColor: #f9b9b7;
+// $backgrounHome:;

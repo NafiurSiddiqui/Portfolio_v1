@@ -108,24 +108,26 @@
 
 //svg arrow for mobile activation
 
-.arrowActivate {
- display: flex !important;
+@media screen and (max-width: 500px) {
+ .arrowActivate {
+  display: flex !important;
 
- img {
-  animation: dropdown 2s;
-  animation-delay: calc(var(--order) * 100ms);
-  //   display: none;
-  opacity: 0;
- }
-
- @keyframes dropdown {
-  from {
-   opacity: 0.6;
-   bottom: 0vh;
+  img {
+   animation: dropdown 2s;
+   animation-delay: calc(var(--order) * 100ms);
+   //   display: none;
+   opacity: 0;
   }
-  to {
-   opacity: 1;
-   bottom: -50vh;
+
+  @keyframes dropdown {
+   from {
+    opacity: 0.6;
+    bottom: 0vh;
+   }
+   to {
+    opacity: 1;
+    bottom: -50vh;
+   }
   }
  }
 }

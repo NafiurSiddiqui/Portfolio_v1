@@ -2,30 +2,13 @@
  background: url($url);
  //  width: 200px;
  background-repeat: no-repeat;
- transition: all 1s ease-in-out 0.5s;
  position: relative;
  width: 100%;
  height: 100%;
- &:hover {
-  animation: zoomout 4s ease-in-out 0.2s forwards;
-  @keyframes zoomout {
-   from {
-    background-size: 592px;
-   }
-   to {
-    background-size: 500px;
-   }
-  }
- }
 }
 
 div.project-card__container {
  width: 29em;
- //  width: 20vw;
- //  width: 26vw;
- //  max-width: 18vw;
- //  min-width: 27vw;
- //  border: 1px solid aqua;
  height: 39.3em;
  position: relative;
  text-align: center;
@@ -35,25 +18,6 @@ div.project-card__container {
 span.main-content__screenProject-card {
  border-radius: 6px;
  &.codeschool {
-  //   background: url('../img/codeschool.png');
-  //   //  width: 200px;
-  //   background-repeat: no-repeat;
-  //   transition: all 1s ease-in-out 0.5s;
-  //   position: relative;
-  //   width: 100%;
-  //   height: 100%;
-  //   &:hover {
-  //    animation: zoomout 4s ease-in-out 0.2s forwards;
-  //    @keyframes zoomout {
-  //     from {
-  //      background-size: 592px;
-  //     }
-  //     to {
-  //      background-size: 500px;
-  //     }
-  //    }
-  //   }
-
   @include cardStyle('../img/codeschool.png');
  }
 
@@ -89,6 +53,16 @@ span.main-content__screenProject-card {
   top: 0;
   left: 0;
   border-radius: 6px;
+  @include transition-ease;
+  &:hover {
+   background: linear-gradient(
+    180deg,
+    rgba(107, 107, 107, 0.45) 0%,
+    rgba(18, 18, 18, 0.945) 59.27%
+   );
+   //    filter: drop-shadow(0 3px 1px #141414);
+   @include dropShadow;
+  }
  }
 }
 

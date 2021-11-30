@@ -10,7 +10,8 @@ import { mainContent } from "./nameCard";
 
 const logo = document.getElementById('logo');
 const body = document.body;
-// console.log(logo);
+const indicator = document.querySelector('.main-content_indicator-container');
+const nameCard = document.querySelector('.main-content__card-container__card');
 
 
 export const logoReset = logo.addEventListener('click',()=>{
@@ -23,7 +24,9 @@ export const logoReset = logo.addEventListener('click',()=>{
       checkProjectActivation(transactionalActivated,newsletterActivated,landingPageActivated, contactActivated,promoActivated,transactionalClass,newsletterClass,landingPageClass,contactPageClass,promoClass)
     body.classList.remove('card-active');
     body.classList.remove('trayActivate');
-    mainContent.classList.remove('contact-page-active')
+    mainContent.classList.remove('contact-page-active');
+    indicator.classList.remove('hidden');
+    nameCard.classList.remove('hidden');
 })
 
 

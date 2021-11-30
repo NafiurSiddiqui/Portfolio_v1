@@ -17,8 +17,8 @@ html {
 }
 
 body {
- background-color: #fde079;
- transition: background-color 1s ease-in-out;
+ background: $defaultBodyColor;
+ transition: background 1s ease-in-out;
  overflow: hidden;
 }
 
@@ -58,13 +58,14 @@ body {
   font-family: 'Reem Kufi', sans-serif;
   //   font-weight: bold;
   letter-spacing: 1px;
-  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
+
   margin-right: 2em;
   cursor: pointer;
   @include transition-fast;
   &:hover {
    background-color: $contactBtnColorHover;
    color: #2e2e2e;
+   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.25);
   }
  }
 }
@@ -81,13 +82,12 @@ a {
  text-decoration: none;
 }
 
-.main-content_indicator.container {
- background-color: rgba(0, 0, 255, 0.219);
+.main-content_indicator-container {
+ //  background-color: rgba(0, 0, 255, 0.219);
  display: inline;
  position: absolute;
  height: 10em;
  right: 18%;
-
  img#handIndicator {
   width: 40px;
   height: 40px;
@@ -101,11 +101,8 @@ a {
   display: inline;
   color: rgb(58, 58, 58);
   font-size: 1.3rem;
-  //   font-weight: bold;
   word-spacing: 5px;
-  //   font-family: cursive;
   font-family: 'Reem Kufi', sans-serif;
-  //   font-family: fantasy;
  }
 }
 

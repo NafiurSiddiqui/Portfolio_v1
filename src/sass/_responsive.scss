@@ -36,7 +36,7 @@
  }
 
  .main-content {
-  padding: 0;
+  padding: 3em 0;
   &__card-container__card {
    right: 8vw;
   }
@@ -186,6 +186,10 @@
 @media screen and (max-width: 598px) {
  section.main-content {
   grid-template-columns: 13em 4fr;
+ }
+
+ div.main-content_indicator-container {
+  right: 10%;
  }
 
  .project-active
@@ -440,5 +444,11 @@
   width: 100%;
   min-width: 70vw;
   margin-left: 10vw;
+ }
+}
+
+@media screen and (max-width: 390px) {
+ article.main-content__card-sideB__text-container {
+  font-size: 1.4rem;
  }
 }
