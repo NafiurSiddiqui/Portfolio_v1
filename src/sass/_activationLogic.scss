@@ -378,10 +378,23 @@
    & > img {
     width: 100%;
     max-width: 49.2em;
-    // max-height: 34em;
     max-height: 100%;
     margin: 0 2em;
    }
+  }
+
+  div.projectScreen__project-project__wrapper div.promo-img {
+   margin: 0 1em;
+  }
+
+  div.projectScreen__project-project__wrapper
+   div.promo-img
+   > img#img-codeschool,
+  div.projectScreen__project-project__wrapper div.promo-img > img#img-meal {
+   width: 100%;
+   max-width: 49.2em;
+   max-height: 100%;
+   margin: 0 2em;
   }
 
   &#project-landingPage {

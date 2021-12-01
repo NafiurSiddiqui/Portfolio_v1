@@ -86,10 +86,13 @@ export function checkProjectBodyActivation(a,b,c,d,e,aN,bN,cN,dN,eN){
 
 
 function openProjectDektop(project){
-     body.classList.toggle(project);
-      
+     body.classList.toggle(project);  
 }
 
+function projectPreview(){
+      projectScreen.classList.add('project-active');
+projectScreenChild.classList.toggle('negativeIndex');
+};
 
 
 //closing modals
@@ -127,7 +130,8 @@ promoBtn.addEventListener('click',()=>{
 
 projectPromoPreview__codeschool.addEventListener('click',()=>{
     // console.log('ok');
-      projectScreen.classList.add('project-active');
+    
+    projectPreview();
     projectPromoScreen.classList.add('project-promo-active');
 })
 
@@ -154,9 +158,8 @@ transactionBtn.addEventListener('click',()=>{
 })
 
 projectTransactionalPreview.addEventListener('click',()=>{
-    console.log('working!');
-    console.log(projectTransactional.classList);
-    projectScreen.classList.add('project-active');
+
+    projectPreview();
     projectTransactional.classList.add('project-transactional-active');
     navContainer.classList.add('hidden');
 })
@@ -176,12 +179,11 @@ newsletterBtn.addEventListener('click',()=>{
 
 
 projectNewsletterPreview.addEventListener('click',()=>{
-    console.log('working!');
-    // console.log(projectNewsletter.classList);
-    projectScreen.classList.add('project-active');
+
+    projectPreview();
     projectNewsletter.classList.add('project-newsletter-active');
     navContainer.classList.add('hidden');
-    projectScreenChild.classList.add('negativeIndex')
+    
 })
 
 
@@ -200,11 +202,9 @@ landingPageBtn.addEventListener('click',()=>{
     landingPageActivatedDesktop = true;
 })
 
-
-
 projectQpickPreviewImg.addEventListener('click',()=>{
-    //activate the parent project container
-    projectScreen.classList.add('project-active');
+ 
+    projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
     //activate qpick image
@@ -214,34 +214,31 @@ projectQpickPreviewImg.addEventListener('click',()=>{
 })
 
 projectQpickPreviewVdo.addEventListener('click',()=>{
-    //activate the parent project container
-    projectScreen.classList.add('project-active');
+    
+    projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
     //activate qpick image
     landingPageSlideQpickVdo.style.transform = `translateX(0%)`;
-    projectScreenChild.classList.add('negativeIndex');
+   
     
 })
 
  projectTechwearPreviewImg.addEventListener('click',()=>{
-     //activate the parent project container
-    projectScreen.classList.add('project-active');
+   projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
-    // //activate qpick image
-    // landingPageSlideQpickVdo.style.transform = `translateX(0%)`;
+
     
 })
 
  projectTechwearPreviewVdo.addEventListener('click',()=>{
-     //activate the parent project container
-    projectScreen.classList.add('project-active');
+    projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
     // //activate qpick image
     landingPageSlideTechWearVdo.style.transform = `translateX(0%)`;
-    projectScreenChild.classList.add('negativeIndex');
+    
 })
 
 

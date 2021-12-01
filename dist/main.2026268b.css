@@ -799,6 +799,16 @@ span.main-content__screenProject-card-layer:hover {
   max-height: 100%;
   margin: 0 2em;
 }
+.project-active .projectScreen__project-project div.projectScreen__project-project__wrapper div.promo-img {
+  margin: 0 1em;
+}
+.project-active .projectScreen__project-project div.projectScreen__project-project__wrapper div.promo-img > img#img-codeschool,
+.project-active .projectScreen__project-project div.projectScreen__project-project__wrapper div.promo-img > img#img-meal {
+  width: 100%;
+  max-width: 49.2em;
+  max-height: 100%;
+  margin: 0 2em;
+}
 .project-active .projectScreen__project-project#project-landingPage {
   overflow: hidden;
   width: 50em;
