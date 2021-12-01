@@ -8,10 +8,8 @@
 
   position: absolute;
   top: 13vh;
-
-  //   background: linear-gradient(332.03deg, rgb(98, 46, 46), rgb(149, 141, 141));
   background: linear-gradient(332.03deg, #5d3112, #372525);
-  margin-left: 11vw;
+  margin-left: 30vw;
   border-radius: 7px;
 
   filter: drop-shadow(0 3px 2px #1f2020);
@@ -67,12 +65,6 @@
 
   //root: rule for project Screen
 
-  &__screen.project#landingPage-screen,
-  &__screen.project#newsletter-screen,
-  &__screen.project#transactional-screen,
-  &__screen.project#promo-screen &__screen.project#contact {
-   //    display: flex;
-  }
   &__screen.project#contact {
    padding: 4em;
    text-align: center;
@@ -90,10 +82,6 @@
    bottom: 13.4em;
    top: 0;
    flex-shrink: 0;
-
-   //    &.transactional {
-   //     left: 37vw;
-   //    }
   }
   &__screenproject-card__wrapper {
    display: flex;
@@ -110,8 +98,6 @@
 
 .navigation-container {
  position: absolute;
- //   bottom: 4vh;
- //   left: 40vw;
  top: 50%;
  width: 100%;
  left: 0;
@@ -121,13 +107,10 @@
  color: whitesmoke;
 
  background-color: rgb(33, 143, 143);
- //   background-color: #39a397;
  border-radius: 50%;
  padding: 0.2em;
  width: 1.4em;
- //  margin: 0 1em;
  margin: 0 1em 0 0.4em;
- //  font-size: 4.2rem;
  font-weight: bold;
  display: none;
  cursor: pointer;
@@ -169,12 +152,6 @@ div.landingPage {
   z-index: 1;
  }
 }
-
-// div.landingPage.slide4{
-//     background : #201e1e;
-//     width : 100%;
-//     padding : 2em;
-// }
 
 .hidden {
  display: none;

@@ -17,10 +17,6 @@ import { contactPageClass } from "./tray";
 import { trayActivated } from "./tray";
 export let contactActivated = null;
 
-
-const contactBtn = document.querySelector('.header__contact');
-const contactScreen = document.getElementById('contact');
-const screenContainer = document.querySelector('.main-content__screen-container');
 const nameCard= document.querySelector('.main-content__card-container__card');
 const nameCardSide__A= document.querySelector('.main-content__card-sideA');
 const nameCardSide__B= document.querySelector('.main-content__card-sideB');
@@ -66,15 +62,4 @@ nameCard.addEventListener('click',function(){
 
 
 
-contactBtn.addEventListener('click',()=>{
-     checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop,promoActivatedDesktop ,promoClass,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null);
-
-     checkProjectActivation(promoActivated,transactionalActivated,landingPageActivated,newsletterActivated,null,promoClass,
-        transactionalClass,landingPageClass,newsletterClass,null);
-
-        
-    mainContent.classList.toggle(contactPageClass);
-    contactActivated = true;
-    nameCard.classList.toggle('hidden');
-})
 

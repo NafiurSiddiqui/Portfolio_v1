@@ -2,12 +2,10 @@
  height: 80vh;
  display: grid;
  grid-template-columns: 18em 4fr;
- grid-template-areas: 'projects content';
+ grid-template-areas: 'content content';
  margin-top: 3em;
  padding: 2em;
- //  perspective: 300px;
  &__btn-container {
-  //   border: $borderTest;
   grid-area: projects;
   display: flex;
   flex-direction: column;
@@ -31,17 +29,12 @@
   }
  }
  &__card-container {
-  //   border: $borderTest2;
   grid-area: content;
-  //   height: 20vh;
-  //   width: 100vw;
   padding-top: 3em;
   .ghost-div__container {
    height: 100%;
-
-   & div.ghost-div:not(:last-child) {
-    // border: 1px solid black;
-    width: 53vw;
+   & div.ghost-div {
+    width: 70vw;
     height: 10vh;
    }
 
@@ -50,6 +43,7 @@
    }
    div.ghost-div:nth-child(2) {
     @include defaultTubeMiddle;
+    border-bottom-left-radius: 1px;
    }
    div.ghost-div:nth-child(3) {
     border-right: 4px solid $tubeColor;
@@ -58,8 +52,12 @@
 
    div.ghost-div:last-child {
     @include defaultTubeBottom;
-    width: 53vw;
+    position: relative;
     height: 30vh;
+    button.project-btn#landingPage {
+     position: absolute;
+     bottom: 0;
+    }
    }
   }
 
@@ -102,7 +100,6 @@
 
   &__text-container {
    padding: 1em;
-   //    border: 1px solid aliceblue;
    margin-top: 2em;
    font-size: 1.5rem;
    line-height: 26px;
@@ -139,7 +136,6 @@
 //svg for mobile animations
 
 div.svg-arrow__container {
- //  border: $borderTest2;
  position: absolute;
  padding: 1em;
  left: 67%;
@@ -149,7 +145,6 @@ div.svg-arrow__container {
  & > img {
   width: 4em;
   position: absolute;
-  // left: 50%;
   transition: all 5s ease;
  }
 }

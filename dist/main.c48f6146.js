@@ -117,179 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/nameCard.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.mainContent = exports.contactActivated = void 0;
-
-var _projects = require("./projects");
-
-var _tray = require("./tray");
-
-var contactActivated = null;
-exports.contactActivated = contactActivated;
-var nameCard = document.querySelector('.main-content__card-container__card');
-var nameCardSide__A = document.querySelector('.main-content__card-sideA');
-var nameCardSide__B = document.querySelector('.main-content__card-sideB');
-var arrowContainer = document.querySelector('.svg-arrow__container');
-var arrowContainerId = document.getElementById('arrow-container');
-var body = document.body;
-var mainContent = document.querySelector('.main-content');
-exports.mainContent = mainContent;
-var indicator = document.querySelector('.main-content_indicator-container'); // console.log(contact);
-
-function clearScreen() {
-  screenContainer.innerHTML = '';
-}
-
-nameCard.addEventListener('click', function () {
-  console.log('working');
-
-  if (_tray.trayActivated === true) {
-    body.classList.remove('trayActivate');
-    nameCard.classList.add('aboutMeActive');
-    nameCard.classList.remove('cardSlideTop');
-    (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, contactActivated, _tray.promoActivated, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, _tray.promoClass);
-  } else if (_tray.trayActivated === false) {
-    arrowContainer.classList.toggle('arrowActivate');
-    nameCard.classList.remove('aboutMeActive');
-    body.classList.toggle('card-active');
-  }
-
-  if (body.classList.contains('card-active')) {
-    indicator.classList.add('hidden');
-  } else {
-    indicator.classList.remove('hidden');
-  }
-
-  body.classList.toggle('card-active');
-  arrowContainer.classList.toggle('arrowActivate');
-  nameCard.classList.remove('aboutMeActive');
-  indicator.classList.toggle('hidden');
-});
-},{"./projects":"src/js/projects.js","./tray":"src/js/tray.js"}],"src/js/tray.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.checkProjectActivation = checkProjectActivation;
-exports.newsletterClass = exports.newsletterActivated = exports.landingPageClass = exports.landingPageActivated = exports.contactPageClass = void 0;
-exports.openProject = openProject;
-exports.trayActivated = exports.transactionalClass = exports.transactionalActivated = exports.promoClass = exports.promoActivated = exports.projectActivated = void 0;
-
-var _nameCard = require("./nameCard");
-
-var body = document.body;
-var nameCard = document.querySelector('.main-content__card-container__card');
-var trayParent = document.querySelector('.main-content__btn-container-tray');
-var tray = document.querySelector('.main-content__btn-container-tray__header-container');
-var promoBtnTray = document.getElementById('promoTray');
-var transactionBtnTray = document.getElementById('transactionalTray');
-var newsletterBtnTray = document.getElementById('newsletterTray');
-var landingPageBtnTray = document.getElementById('promoTray');
-var indicator = document.querySelector('.main-content_indicator-container');
-var nameCardContainer = document.querySelector('.main-content__card-container__card');
-
-function openProject(project) {
-  _nameCard.mainContent.classList.toggle(project);
-
-  trayParent.classList.add('traySlideDown');
-  body.classList.remove('trayActivate');
-}
-
-function checkProjectActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
-  if (a === true || b === true || c === true || d === true || e === true) {
-    _nameCard.mainContent.classList.remove(aN);
-
-    _nameCard.mainContent.classList.remove(bN);
-
-    _nameCard.mainContent.classList.remove(cN);
-
-    _nameCard.mainContent.classList.remove(dN);
-
-    _nameCard.mainContent.classList.remove(eN);
-  }
-}
-
-;
-var trayActivated = null;
-exports.trayActivated = trayActivated;
-var projectActivated = null;
-exports.projectActivated = projectActivated;
-var promoActivated = null;
-exports.promoActivated = promoActivated;
-var transactionalActivated = null;
-exports.transactionalActivated = transactionalActivated;
-var newsletterActivated = null;
-exports.newsletterActivated = newsletterActivated;
-var landingPageActivated = null; // let contactActivated = null;
-
-exports.landingPageActivated = landingPageActivated;
-var promoClass = 'projectPromoActivate';
-exports.promoClass = promoClass;
-var transactionalClass = 'projectTransactionActivate';
-exports.transactionalClass = transactionalClass;
-var newsletterClass = 'projectNewsletterActivate';
-exports.newsletterClass = newsletterClass;
-var landingPageClass = 'projectLandingPageActivate';
-exports.landingPageClass = landingPageClass;
-var contactPageClass = 'contact-page-active';
-exports.contactPageClass = contactPageClass;
-tray.addEventListener('click', function () {
-  trayParent.classList.remove('traySlideDown');
-  body.classList.toggle('trayActivate');
-  nameCard.classList.add('cardSlideTop');
-  exports.trayActivated = trayActivated = true;
-
-  if (!body.classList.contains('trayActivate')) {
-    nameCard.classList.remove('cardSlideTop');
-    exports.trayActivated = trayActivated = false;
-  }
-
-  if (nameCardContainer.classList.contains('cardSlideTop')) {
-    console.log('removed');
-    indicator.classList.add('hidden');
-  } else {
-    console.log('can\'t\ remove');
-    indicator.classList.remove('hidden');
-  } // indicator.classList.toggle('hidden');
-
-
-  body.classList.remove('card-active');
-});
-
-_nameCard.mainContent.addEventListener('click', function () {// body.classList.remove('trayActivate');
-});
-
-promoBtnTray.addEventListener('click', function () {
-  console.log('clicked!');
-  console.log(_nameCard.contactActivated);
-  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, transactionalClass, newsletterClass, landingPageClass, contactPageClass, null);
-  openProject(promoClass);
-  exports.promoActivated = promoActivated = true;
-});
-transactionalTray.addEventListener('click', function () {
-  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, newsletterClass, landingPageClass, contactPageClass, null);
-  openProject(transactionalClass);
-  exports.transactionalActivated = transactionalActivated = true;
-});
-newsletterBtnTray.addEventListener('click', function () {
-  console.log('clicked!');
-  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, landingPageClass, contactPageClass, null);
-  openProject(newsletterClass);
-  exports.newsletterActivated = newsletterActivated = true;
-});
-landingPageTray.addEventListener('click', function () {
-  console.log('clicked!');
-  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, newsletterClass, contactPageClass, null);
-  openProject(landingPageClass);
-  exports.transactionalActivated = transactionalActivated = true;
-}); // console.log(nameCardContainer);
-},{"./nameCard":"src/js/nameCard.js"}],"src/js/projects.js":[function(require,module,exports) {
+})({"src/js/projects.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -483,7 +311,179 @@ projectTechwearPreviewVdo.addEventListener('click', function () {
 
   landingPageSlideTechWearVdo.style.transform = "translateX(0%)";
 });
-},{"./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js"}],"src/js/logoReset.js":[function(require,module,exports) {
+},{"./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js"}],"src/js/nameCard.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.mainContent = exports.contactActivated = void 0;
+
+var _projects = require("./projects");
+
+var _tray = require("./tray");
+
+var contactActivated = null;
+exports.contactActivated = contactActivated;
+var nameCard = document.querySelector('.main-content__card-container__card');
+var nameCardSide__A = document.querySelector('.main-content__card-sideA');
+var nameCardSide__B = document.querySelector('.main-content__card-sideB');
+var arrowContainer = document.querySelector('.svg-arrow__container');
+var arrowContainerId = document.getElementById('arrow-container');
+var body = document.body;
+var mainContent = document.querySelector('.main-content');
+exports.mainContent = mainContent;
+var indicator = document.querySelector('.main-content_indicator-container'); // console.log(contact);
+
+function clearScreen() {
+  screenContainer.innerHTML = '';
+}
+
+nameCard.addEventListener('click', function () {
+  console.log('working');
+
+  if (_tray.trayActivated === true) {
+    body.classList.remove('trayActivate');
+    nameCard.classList.add('aboutMeActive');
+    nameCard.classList.remove('cardSlideTop');
+    (0, _tray.checkProjectActivation)(_tray.transactionalActivated, _tray.newsletterActivated, _tray.landingPageActivated, contactActivated, _tray.promoActivated, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, _tray.promoClass);
+  } else if (_tray.trayActivated === false) {
+    arrowContainer.classList.toggle('arrowActivate');
+    nameCard.classList.remove('aboutMeActive');
+    body.classList.toggle('card-active');
+  }
+
+  if (body.classList.contains('card-active')) {
+    indicator.classList.add('hidden');
+  } else {
+    indicator.classList.remove('hidden');
+  }
+
+  body.classList.toggle('card-active');
+  arrowContainer.classList.toggle('arrowActivate');
+  nameCard.classList.remove('aboutMeActive');
+  indicator.classList.toggle('hidden');
+});
+},{"./projects":"src/js/projects.js","./tray":"src/js/tray.js"}],"src/js/tray.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.checkProjectActivation = checkProjectActivation;
+exports.newsletterClass = exports.newsletterActivated = exports.landingPageClass = exports.landingPageActivated = exports.contactPageClass = void 0;
+exports.openProject = openProject;
+exports.trayActivated = exports.transactionalClass = exports.transactionalActivated = exports.promoClass = exports.promoActivated = exports.projectActivated = void 0;
+
+var _nameCard = require("./nameCard");
+
+var body = document.body;
+var nameCard = document.querySelector('.main-content__card-container__card');
+var trayParent = document.querySelector('.main-content__btn-container-tray');
+var tray = document.querySelector('.main-content__btn-container-tray__header-container');
+var promoBtnTray = document.getElementById('promoTray');
+var transactionBtnTray = document.getElementById('transactionalTray');
+var newsletterBtnTray = document.getElementById('newsletterTray');
+var landingPageBtnTray = document.getElementById('promoTray');
+var indicator = document.querySelector('.main-content_indicator-container');
+var nameCardContainer = document.querySelector('.main-content__card-container__card');
+
+function openProject(project) {
+  _nameCard.mainContent.classList.toggle(project);
+
+  trayParent.classList.add('traySlideDown');
+  body.classList.remove('trayActivate');
+}
+
+function checkProjectActivation(a, b, c, d, e, aN, bN, cN, dN, eN) {
+  if (a === true || b === true || c === true || d === true || e === true) {
+    _nameCard.mainContent.classList.remove(aN);
+
+    _nameCard.mainContent.classList.remove(bN);
+
+    _nameCard.mainContent.classList.remove(cN);
+
+    _nameCard.mainContent.classList.remove(dN);
+
+    _nameCard.mainContent.classList.remove(eN);
+  }
+}
+
+;
+var trayActivated = null;
+exports.trayActivated = trayActivated;
+var projectActivated = null;
+exports.projectActivated = projectActivated;
+var promoActivated = null;
+exports.promoActivated = promoActivated;
+var transactionalActivated = null;
+exports.transactionalActivated = transactionalActivated;
+var newsletterActivated = null;
+exports.newsletterActivated = newsletterActivated;
+var landingPageActivated = null; // let contactActivated = null;
+
+exports.landingPageActivated = landingPageActivated;
+var promoClass = 'projectPromoActivate';
+exports.promoClass = promoClass;
+var transactionalClass = 'projectTransactionActivate';
+exports.transactionalClass = transactionalClass;
+var newsletterClass = 'projectNewsletterActivate';
+exports.newsletterClass = newsletterClass;
+var landingPageClass = 'projectLandingPageActivate';
+exports.landingPageClass = landingPageClass;
+var contactPageClass = 'contact-page-active';
+exports.contactPageClass = contactPageClass;
+tray.addEventListener('click', function () {
+  trayParent.classList.remove('traySlideDown');
+  body.classList.toggle('trayActivate');
+  nameCard.classList.add('cardSlideTop');
+  exports.trayActivated = trayActivated = true;
+
+  if (!body.classList.contains('trayActivate')) {
+    nameCard.classList.remove('cardSlideTop');
+    exports.trayActivated = trayActivated = false;
+  }
+
+  if (nameCardContainer.classList.contains('cardSlideTop')) {
+    console.log('removed');
+    indicator.classList.add('hidden');
+  } else {
+    console.log('can\'t\ remove');
+    indicator.classList.remove('hidden');
+  } // indicator.classList.toggle('hidden');
+
+
+  body.classList.remove('card-active');
+});
+
+_nameCard.mainContent.addEventListener('click', function () {// body.classList.remove('trayActivate');
+});
+
+promoBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  console.log(_nameCard.contactActivated);
+  checkProjectActivation(transactionalActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, transactionalClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(promoClass);
+  exports.promoActivated = promoActivated = true;
+});
+transactionalTray.addEventListener('click', function () {
+  checkProjectActivation(promoActivated, newsletterActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, newsletterClass, landingPageClass, contactPageClass, null);
+  openProject(transactionalClass);
+  exports.transactionalActivated = transactionalActivated = true;
+});
+newsletterBtnTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, landingPageActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, landingPageClass, contactPageClass, null);
+  openProject(newsletterClass);
+  exports.newsletterActivated = newsletterActivated = true;
+});
+landingPageTray.addEventListener('click', function () {
+  console.log('clicked!');
+  checkProjectActivation(promoActivated, transactionalActivated, newsletterActivated, _nameCard.contactActivated, null, promoClass, transactionalClass, newsletterClass, contactPageClass, null);
+  openProject(landingPageClass);
+  exports.transactionalActivated = transactionalActivated = true;
+}); // console.log(nameCardContainer);
+},{"./nameCard":"src/js/nameCard.js"}],"src/js/logoReset.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -571,7 +571,50 @@ landingPageSlides.forEach(function (s, i) {
 });
 slideLeft.addEventListener('click', prevSlide);
 slideRight.addEventListener('click', nextSlide);
-},{"./projects":"src/js/projects.js","./logoReset":"src/js/logoReset.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./projects":"src/js/projects.js","./logoReset":"src/js/logoReset.js"}],"src/js/contactBtn.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.contactActivated = void 0;
+
+var _projects = require("./projects");
+
+var _tray = require("./tray");
+
+var _nameCard = require("./nameCard");
+
+var contactActivated = null;
+exports.contactActivated = contactActivated;
+var contactBtn = document.querySelector('.header__contact');
+var contactScreen = document.getElementById('contact');
+var screenContainer = document.querySelector('.main-content__screen-container');
+var nameCard = document.querySelector('.main-content__card-container__card');
+contactBtn.addEventListener('click', function () {
+  (0, _projects.checkProjectBodyActivation)(_projects.transactionalActivatedDesktop, _projects.newsletterActivatedDesktop, _projects.landingPageActivatedDesktop, _projects.promoActivatedDesktop, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.landingPageActivated, _tray.newsletterActivated, null, _tray.promoClass, _tray.transactionalClass, _tray.landingPageClass, _tray.newsletterClass, null);
+
+  _nameCard.mainContent.classList.toggle(_tray.contactPageClass);
+
+  exports.contactActivated = contactActivated = true;
+  nameCard.classList.toggle('hidden');
+});
+},{"./projects":"src/js/projects.js","./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js"}],"src/js/main.js":[function(require,module,exports) {
+"use strict";
+
+require("./tray");
+
+require("./nameCard");
+
+require("./projects");
+
+require("./slider");
+
+require("./logoReset");
+
+require("./contactBtn");
+},{"./tray":"src/js/tray.js","./nameCard":"src/js/nameCard.js","./projects":"src/js/projects.js","./slider":"src/js/slider.js","./logoReset":"src/js/logoReset.js","./contactBtn":"src/js/contactBtn.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -599,7 +642,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57304" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -775,5 +818,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/slider.js"], null)
-//# sourceMappingURL=/slider.3b1adceb.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/main.js"], null)
+//# sourceMappingURL=/main.c48f6146.js.map
