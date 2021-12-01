@@ -48,7 +48,7 @@ const newsletterBtn = document.getElementById('newsletter');
 const newsletterBtnTray = document.getElementById('newsletterTray');
 const landingPageBtn = document.getElementById('landingPage');
 
-// console.log(landingPageSlideQpickVdo);
+
 
 export let promoActivatedDesktop = null;
 export let transactionalActivatedDesktop = null;
@@ -94,7 +94,13 @@ function projectPreview(){
 projectScreenChild.classList.toggle('negativeIndex');
 };
 
+function checkContactActivation(){
+    //this is to remove the hidden class from the nameCard.which remains hidden if project btn is clicked
+    if(contactActivated === true){
+        nameCard.classList.remove('hidden');
+    }
 
+}
 //closing modals
 
 projectScreenChild.addEventListener('click',()=>{
@@ -114,23 +120,22 @@ cross.addEventListener('click',()=>{
 
 
 
+
 //promo mails
 
 promoBtn.addEventListener('click',()=>{
-    console.log('hello');
-    checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop, null,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null);
 
-    
-        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+    checkProjectBodyActivation(transactionalActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop, null,null,transactionalClass,newsletterClass,landingPageClass,contactPageClass,null);
+    checkContactActivation();
+    checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+    transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+
     openProjectDektop(promoClass);
     promoActivatedDesktop = true;
     // nameCard.classList.add('hidden');
 })
 
 projectPromoPreview__codeschool.addEventListener('click',()=>{
-    // console.log('ok');
-    
     projectPreview();
     projectPromoScreen.classList.add('project-promo-active');
 })
@@ -148,17 +153,15 @@ projectPromoPreview__meal.addEventListener('click',()=>{
 
 transactionBtn.addEventListener('click',()=>{
      checkProjectBodyActivation(promoActivatedDesktop,newsletterActivatedDesktop,landingPageActivatedDesktop,null,null,
-        promoClass,newsletterClass,landingPageClass,contactPageClass,null);
-
-        
-        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+    promoClass,newsletterClass,landingPageClass,contactPageClass,null);
+    checkContactActivation();
+    checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+    transactionalClass,newsletterClass,contactPageClass,landingPageClass)
     openProjectDektop(transactionalClass);
     transactionalActivatedDesktop = true;
 })
 
 projectTransactionalPreview.addEventListener('click',()=>{
-
     projectPreview();
     projectTransactional.classList.add('project-transactional-active');
     navContainer.classList.add('hidden');
@@ -168,10 +171,10 @@ projectTransactionalPreview.addEventListener('click',()=>{
 
 newsletterBtn.addEventListener('click',()=>{
      checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,landingPageActivatedDesktop,null,null,promoClass,
-        transactionalClass,landingPageClass,contactPageClass,null);
-        
-        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+    transactionalClass,landingPageClass,contactPageClass,null);
+    checkContactActivation(); 
+    checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+    transactionalClass,newsletterClass,contactPageClass,landingPageClass)
     openProjectDektop(newsletterClass);
     newsletterActivatedDesktop = true;
 
@@ -191,19 +194,17 @@ projectNewsletterPreview.addEventListener('click',()=>{
 
 
 landingPageBtn.addEventListener('click',()=>{
-    console.log('ok');
-      checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,newsletterActivatedDesktop,null,null,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,null);
-
-        checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
-        transactionalClass,newsletterClass,contactPageClass,landingPageClass)
+    checkProjectBodyActivation(promoActivatedDesktop,transactionalActivatedDesktop,newsletterActivatedDesktop,null,null,promoClass,
+    transactionalClass,newsletterClass,contactPageClass,null);
+    checkContactActivation();
+    checkProjectActivation(promoActivated,transactionalActivated,newsletterActivated,contactActivated,landingPageActivated,promoClass,
+    transactionalClass,newsletterClass,contactPageClass,landingPageClass)
 
     openProjectDektop(landingPageClass);
     landingPageActivatedDesktop = true;
 })
 
 projectQpickPreviewImg.addEventListener('click',()=>{
- 
     projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
@@ -228,8 +229,6 @@ projectQpickPreviewVdo.addEventListener('click',()=>{
    projectPreview();
     //activate the landingpage screen 
     projectLandingPageScreen.classList.add('project-landingPage-active');
-
-    
 })
 
  projectTechwearPreviewVdo.addEventListener('click',()=>{

@@ -75,6 +75,6 @@ contactBtn.addEventListener('click',()=>{
         
     mainContent.classList.toggle(contactPageClass);
     contactActivated = true;
-    nameCard.classList.add('hidden');
+    nameCard.classList.toggle('hidden');
 })
 

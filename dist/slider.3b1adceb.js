@@ -178,7 +178,7 @@ contactBtn.addEventListener('click', function () {
   (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.landingPageActivated, _tray.newsletterActivated, null, _tray.promoClass, _tray.transactionalClass, _tray.landingPageClass, _tray.newsletterClass, null);
   mainContent.classList.toggle(_tray.contactPageClass);
   exports.contactActivated = contactActivated = true;
-  nameCard.classList.add('hidden');
+  nameCard.classList.toggle('hidden');
 });
 },{"./projects":"src/js/projects.js","./tray":"src/js/tray.js"}],"src/js/tray.js":[function(require,module,exports) {
 "use strict";
@@ -343,8 +343,7 @@ var promoBtn = document.getElementById('promo');
 var transactionBtn = document.getElementById('transactional');
 var newsletterBtn = document.getElementById('newsletter');
 var newsletterBtnTray = document.getElementById('newsletterTray');
-var landingPageBtn = document.getElementById('landingPage'); // console.log(landingPageSlideQpickVdo);
-
+var landingPageBtn = document.getElementById('landingPage');
 var promoActivatedDesktop = null;
 exports.promoActivatedDesktop = promoActivatedDesktop;
 var transactionalActivatedDesktop = null;
@@ -393,7 +392,15 @@ function projectPreview() {
   projectScreenChild.classList.toggle('negativeIndex');
 }
 
-; //closing modals
+;
+
+function checkContactActivation() {
+  //this is to remove the hidden class from the nameCard.which remains hidden if project btn is clicked
+  if (_nameCard.contactActivated === true) {
+    nameCard.classList.remove('hidden');
+  }
+} //closing modals
+
 
 projectScreenChild.addEventListener('click', function () {
   console.log('cool');
@@ -408,14 +415,13 @@ cross.addEventListener('click', function () {
 }); //promo mails
 
 promoBtn.addEventListener('click', function () {
-  console.log('hello');
   checkProjectBodyActivation(transactionalActivatedDesktop, newsletterActivatedDesktop, landingPageActivatedDesktop, null, null, _tray.transactionalClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  checkContactActivation();
   (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.newsletterActivated, _nameCard.contactActivated, _tray.landingPageActivated, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, _tray.landingPageClass);
   openProjectDektop(_tray.promoClass);
   exports.promoActivatedDesktop = promoActivatedDesktop = true; // nameCard.classList.add('hidden');
 });
 projectPromoPreview__codeschool.addEventListener('click', function () {
-  // console.log('ok');
   projectPreview();
   projectPromoScreen.classList.add('project-promo-active');
 });
@@ -428,6 +434,7 @@ projectPromoPreview__meal.addEventListener('click', function () {
 
 transactionBtn.addEventListener('click', function () {
   checkProjectBodyActivation(promoActivatedDesktop, newsletterActivatedDesktop, landingPageActivatedDesktop, null, null, _tray.promoClass, _tray.newsletterClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  checkContactActivation();
   (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.newsletterActivated, _nameCard.contactActivated, _tray.landingPageActivated, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, _tray.landingPageClass);
   openProjectDektop(_tray.transactionalClass);
   exports.transactionalActivatedDesktop = transactionalActivatedDesktop = true;
@@ -440,6 +447,7 @@ projectTransactionalPreview.addEventListener('click', function () {
 
 newsletterBtn.addEventListener('click', function () {
   checkProjectBodyActivation(promoActivatedDesktop, transactionalActivatedDesktop, landingPageActivatedDesktop, null, null, _tray.promoClass, _tray.transactionalClass, _tray.landingPageClass, _tray.contactPageClass, null);
+  checkContactActivation();
   (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.newsletterActivated, _nameCard.contactActivated, _tray.landingPageActivated, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, _tray.landingPageClass);
   openProjectDektop(_tray.newsletterClass);
   exports.newsletterActivatedDesktop = newsletterActivatedDesktop = true;
@@ -451,8 +459,8 @@ projectNewsletterPreview.addEventListener('click', function () {
 }); //landing page
 
 landingPageBtn.addEventListener('click', function () {
-  console.log('ok');
   checkProjectBodyActivation(promoActivatedDesktop, transactionalActivatedDesktop, newsletterActivatedDesktop, null, null, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, null);
+  checkContactActivation();
   (0, _tray.checkProjectActivation)(_tray.promoActivated, _tray.transactionalActivated, _tray.newsletterActivated, _nameCard.contactActivated, _tray.landingPageActivated, _tray.promoClass, _tray.transactionalClass, _tray.newsletterClass, _tray.contactPageClass, _tray.landingPageClass);
   openProjectDektop(_tray.landingPageClass);
   exports.landingPageActivatedDesktop = landingPageActivatedDesktop = true;
@@ -601,7 +609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60253" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59130" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

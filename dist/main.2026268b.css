@@ -58,8 +58,8 @@ body {
   padding: 0.6em 1.9em;
   border-radius: 1.5em;
   border: none;
-  background: #50c5b7;
-  color: #444444;
+  background: #219f90;
+  color: #d6d6d6;
   font-family: "Reem Kufi", sans-serif;
   letter-spacing: 1px;
   margin-right: 2em;
@@ -374,7 +374,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 
 .card-active {
-  background: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .card-active .main-content__card-container__card {
   transform: rotateX(-180deg);
@@ -390,20 +390,20 @@ span.main-content__screenProject-card-layer:hover {
   background-color: #910f2f;
 }
 .card-active div.ghost-div:nth-child(1) {
-  border-top: 4px solid #eb8a91 !important;
-  border-right: 4px solid #eb8a91 !important;
-  border-bottom: 4px solid #eb8a91 !important;
+  border-top: 4px solid #e0656d !important;
+  border-right: 4px solid #e0656d !important;
+  border-bottom: 4px solid #e0656d !important;
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
 .card-active div.ghost-div:nth-child(2) {
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
-  border-bottom: 4px solid #eb8a91 !important;
-  border-right: 4px solid #eb8a91 !important;
+  border-bottom: 4px solid #e0656d !important;
+  border-right: 4px solid #e0656d !important;
 }
 .card-active div.ghost-div:nth-child(4) {
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
-  border-right: 4px solid #eb8a91 !important;
-  border-bottom: 4px solid #eb8a91 !important;
+  border-right: 4px solid #e0656d !important;
+  border-bottom: 4px solid #e0656d !important;
 }
 .card-active .main-content__btn-container button.project-btn {
   opacity: 1;
@@ -515,7 +515,7 @@ span.main-content__screenProject-card-layer:hover {
   }
 }
 .projectPromoActivate {
-  background: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .projectPromoActivate section.main-content__screen-container {
   display: inline-block;
@@ -527,7 +527,7 @@ span.main-content__screenProject-card-layer:hover {
   display: flex;
 }
 .projectPromoActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(1) {
-  border-top: 4px solid #eb8a91;
+  border-top: 4px solid #e0656d;
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
 .projectPromoActivate .main-content__btn-container button.project-btn#promo {
@@ -544,7 +544,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 
 .projectTransactionActivate {
-  background: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .projectTransactionActivate section.main-content__screen-container {
   display: inline-block;
@@ -556,7 +556,7 @@ span.main-content__screenProject-card-layer:hover {
   display: flex;
 }
 .projectTransactionActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(1) {
-  border-bottom: 4px solid #eb8a91;
+  border-bottom: 4px solid #e0656d;
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
 .projectTransactionActivate .main-content__btn-container button.project-btn#transactional {
@@ -573,7 +573,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 
 .projectNewsletterActivate {
-  background: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .projectNewsletterActivate section.main-content__screen-container {
   display: inline-block;
@@ -585,7 +585,7 @@ span.main-content__screenProject-card-layer:hover {
   display: flex;
 }
 .projectNewsletterActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(2) {
-  border-bottom: 4px solid #eb8a91;
+  border-bottom: 4px solid #e0656d;
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
 .projectNewsletterActivate .main-content__btn-container button.project-btn#newsletter {
@@ -602,7 +602,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 
 .projectLandingPageActivate {
-  background: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .projectLandingPageActivate section.main-content__screen-container {
   display: inline-block;
@@ -614,7 +614,7 @@ span.main-content__screenProject-card-layer:hover {
   display: flex;
 }
 .projectLandingPageActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(4) {
-  border-bottom: 4px solid #eb8a91;
+  border-bottom: 4px solid #e0656d;
   filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
 }
 .projectLandingPageActivate .main-content__btn-container button.project-btn#landingPage {
@@ -643,7 +643,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 
 .trayActivate {
-  background-color: linear-gradient(170deg, #b99412 0%, #673a00 100%);
+  background-color: linear-gradient(170deg, #c5a125 0%, #eda447 100%);
 }
 .trayActivate aside.main-content__btn-container-tray {
   bottom: 0%;
@@ -882,7 +882,7 @@ aside.social-media-contact {
   margin-top: 2em;
   width: 25vw;
   border-radius: 8px;
-  background: #50c5b7;
+  background: #219f90;
   border: none;
   min-width: 18em;
   cursor: pointer;
