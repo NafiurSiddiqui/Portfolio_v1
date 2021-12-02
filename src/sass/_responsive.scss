@@ -452,6 +452,10 @@
   width: 100%;
   left: 6vw;
  }
+
+ aside.main-content__btn-container-tray {
+  bottom: -52vh;
+ }
 }
 
 @media screen and (max-width: 300px) {
@@ -461,5 +465,8 @@
  div.projectScreen__project-project__wrapper div.promo-img > img {
   width: 100%;
   min-width: 22em;
+ }
+ p.main-content_indicator-text {
+  font-size: 1.1rem;
  }
 }

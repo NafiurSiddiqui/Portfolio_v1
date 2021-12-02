@@ -4,3 +4,5 @@ import './projects';
 import './slider';
 import './logoReset';
 import './contactBtn'
+import './sound';
+
