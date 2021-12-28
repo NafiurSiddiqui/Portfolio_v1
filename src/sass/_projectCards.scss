@@ -67,7 +67,9 @@ span.main-content__screenProject-card {
 .preview-icon__container {
  position: relative;
  top: 50%;
-
+ @media screen and (max-width: 780px) {
+  top: 20%;
+ }
  > img,
  a > img {
   background: #a4a2a2;
@@ -80,6 +82,10 @@ span.main-content__screenProject-card {
   cursor: pointer;
   &:hover {
    background: #e9e8e8;
+  }
+
+  @media screen and (max-width: 780px) {
+   margin: 2em;
   }
  }
 }

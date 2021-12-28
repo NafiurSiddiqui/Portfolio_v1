@@ -55,8 +55,9 @@ body {
   transform: scale(1.08);
 }
 .header__contact {
-  padding: 0.6em 1.9em;
-  border-radius: 1.5em;
+  width: 21vh;
+  padding: 0.8em 0.2em;
+  border-radius: 0.3em;
   border: none;
   background: #219f90;
   color: #d6d6d6;
@@ -167,7 +168,7 @@ a {
 }
 .main-content__card-container .ghost-div__container div.ghost-div:nth-child(3) {
   border-right: 4px solid rgba(0, 0, 0, 0.116);
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .main-content__card-container .ghost-div__container div.ghost-div:last-child {
   border-bottom: 4px solid rgba(0, 0, 0, 0.116);
@@ -198,7 +199,7 @@ a {
   cursor: pointer;
 }
 .main-content__card-sideA:hover {
-  background-color: #971919;
+  background-color: #c21b1b;
 }
 .main-content__card-sideA-name {
   width: 18vw;
@@ -226,7 +227,7 @@ a {
   cursor: pointer;
 }
 .main-content__card-sideB:hover {
-  background-color: #971919;
+  background-color: #c21b1b;
 }
 .main-content__card-sideB__header-container {
   font-family: "Nova Square", cursive;
@@ -349,6 +350,11 @@ span.main-content__screenProject-card-layer:hover {
   position: relative;
   top: 50%;
 }
+@media screen and (max-width: 780px) {
+  .preview-icon__container {
+    top: 20%;
+  }
+}
 .preview-icon__container > img,
 .preview-icon__container a > img {
   background: #a4a2a2;
@@ -363,6 +369,12 @@ span.main-content__screenProject-card-layer:hover {
 .preview-icon__container > img:hover,
 .preview-icon__container a > img:hover {
   background: #e9e8e8;
+}
+@media screen and (max-width: 780px) {
+  .preview-icon__container > img,
+.preview-icon__container a > img {
+    margin: 2em;
+  }
 }
 
 .project-btn {
@@ -399,21 +411,21 @@ span.main-content__screenProject-card-layer:hover {
   transform: rotateX(190deg);
 }
 .card-active .main-content__card-container__card div.main-content__card-sideB:hover {
-  background-color: #910f2f;
+  background-color: #720b25;
 }
 .card-active div.ghost-div:nth-child(1) {
-  border-top: 4px solid #e0656d !important;
-  border-right: 4px solid #e0656d !important;
-  border-bottom: 4px solid #e0656d !important;
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  border-top: 3px solid #e0656d !important;
+  border-right: 3px solid #e0656d !important;
+  border-bottom: 3px solid #e0656d !important;
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .card-active div.ghost-div:nth-child(2) {
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
   border-bottom: 4px solid #e0656d !important;
   border-right: 4px solid #e0656d !important;
 }
 .card-active div.ghost-div:nth-child(4) {
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
   border-right: 4px solid #e0656d !important;
   border-bottom: 4px solid #e0656d !important;
 }
@@ -480,7 +492,7 @@ span.main-content__screenProject-card-layer:hover {
   transform: rotateX(190deg);
 }
 .aboutMeActive div.main-content__card-sideB:hover {
-  background-color: #910f2f;
+  background-color: #720b25;
 }
 
 .project-active h1.main-content__card-sideB-heading {
@@ -539,7 +551,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 .projectPromoActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(1) {
   border-top: 4px solid #e0656d;
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .projectPromoActivate button.project-btn#promo {
   opacity: 1;
@@ -572,7 +584,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 .projectTransactionActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(1) {
   border-bottom: 4px solid #e0656d;
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .projectTransactionActivate button.project-btn#transactional {
   opacity: 1;
@@ -600,7 +612,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 .projectNewsletterActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(2) {
   border-bottom: 4px solid #e0656d;
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .projectNewsletterActivate button.project-btn#newsletter {
   opacity: 1;
@@ -628,7 +640,7 @@ span.main-content__screenProject-card-layer:hover {
 }
 .projectLandingPageActivate article.main-content__card-container div.ghost-div__container div.ghost-div:nth-child(4) {
   border-bottom: 4px solid #e0656d;
-  filter: drop-shadow(0 -3px 2px #fd6b6b) drop-shadow(0 3px 2px #fd6b6b);
+  filter: drop-shadow(0 -3px 2px #f88585) drop-shadow(0 3px 2px #f88585);
 }
 .projectLandingPageActivate button.project-btn#landingPage {
   opacity: 1;
@@ -672,7 +684,7 @@ span.main-content__screenProject-card-layer:hover {
   transform: rotateX(190deg);
 }
 .trayActivate div.main-content__card-container__card div.main-content__card-sideB:hover {
-  background-color: #910f2f;
+  background-color: #720b25;
 }
 .trayActivate .main-content__card-container__card div.main-content__card-sideB {
   background-color: #9f1e28;

@@ -50,15 +50,14 @@ body {
   }
  }
  &__contact {
-  padding: 0.6em 1.9em;
-  border-radius: 1.5em;
+  width: 21vh;
+  padding: 0.8em 0.2em;
+  border-radius: 0.3em;
   border: none;
   background: $contactBtnColor;
   color: #d6d6d6;
   font-family: 'Reem Kufi', sans-serif;
-  //   font-weight: bold;
   letter-spacing: 1px;
-
   margin-right: 2em;
   cursor: pointer;
   @include transition-fast;
